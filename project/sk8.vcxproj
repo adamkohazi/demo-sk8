@@ -151,11 +151,11 @@
     <ClInclude Include="..\src\fp.h" />
     <ClInclude Include="..\src\glext.h" />
     <ClInclude Include="..\src\khrplatform.h" />
-    <ClInclude Include="..\src\main.h" />
     <ClInclude Include="..\src\audio.h" />
     <ClCompile Include="..\src\main.cpp" />
-    <ClInclude Include="keyframeData.h" />
-    <ClInclude Include="keyframes.h" />
+    <ClInclude Include="..\src\keyframeData.h" />
+    <ClInclude Include="..\src\keyframes.h" />
+    <ClInclude Include="..\src\nlohmann\json.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\assets\music\output\4klang.inc" />

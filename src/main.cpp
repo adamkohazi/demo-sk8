@@ -11,12 +11,20 @@
 #include "../assets/music/output/4klang.h"
 #include "audio.h"
 
+#include "keyframes.h"
+#include "keyframeData.h"
+
+#define XRES 1280
+#define YRES 720
+
 #ifdef DEBUG
     #include <windowsx.h>
     #include <mmsystem.h>
     #include <string.h>
     #include <stdio.h>
     #include <cassert> 
+    #include <iostream>
+    #include <filesystem>
 #endif
 
 // OpenGL definitions
@@ -273,6 +281,12 @@ void entrypoint(void) {
     }
 #endif
 
+
+#ifdef DEBUG
+    std::cout << "Current working dir: " << std::filesystem::current_path() << "\n";
+    loadKeyframesFromJSON<float>("../assets/keyframes.json");
+#endif
+
     // Activate fragment shader
     glUseProgram(shaderProgram);
 
@@ -281,6 +295,7 @@ void entrypoint(void) {
 
     // Main loop
     MSG message;
+    float time;
     do {
         
         // Message handling
@@ -299,10 +314,52 @@ void entrypoint(void) {
         PeekMessage(&message, windowHandle, 0, 0, PM_REMOVE);
 #endif
 
-        // Always time uniform
-        glUniform1f(glGetUniformLocation(shaderProgram, VAR_t), GetAudioPlaybackTime());
+        // Update time
+        time = GetAudioPlaybackTime();
+        glUniform1f(glGetUniformLocation(shaderProgram, VAR_TIME), time);
 
-        // Draw fullscreen quad
+        // Update positions
+        // Board
+        glUniform3f(glGetUniformLocation(shaderProgram, VAR_BOARDPOS),
+            findValue(time, boardPos_x),
+            findValue(time, boardPos_y),
+            findValue(time, boardPos_z));
+
+        glUniform3f(glGetUniformLocation(shaderProgram, VAR_BOARDEULER),
+            findValue(time, boardEuler_x),
+            findValue(time, boardEuler_y),
+            findValue(time, boardEuler_z));
+
+        // Right leg
+        glUniform3f(glGetUniformLocation(shaderProgram, VAR_LEGRHIP),
+            findValue(time, legRightHip_x),
+            findValue(time, legRightHip_y),
+            findValue(time, legRightHip_z));
+
+        glUniform1f(glGetUniformLocation(shaderProgram, VAR_LEGRKNEE), findValue(time, legRightKnee));
+        glUniform1f(glGetUniformLocation(shaderProgram, VAR_LEGRANKLE), findValue(time, legRightAnkle));
+
+        // Left leg
+        glUniform3f(glGetUniformLocation(shaderProgram, VAR_LEGLHIP),
+            findValue(time, legLeftHip_x),
+            findValue(time, legLeftHip_y),
+            findValue(time, legLeftHip_z));
+
+        glUniform1f(glGetUniformLocation(shaderProgram, VAR_LEGLKNEE), findValue(time, legLeftKnee));
+        glUniform1f(glGetUniformLocation(shaderProgram, VAR_LEGLANKLE), findValue(time, legLeftAnkle));
+
+        // Body
+        glUniform3f(glGetUniformLocation(shaderProgram, VAR_BODYHIPPOS),
+            findValue(time, bodyHipPosition_x),
+            findValue(time, bodyHipPosition_y),
+            findValue(time, bodyHipPosition_z));
+
+        glUniform3f(glGetUniformLocation(shaderProgram, VAR_BODYHIPEULER),
+            findValue(time, bodyHipEuler_x),
+            findValue(time, bodyHipEuler_y),
+            findValue(time, bodyHipEuler_z));
+
+        // Draw fullscreen
         glRects(-1, -1, 1, 1);
 
         // Present the frame
@@ -315,7 +372,7 @@ void entrypoint(void) {
         // Frame cap (approx. 60 FPS)
         Sleep(16);
 
-    } while ((message.message != WM_KEYDOWN || message.wParam != VK_ESCAPE) && GetAudioPlaybackTime() < float(MAX_SAMPLES) / SAMPLE_RATE);
+    } while ((message.message != WM_KEYDOWN || message.wParam != VK_ESCAPE) && time < float(MAX_SAMPLES) / SAMPLE_RATE);
 
 
 #ifdef DEBUG

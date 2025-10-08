@@ -1,0 +1,234 @@
+{
+  "keyframes": [
+    {
+      "time": 0.0,
+      "nodes": [
+        {
+          "track": "boardPos_x",
+          "value": 0.0,
+          "mode": 0
+        },
+        {
+          "track": "boardPos_y",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "boardPos_z",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "boardEuler_x",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "boardEuler_y",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "boardEuler_z",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "legRightHip_x",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "legRightHip_y",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "legRightHip_z",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "legRightKnee",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "legRightAnkle",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "legLeftHip_x",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "legLeftHip_y",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "legLeftHip_z",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "legLeftKnee",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "legLeftAnkle",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "bodyHipPosition_x",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "bodyHipPosition_y",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "bodyHipPosition_z",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "bodyHipEuler_x",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "bodyHipEuler_y",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "bodyHipEuler_z",
+          "value": 0.0,
+          "mode": 0
+        }
+      ]
+    },
+	{
+      "time": 1.0,
+      "nodes": [
+        {
+          "track": "boardPos_x",
+          "value": 0.0,
+          "mode": 0
+        },
+        {
+          "track": "boardPos_y",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "boardPos_z",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "boardEuler_x",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "boardEuler_y",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "boardEuler_z",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "legRightHip_x",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "legRightHip_y",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "legRightHip_z",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "legRightKnee",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "legRightAnkle",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "legLeftHip_x",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "legLeftHip_y",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "legLeftHip_z",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "legLeftKnee",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "legLeftAnkle",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "bodyHipPosition_x",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "bodyHipPosition_y",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "bodyHipPosition_z",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "bodyHipEuler_x",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "bodyHipEuler_y",
+          "value": 0.0,
+          "mode": 0
+        },
+		{
+          "track": "bodyHipEuler_z",
+          "value": 0.0,
+          "mode": 0
+        }
+      ]
+    }
+  ]
+}
