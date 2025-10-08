@@ -1,12 +1,39 @@
 #pragma once
 
+
+#ifdef DEBUG
+#include "nlohmann/json.hpp"
+#include <fstream>
+#include <unordered_map>
+#include <vector>
+#include <stdexcept>
+
+using json = nlohmann::json;
+#endif
+
+
+// Compact type definition for 8-bit ints
 typedef unsigned char uint8_t;
+
+// Interpolation types
+#define INTERP_STEP(a,b,t)          (a)
+#define INTERP_LINEAR(a,b,t)        ((a) + (t) * ((b) - (a)))
+#define INTERP_QUADRATIC_IN(a,b,t)  ((a) + (t) * (t) * ((b) - (a)))
+#define INTERP_QUADRATIC_OUT(a,b,t) ((a) + (2.f * (t) - (t) * (t)) * ((b) - (a)))
+#define INTERP_SMOOTHSTEP(a,b,t)    ((a) + (t) * (t) * (3.f - 2.f * (t)) * ((b) - (a)))
+#define INTERP_CUBIC_IN(a,b,t)      ((a) + (t) * (t) * (t) * ((b) - (a)))
+#define INTERP_CUBIC_OUT(a,b,t)     ((a) + (1.f - (1.f - (t)) * (1.f - (t)) * (1.f - (t))) * ((b) - (a)))
+// Visualization:
+// https://graphtoy.com/?f1(x,t)=floor(x)&v1=true&f2(x,t)=floor(x)%20+%20fract(x)%20*%20(floor(x+1)-floor(x))&v2=true&f3(x,t)=floor(x)%20+%20%20fract(x)%20*%20fract(x)%20*%20(floor(x+1)-floor(x))&v3=true&f4(x,t)=floor(x)%20+%20(fract(x)%20*%20fract(x)%20*%20(3-2*fract(x)))%20*%20(floor(x+1)-floor(x))&v4=true&f5(x,t)=floor(x)%20+%20fract(x)%20*%20fract(x)%20*%20fract(x)%20*%20(floor(x+1)-floor(x))&v5=true&f6(x,t)=(floor(x)%20+%20(3*fract(x)%20-%203*fract(x)%20*%20fract(x)%20+%20fract(x)%20*%20fract(x)%20*%20fract(x))%20*%20(floor(x+1)-floor(x)))&v6=true&grid=1&coords=0,0,1.962095889918702
+
 
 // Interpolation types as small constants
 enum Interpolation : uint8_t {
     STEP = 0,
     LINEAR = 1,
-    QUADRATIC = 2
+    QUADRATIC_IN = 2,
+    SMOOTHSTEP = 3,
+    CUBIC = 4
 };
 
 // Anatomy of a keyframe
@@ -17,18 +44,31 @@ struct Keyframe {
     Interpolation mode;
 };
 
+
 // Interpolation function template
+#ifdef DEBUG
+// Keyframe array size can change during execution
+template<typename ValueType>
+constexpr ValueType findValue(float time, const Keyframe<ValueType>* keys) {
+    const size_t N = sizeof(keys) / sizeof(keys[0]);
+#else
+// Keyframe array size can be templated
 template<typename ValueType, uint8_t N>
-constexpr ValueType findValue(const Keyframe<ValueType>(&keys)[N], float time) {
+constexpr ValueType findValue(float time, const Keyframe<ValueType>(&keys)[N]) {
+#endif
+
     // Find previous and next keyframes
     for (uint8_t i = 1; i < N && time < keys[i].time; ++i) {
         float a = (float)keys[i - 1].value;
         float b = (float)keys[i].value;
         float t = (time - keys[i - 1].time) / (keys[i].time - keys[i - 1].time);
         // Interpolate
-        return keys[i].mode == STEP   ? a :
-               keys[i].mode == LINEAR ? a + t * (b - a) :
-                                        a + t * t * (b - a);
+        return
+            keys[i].mode == STEP ? INTERP_STEP(a, b, t) :
+            keys[i].mode == LINEAR ? INTERP_LINEAR(a, b, t) :
+            keys[i].mode == QUADRATIC_IN ? INTERP_QUADRATIC_IN(a, b, t) :
+            keys[i].mode == SMOOTHSTEP ? INTERP_SMOOTHSTEP(a, b, t) :
+            INTERP_CUBIC_IN(a, b, t);
     }
     // Fallback to last keyframe
     return (float)keys[N - 1].value;
