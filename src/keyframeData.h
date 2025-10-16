@@ -36,13 +36,37 @@ const BodyPosition body_idle = BodyPosition(
     -HALF_PI, // ankleRAngle
     -HALF_PI // ankleLAngle
 );
-const BodyPosition body_ready = BodyPosition(vec3(0.15, -0.0, 0.1), 0.0, 0.0, 0.05, -0.05, 0.4, 0.4, 0.0, 0.0, -1.7, -HALF_PI);
-const BodyPosition body_pop = BodyPosition(vec3(0.2, 0.1, 0.05), 0.0, -0.5, 0.2, -0.05, 0.0, 0.8, 0.0, 0.3, -0.2, -2.3);
+const BodyPosition body_ready = BodyPosition(
+    vec3(0.15, -0.0, 0.1), // position
+    0.0, // legRTwist - rotation
+    0.0, // legLTwist - rotation
+    0.05, // legRAngle - abduction
+    -0.05, // legLAngle - abduction
+    0.4, // hipRAngle - flexion
+    0.4, // hipLAngle - flexion
+    0.0, // kneeRAngle
+    0.0, // kneeLAngle
+    -1.7, // ankleRAngle
+    -HALF_PI // ankleLAngle
+);
+
+const BodyPosition body_pop = BodyPosition(
+    vec3(0.2, 0.1, 0.05), // position
+    0.0, // legRTwist - rotation
+    -0.5, // legLTwist - rotation
+    0.2, // legRAngle - abduction
+    -0.05, // legLAngle - abduction
+    0.0, // hipRAngle - flexion
+    0.8, // hipLAngle - flexion
+    0.0, // kneeRAngle
+    0.3, // kneeLAngle
+    -0.2, // ankleRAngle
+    -2.3 // ankleLAngle
+);
+
 const BodyPosition body_ollie = BodyPosition(vec3(0.2, 0.4, 0.05), 0.0, -0.7, 0.2, -0.05, 0.4, 1.2, 0.0, 0.0, -1.5, -HALF_PI);
 const BodyPosition body_jump = BodyPosition(vec3(0.2, 0.5, 0.05), 0.0, -0.5, 0.2, -0.05, 1.1, 1.3, 0.0, 0.0, -1.5, -1.5);
 */
-
-
 /*
     // Kickflip
     BoardFrame(1.0, 1.0, board_idle),
@@ -66,6 +90,7 @@ const BoardMove boardOllie[3] = BoardMove[](
     BoardMove(0.2, 0.8, board_pop, board_ollie_top),
     BoardMove(0.3, 1.7, board_ollie_top, board_idle)
 );
+
 const BodyMove bodyOllie[4] = BodyMove[](
     BodyMove(0.1, 1.0, body_ready, body_pop),
     BodyMove(0.1, 0.8, body_pop, body_ollie),
@@ -74,7 +99,7 @@ const BodyMove bodyOllie[4] = BodyMove[](
 );
 
 /*
-BodyFrame(0.0, 1.0, body_ready),
+    BodyFrame(0.0, 1.0, body_ready),
     BodyFrame(0.1, 0.8, body_pop),
     BodyFrame(0.2, 1.0, body_ollie),
     BodyFrame(0.3, 1.8, body_jump),
@@ -83,6 +108,7 @@ BodyFrame(0.0, 1.0, body_ready),
 
 // Function to load keyframes from JSON
 #ifdef DEBUG
+#include <fstream>
 constexpr size_t MAX_KEYFRAMES = 255;
 
 Keyframe<float> boardPos_x[MAX_KEYFRAMES];
@@ -112,10 +138,35 @@ Keyframe<float> bodyHipEuler_x[MAX_KEYFRAMES];
 Keyframe<float> bodyHipEuler_y[MAX_KEYFRAMES];
 Keyframe<float> bodyHipEuler_z[MAX_KEYFRAMES];
 
+// Temporary buffer
+std::unordered_map<std::string, Keyframe<float>*> trackMap = {
+    {"boardPos_x", boardPos_x},
+    {"boardPos_y", boardPos_y},
+    {"boardPos_z", boardPos_z},
+    {"boardEuler_x", boardEuler_x},
+    {"boardEuler_y", boardEuler_y},
+    {"boardEuler_z", boardEuler_z},
+    {"legRightHip_x", legRightHip_x},
+    {"legRightHip_y", legRightHip_y},
+    {"legRightHip_z", legRightHip_z},
+    {"legRightKnee", legRightKnee},
+    {"legRightAnkle", legRightAnkle},
+    {"legLeftHip_x", legLeftHip_x},
+    {"legLeftHip_y", legLeftHip_y},
+    {"legLeftHip_z", legLeftHip_z},
+    {"legLeftKnee", legLeftKnee},
+    {"legLeftAnkle", legLeftAnkle},
+    {"bodyHipPosition_x", bodyHipPosition_x},
+    {"bodyHipPosition_y", bodyHipPosition_y},
+    {"bodyHipPosition_z", bodyHipPosition_z},
+    {"bodyHipEuler_x", bodyHipEuler_x},
+    {"bodyHipEuler_y", bodyHipEuler_y},
+    {"bodyHipEuler_z", bodyHipEuler_z},
+};
 
 template<typename ValueType>
 void loadKeyframesFromJSON(const std::string& filename) {
-    // Open file
+    // Read file
     std::ifstream file(filename);
     if (!file.is_open()) {
         throw std::runtime_error("Could not open file: " + filename);
@@ -125,64 +176,33 @@ void loadKeyframesFromJSON(const std::string& filename) {
     json j;
     file >> j;
 
-    // Map from track name to fixed-length array of keyframes
-    std::unordered_map<std::string, Keyframe<ValueType>[MAX_KEYFRAMES]> outTracks;
-
-    // Initialize all arrays with sentinel keyframes (time = -1 means invalid)
-    for (auto& [track, arr] : outTracks) {
-        for (size_t i = 0; i < MAX_KEYFRAMES; ++i) {
-            arr[i] = Keyframe<ValueType>{ -1.0f, ValueType{}, Interpolation::LINEAR };
-        }
-    }
-
-    // We'll keep a temporary insertion index map per track here
+    // Map from track to next insertion index
     std::unordered_map<std::string, size_t> insertIndices;
 
-    // Iterate over JSON and fill arrays
     for (const auto& frame : j["keyframes"]) {
         float time = frame["time"];
-
         for (const auto& node : frame["nodes"]) {
             std::string track = node["track"];
             ValueType value = node["value"];
             Interpolation mode = static_cast<Interpolation>(node["mode"].get<int>());
 
-            size_t& index = insertIndices[track];
-            if (index < MAX_KEYFRAMES) {
-                // Insert keyframe
-                outTracks[track][index++] = Keyframe<ValueType>{time, value, mode};
+            // Find destination array pointer
+            auto it = trackMap.find(track);
+            if (it == trackMap.end()) {
+                // Unknown track, skip or warn
+                continue;
             }
-            // else: ignore extra keyframes beyond max size
+
+            size_t index = insertIndices[track]++;
+            if (index >= MAX_KEYFRAMES) {
+                // Too many keyframes, skip extras
+                continue;
+            }
+
+            // Directly write into the array
+            it->second[index] = Keyframe<ValueType>{ time, value, mode };
         }
     }
-
-    // Update individual tracks
-    memcpy(boardPos_x, outTracks["boardPos_x"], sizeof(boardPos_x));
-    memcpy(boardPos_y, outTracks["boardPos_y"], sizeof(boardPos_y));
-    memcpy(boardPos_z, outTracks["boardPos_z"], sizeof(boardPos_z));
-
-    memcpy(boardEuler_x, outTracks["boardEuler_x"], sizeof(boardEuler_x));
-    memcpy(boardEuler_y, outTracks["boardEuler_y"], sizeof(boardEuler_y));
-    memcpy(boardEuler_z, outTracks["boardEuler_z"], sizeof(boardEuler_z));
-
-    memcpy(legRightHip_x, outTracks["legRightHip_x"], sizeof(legRightHip_x));
-    memcpy(legRightHip_y, outTracks["legRightHip_y"], sizeof(legRightHip_y));
-    memcpy(legRightHip_z, outTracks["legRightHip_z"], sizeof(legRightHip_z));
-    memcpy(legRightKnee, outTracks["legRightKnee"], sizeof(legRightKnee));
-    memcpy(legRightAnkle, outTracks["legRightAnkle"], sizeof(legRightAnkle));
-
-    memcpy(legLeftHip_x, outTracks["legLeftHip_x"], sizeof(legLeftHip_x));
-    memcpy(legLeftHip_y, outTracks["legLeftHip_y"], sizeof(legLeftHip_y));
-    memcpy(legLeftHip_z, outTracks["legLeftHip_z"], sizeof(legLeftHip_z));
-    memcpy(legLeftKnee, outTracks["legLeftKnee"], sizeof(legLeftKnee));
-    memcpy(legLeftAnkle, outTracks["legLeftAnkle"], sizeof(legLeftAnkle));
-
-    memcpy(bodyHipPosition_x, outTracks["bodyHipPosition_x"], sizeof(bodyHipPosition_x));
-    memcpy(bodyHipPosition_y, outTracks["bodyHipPosition_y"], sizeof(bodyHipPosition_y));
-    memcpy(bodyHipPosition_z, outTracks["bodyHipPosition_z"], sizeof(bodyHipPosition_z));
-    memcpy(bodyHipEuler_x, outTracks["bodyHipEuler_x"], sizeof(bodyHipEuler_x));
-    memcpy(bodyHipEuler_y, outTracks["bodyHipEuler_y"], sizeof(bodyHipEuler_y));
-    memcpy(bodyHipEuler_z, outTracks["bodyHipEuler_z"], sizeof(bodyHipEuler_z));
 }
 
 #else

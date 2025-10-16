@@ -23,7 +23,6 @@
     #include <string.h>
     #include <stdio.h>
     #include <cassert> 
-    #include <iostream>
     #include <filesystem>
 #endif
 
@@ -142,6 +141,11 @@ static LRESULT CALLBACK WindowProcedure(HWND hwnd, UINT msg, WPARAM wParam, LPAR
                 case VK_RIGHT:
                     // Step forward 1s
                     stepAudio(1.0);
+                    return 0;
+
+                case 'R':
+                    // Reload keyframe data
+                    loadKeyframesFromJSON<float>("../assets/keyframes.json");
                     return 0;
             }
             break;
@@ -283,7 +287,6 @@ void entrypoint(void) {
 
 
 #ifdef DEBUG
-    std::cout << "Current working dir: " << std::filesystem::current_path() << "\n";
     loadKeyframesFromJSON<float>("../assets/keyframes.json");
 #endif
 

@@ -3,7 +3,6 @@
 
 #ifdef DEBUG
 #include "nlohmann/json.hpp"
-#include <fstream>
 #include <unordered_map>
 #include <vector>
 #include <stdexcept>
@@ -32,8 +31,8 @@ enum Interpolation : uint8_t {
     STEP = 0,
     LINEAR = 1,
     QUADRATIC_IN = 2,
-    SMOOTHSTEP = 3,
-    CUBIC = 4
+    QUADRATIC_OUT = 3,
+    SMOOTHSTEP = 4
 };
 
 // Anatomy of a keyframe
@@ -46,19 +45,11 @@ struct Keyframe {
 
 
 // Interpolation function template
-#ifdef DEBUG
-// Keyframe array size can change during execution
-template<typename ValueType>
-constexpr ValueType findValue(float time, const Keyframe<ValueType>* keys) {
-    const size_t N = sizeof(keys) / sizeof(keys[0]);
-#else
-// Keyframe array size can be templated
-template<typename ValueType, uint8_t N>
-constexpr ValueType findValue(float time, const Keyframe<ValueType>(&keys)[N]) {
-#endif
-
+#pragma optimize("", off)
+template<typename ValueType, size_t N>
+ValueType findValue(float time, const Keyframe<ValueType>(&keys)[N]) {
     // Find previous and next keyframes
-    for (uint8_t i = 1; i < N && time < keys[i].time; ++i) {
+    for (size_t i = 1; i < N && time < keys[i].time; ++i) {
         float a = (float)keys[i - 1].value;
         float b = (float)keys[i].value;
         float t = (time - keys[i - 1].time) / (keys[i].time - keys[i - 1].time);
@@ -73,6 +64,7 @@ constexpr ValueType findValue(float time, const Keyframe<ValueType>(&keys)[N]) {
     // Fallback to last keyframe
     return (float)keys[N - 1].value;
 }
+#pragma optimize("", on)
 
 /*
 Notes:
