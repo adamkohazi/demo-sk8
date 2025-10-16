@@ -134,9 +134,9 @@ float SDFSkateboard(vec3 position, BoardPosition board) {
     vec3 centerpoint = vec3(0.0, 0.05, 0.0);
     position -= centerpoint;
     position -= board.position;
-    position = rotateZ(board.euler.z, position);
-    position = rotateY(board.euler.y, position); 
-    position = rotateX(board.euler.x, position);
+    position = rotateZ(board.euler.z * 2.0 * PI, position);
+    position = rotateY(board.euler.y * 2.0 * PI, position); 
+    position = rotateX(board.euler.x * 2.0 * PI, position);
     return min(SDFDeck(position + centerpoint),
                min(SDFWheels(position + centerpoint),
                    SDFTrucks(position + centerpoint))
@@ -196,7 +196,22 @@ float SDFLeg(vec3 position, LegPosition leg){
 
 // Body
 float SDFBody(vec3 position, BodyPosition body) {
-    //Relative move according to keyframe info
+    // Scale joint movements
+    body.hipEuler *= (2.0 * PI);
+    body.rightLeg.hipJoint.x *= 2.0 * PI * 140.0 / 360.0;
+    body.rightLeg.hipJoint.y *= 0.25 * PI;
+    body.rightLeg.hipJoint.z *= 0.25 * PI;
+    body.rightLeg.kneeAngle *= 2.0 * PI * 140.0 / 360.0;
+    body.rightLeg.ankleAngle = 0.5 * PI * (0.5 * body.rightLeg.ankleAngle - 1.0);
+
+    body.leftLeg.hipJoint.x *= 2.0 * PI * 140.0 / 360.0;
+    body.leftLeg.hipJoint.y *= 0.25 * PI;
+    body.leftLeg.hipJoint.z *= 0.25 * PI;
+    body.leftLeg.kneeAngle *= 2.0 * PI * 140.0 / 360.0;
+    body.leftLeg.ankleAngle = 0.5 * PI * (0.5 * body.leftLeg.ankleAngle - 1.0);
+
+
+    // Relative move according to keyframe info
     position -= body.hipPosition;
     
     const float hipHeight = 0.8;
@@ -204,8 +219,7 @@ float SDFBody(vec3 position, BodyPosition body) {
 
     float distance = 10.0;
     
-    float twistHip = 0.0;
-    position = rotateY(twistHip, position);
+    position = rotateY(body.hipEuler.y, position);
     
     vec3 hipRPos = vec3(hipWidth/2., hipHeight, 0);
     //distance = min(distance, SDFSphere(position-hipRPos, 0.05));

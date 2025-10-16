@@ -1,0 +1,63 @@
+#:kivy 2.3.0
+
+<KeyframeEditor>:
+    orientation: 'vertical'
+    spacing: 10
+    padding: 10
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: 40
+        spacing: 10
+
+        Label:
+            text: 'Time:'
+            size_hint_x: None
+            width: 60
+
+        TextInput:
+            id: time_input
+            text: ''
+            multiline: False
+            size_hint_x: None
+            width: 100
+            
+            input_filter: 'float'  
+            on_text_validate: root.keyframe.time = self.text 
+
+    ScrollView:
+        do_scroll_x: False
+        do_scroll_y: True
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+            height: self.minimum_height
+            spacing: 5
+
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: 40
+
+                Label:
+                    size_hint_x: None
+                    width: 150
+                    text: 'Variable'
+
+                Label:
+                    size_hint_x: None
+                    width: 50
+                    text: 'Value'
+                
+                Label:
+                    size_hint_x: None
+                    width: 150
+                    text: 'Mode'
+            
+            BoxLayout:
+                id: keyframe_nodes
+                size_hint_y: None
+                height: self.minimum_height
+                orientation: 'vertical'

@@ -1,0 +1,115 @@
+#:kivy 2.3.0
+#:include components/keyframe/keyframe_widget.kv
+
+<TimelineEditor>:
+    orientation: 'vertical'
+    padding: 10
+    spacing: 10
+
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: 5
+
+        ScrollView:
+            do_scroll_x: True
+            do_scroll_y: False
+
+            BoxLayout:
+                id: keyframe_container
+                orientation: 'horizontal'
+                size_hint_x: None
+                spacing: 5
+        
+        KeyframeEditor:
+            id: keyframe_editor
+            size_hint_x: None
+            width: '350dp'
+            
+
+    BoxLayout:
+        size_hint_y: None
+        height: 40
+        spacing: 5
+
+        Label:
+            text: 'Timeline:'
+            size_hint_x: None
+            width: 80
+
+        Slider:
+            id: time_slider
+            min: root.min
+            max: root.max
+            step: root.step
+
+            on_touch_up:
+                if self.collide_point(*args[1].pos): root.timeline.time = self.value
+
+        Label:
+            id: time_label
+            size_hint_x: None
+            width: 60
+    
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: 40
+        spacing: 10
+
+        Button:
+            text: 'Add Track'
+            on_press: root.add_track_prompt()
+
+        Button:
+            text: 'Add Keyframe'
+            on_press: root.timeline.add_keyframe()
+        
+        Button:
+            text: 'Remove Keyframe'
+            on_press: root.timeline.remove_keyframe()
+    
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: '40dp'
+        spacing: 10
+
+        Label:
+            text: 'File Path:'
+            size_hint_x: None
+            width: '100dp'
+            halign: 'right'
+            valign: 'middle'
+            text_size: self.size
+
+        TextInput:
+            id: file_path_input
+            hint_text: 'Enter or browse file path...'
+            multiline: False
+            on_focus:
+                if self.focus and not self.text: root.open_filechooser(self)
+
+        Button:
+            text: 'Import'
+            size_hint_x: None
+            width: '100dp'
+            on_press: root.import_file(file_path_input.text)
+
+        Button:
+            text: 'Export'
+            size_hint_x: None
+            width: '100dp'
+            on_press: root.export_file(file_path_input.text)
+
+        Label:
+            text: 'Autosave'
+            size_hint_x: None
+            width: '80dp'
+            halign: 'right'
+            valign: 'middle'
+            text_size: self.size
+
+        CheckBox:
+            id: autosave_checkbox
+            size_hint_x: None
+            width: '40dp'

@@ -7,12 +7,18 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sk8", "sk8.vcxproj", "{C8B5
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug (optimization off)|Win32 = Debug (optimization off)|Win32
+		Debug (optimization off)|x64 = Debug (optimization off)|x64
 		Debug (windowed)|Win32 = Debug (windowed)|Win32
 		Debug (windowed)|x64 = Debug (windowed)|x64
 		Release (fullscreen)|Win32 = Release (fullscreen)|Win32
 		Release (fullscreen)|x64 = Release (fullscreen)|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8B543E0-EC3A-4E32-A893-31496242E1E3}.Debug (optimization off)|Win32.ActiveCfg = Debug (optimization off)|Win32
+		{C8B543E0-EC3A-4E32-A893-31496242E1E3}.Debug (optimization off)|Win32.Build.0 = Debug (optimization off)|Win32
+		{C8B543E0-EC3A-4E32-A893-31496242E1E3}.Debug (optimization off)|x64.ActiveCfg = Debug (optimization off)|Win32
+		{C8B543E0-EC3A-4E32-A893-31496242E1E3}.Debug (optimization off)|x64.Build.0 = Debug (optimization off)|Win32
 		{C8B543E0-EC3A-4E32-A893-31496242E1E3}.Debug (windowed)|Win32.ActiveCfg = Debug (windowed)|Win32
 		{C8B543E0-EC3A-4E32-A893-31496242E1E3}.Debug (windowed)|Win32.Build.0 = Debug (windowed)|Win32
 		{C8B543E0-EC3A-4E32-A893-31496242E1E3}.Debug (windowed)|x64.ActiveCfg = Debug (windowed)|Win32
