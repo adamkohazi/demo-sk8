@@ -94,6 +94,9 @@ void seekAudio(float time) {
 	// Re-prepare and write the new buffer
 	waveOutPrepareHeader(waveOutHandle, &waveHeader, sizeof(WAVEHDR));
 	waveOutWrite(waveOutHandle, &waveHeader, sizeof(WAVEHDR));
+
+	//Optional: pause audio
+	waveOutPause(waveOutHandle);
 }
 
 // Step playback by seconds (+/-)

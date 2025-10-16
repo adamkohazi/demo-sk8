@@ -94,7 +94,7 @@ class Timeline(EventDispatcher):
         except Exception as e:
             raise(f"Failed to export JSON: {e}")
 
-    def importJSON(self, filename):
+    def import_json(self, filename):
         try:
             with open(filename, 'r', encoding='utf-8') as f:
                 data = json.load(f)

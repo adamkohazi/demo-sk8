@@ -165,7 +165,7 @@ std::unordered_map<std::string, Keyframe<float>*> trackMap = {
 };
 
 template<typename ValueType>
-void loadKeyframesFromJSON(const std::string& filename) {
+float loadKeyframesFromJSON(const std::string& filename) {
     // Read file
     std::ifstream file(filename);
     if (!file.is_open()) {
@@ -203,6 +203,8 @@ void loadKeyframesFromJSON(const std::string& filename) {
             it->second[index] = Keyframe<ValueType>{ time, value, mode };
         }
     }
+
+    return j["time"];
 }
 
 #else
