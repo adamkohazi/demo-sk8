@@ -145,7 +145,8 @@ static LRESULT CALLBACK WindowProcedure(HWND hwnd, UINT msg, WPARAM wParam, LPAR
 
                 case 'R':
                     // Reload keyframe data
-                    loadKeyframesFromJSON<float>("../assets/keyframes.json");
+                    float time_cursor = loadKeyframesFromJSON<float>("../assets/keyframes.json");
+                    seekAudio(time_cursor);
                     return 0;
             }
             break;
@@ -287,7 +288,10 @@ void entrypoint(void) {
 
 
 #ifdef DEBUG
-    loadKeyframesFromJSON<float>("../assets/keyframes.json");
+    // Prepare keyframe data file for auto-reloading
+    const std::string keyframesPath = "../assets/keyframes.json";
+    std::filesystem::file_time_type lastWriteTime = std::filesystem::last_write_time(keyframesPath);
+    auto lastCheckTime = std::chrono::steady_clock::now();
 #endif
 
     // Activate fragment shader
@@ -315,6 +319,21 @@ void entrypoint(void) {
 #else
         // Non-blocking message polling
         PeekMessage(&message, windowHandle, 0, 0, PM_REMOVE);
+#endif
+
+        // Auto-reload keyframe data file
+#ifdef DEBUG
+        auto now = std::chrono::steady_clock::now();
+        if (now - lastCheckTime > std::chrono::milliseconds(500)) {
+            lastCheckTime = now;
+
+            auto currentWriteTime = std::filesystem::last_write_time(keyframesPath);
+            if (currentWriteTime != lastWriteTime) {
+                lastWriteTime = currentWriteTime;
+                float time_cursor = loadKeyframesFromJSON<float>(keyframesPath);
+                seekAudio(time_cursor);
+            }
+        }
 #endif
 
         // Update time

@@ -125,7 +125,7 @@ class TimelineEditor(BoxLayout):
     
     def import_file(self, filepath):
         if filepath and os.path.exists(filepath):
-            self.timeline.importJSON(filepath)
+            self.timeline.import_json(filepath)
         else:
             print("Invalid import path")
 
@@ -133,7 +133,7 @@ class TimelineEditor(BoxLayout):
         if filepath:
             if not filepath.endswith('.json'):
                 filepath += '.json'
-            self.timeline.exportJSON(filepath, 255)
+            self.timeline.export_json(filepath, 255)
             print(f"Exported to {filepath}")
         else:
             print("Please enter a valid export path")
