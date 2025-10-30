@@ -1,0 +1,1931 @@
+<REAPER_PROJECT 0.1 "7.49/win64" 1761828138
+  RIPPLE 0 0
+  GROUPOVERRIDE 0 0 0 0
+  AUTOXFADE 129
+  ENVATTACH 1
+  POOLEDENVATTACH 0
+  TCPUIFLAGS 0
+  MIXERUIFLAGS 11 48
+  PEAKGAIN 1
+  FEEDBACK 0
+  PANLAW 1
+  PROJOFFS 0 0 0
+  MAXPROJLEN 0 600
+  GRID 3199 8 1 8 1 0 0 0
+  TIMEMODE 1 5 -1 30 0 0 -1
+  VIDEO_CONFIG 0 0 256
+  PANMODE 3
+  CURSOR 90.66666666666667
+  ZOOM 21.71986213866717 0 0
+  VZOOMEX 3.1833334 3
+  USE_REC_CFG 0
+  RECMODE 1
+  SMPTESYNC 0 30 100 40 1000 300 0 0 1 0 0
+  LOOP 0
+  LOOPGRAN 0 4
+  RECORD_PATH "" ""
+  <RECORD_CFG
+    ZXZhdxgAAQ==
+  >
+  <APPLYFX_CFG
+  >
+  RENDER_FILE ""
+  RENDER_PATTERN ""
+  RENDER_FMT 0 2 0
+  RENDER_1X 0
+  RENDER_RANGE 1 0 0 18 1000
+  RENDER_RESAMPLE 3 0 1
+  RENDER_ADDTOPROJ 0
+  RENDER_STEMS 0
+  RENDER_DITHER 0
+  RENDER_TRIM 0.000001 0.000001 0 0
+  TIMELOCKMODE 1
+  TEMPOENVLOCKMODE 1
+  ITEMMIX 0
+  DEFPITCHMODE 589824 0
+  TAKELANE 1
+  SAMPLERATE 44100 1 0
+  <RENDER_CFG
+  >
+  LOCK 1
+  <METRONOME 6 2
+    VOL 0.25 0.125
+    BEATLEN 4
+    FREQ 800 1600 1
+    SAMPLES "" "" "" ""
+    SPLIGNORE 0 0
+    SPLDEF 2 660 "" 0 ""
+    SPLDEF 3 440 "" 0 ""
+    PATTERN 0 169
+    PATTERNSTR ABBB
+    MULT 1
+  >
+  GLOBAL_AUTO -1
+  TEMPO 180 4 4 0
+  PLAYRATE 1 0 0.25 4
+  SELECTION 90.66666666666667 0
+  SELECTION2 90.66666666666667 0
+  MASTERAUTOMODE 0
+  MASTERTRACKHEIGHT 0 0
+  MASTERPEAKCOL 16576
+  MASTERMUTESOLO 0
+  MASTERTRACKVIEW 0 0.6667 0.5 0.5 0 -1 0 0 0 0 -1 -1 0 0 0
+  MASTERHWOUT 4 0 1 0 0 0 0 -1
+  MASTERHWOUT 0 0 1 0 0 0 0 -1
+  MASTER_NCH 2 2
+  MASTER_VOLUME 1.88829815772236 0 -1 -1 1
+  MASTER_FX 1
+  MASTER_SEL 0
+  <MASTERFXLIST
+    WNDRECT 82 426 683 470
+    SHOW 0
+    LASTSEL 0
+    DOCKED 0
+  >
+  <MASTERPLAYSPEEDENV
+    EGUID {981912E6-E380-43FB-89BD-F15E64A2A172}
+    ACT 0 -1
+    VIS 0 1 1
+    LANEHEIGHT 0 0
+    ARM 0
+    DEFSHAPE 0 -1 -1
+  >
+  <TEMPOENVEX
+    EGUID {524312F5-66FA-4CFE-BF34-4873D8178166}
+    ACT 0 -1
+    VIS 1 0 1
+    LANEHEIGHT 0 0
+    ARM 0
+    DEFSHAPE 1 -1 -1
+  >
+  <PROJBAY
+  >
+  <TRACK {B306B29D-EE37-4DCD-854D-2F033C1BC4A0}
+    NAME 4klang
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 0 5056 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    TRACKIMGFN "pads.png"
+    FX 1
+    TRACKID {B306B29D-EE37-4DCD-854D-2F033C1BC4A0}
+    PERF 0
+    AUXRECV 1 0 1 0 0 0 0 -1 0 -1:U 32 -1 ''
+    AUXRECV 2 0 1 0 0 0 0 -1 0 -1:U 64 -1 ''
+    AUXRECV 3 0 1 0 0 0 0 -1 0 -1:U 96 -1 ''
+    AUXRECV 4 0 1 0 0 0 0 -1 0 -1:U 128 -1 ''
+    AUXRECV 5 0 1 0 0 0 0 0 0 -1:U 160 -1 ''
+    AUXRECV 6 0 1 0 0 0 0 -1 0 -1:U 192 -1 ''
+    AUXRECV 7 0 1 0 0 0 0 -1 0 -1:U 224 -1 ''
+    AUXRECV 8 0 1 0 0 0 0 -1 0 -1:U 256 -1 ''
+    AUXRECV 9 0 1 0 0 0 0 -1 0 -1:U 288 -1 ''
+    AUXRECV 10 0 1 0 0 0 0 -1 0 -1:U 320 -1 ''
+    AUXRECV 11 0 1 0 0 0 0 -1 0 -1:U 352 -1 ''
+    AUXRECV 12 0 1 0 0 0 0 -1 0 -1:U 384 -1 ''
+    AUXRECV 13 0 1 0 0 0 0 -1 0 -1:U 416 -1 ''
+    AUXRECV 14 0 1 0 0 0 0 -1 0 -1:U 448 -1 ''
+    AUXRECV 15 0 1 0 0 0 0 -1 0 -1:U 480 -1 ''
+    AUXRECV 16 0 1 0 0 0 0 -1 0 -1:U 512 -1 ''
+    MIDIOUT -1
+    MAINSEND 1 0
+    <FXCHAIN
+      WNDRECT 2651 204 1083 521
+      SHOW 3
+      LASTSEL 2
+      DOCKED 0
+      BYPASS 0 0 0
+      <VST "VSTi: 4klang (x86) (Alcatraz)" 4klang.dll 0 "" 879455335<565354346B6C67346B6C616E67783836> ""
+        Z2xrNO9e7f4AAAAAAgAAAAEAAAAAAAAAAgAAAAAAAAAIAAAAAAAAAAAAEAA=
+        776t3g3wrd4=
+        AAAQAAAA
+      >
+      FLOATPOS 66 59 616 120
+      FXID {6B59D04F-2528-4597-BDE9-88C412E84ACD}
+      WAK 0 0
+      BYPASS 0 0 0
+      <VST "VST3: SPAN (Voxengo)" SPAN.vst3 0 "" 555746558{584EDC40D3864AA19F0CD33B971765B1} ""
+        /gQgIe5e7f4CAAAAAQAAAAAAAAACAAAAAAAAAAIAAAABAAAAAAAAAAIAAAAAAAAAbgQAAAEAAAAAABAA
+        XgQAAAEAAABhcHJzcxgAAIwAGAJ4XsVYTY/cNBj2fjZSQVpWW0TbLd0tRXx6qNrtguAwQaJUoH6phXOVnfHMWE3iNM7sdhchceCA+AFwQFAW+ANcENzoBa4IbpwKP6Da
+        n8DrSTxrJ7EnkSbFkievX7+P3/fxt+cJhNDGNtt88x3S84Z+8jyUn4S8tRt5nGMSels+eQsUJyF7wy5lrYB1r3o0bGkmM1AtMsq+UhbJgdyP2TDixN8E+elCU7LW1oqI
+        ioY88cIOwaEXkMuoLCrNRLZRllUfq6JthiMv9gLe6gy8MCQ+HkWFOfPZ+1D/ctGVBWFjckzzlmJEtPxvqHjO4kYxzbNxFHkR8q0PLt28dH0208xBvozPz2nFC/NacWNB
+        K15c1IqbR7Ti645WfEMWZzOVaHohC0UgRf0yKtCmYf8eaNfQBM5gl+9QB5nSQVv/Ilf/OuPvCaRGREMsx3HUxT2ofRGZI8vb54dkNle+oipuyoL4ruTjAM4JcN4D/Rl7
+        BJmluXcKvVA56eMVcJBozCeNl7SrPl7Vk75wgLmk/xGyLxzFtImeErvQoTM+YDvY8305O/h7UP0SMkdXAORjlLJIS5ADwOMdGnYBx+keeRd0zxYc5K3yrc7KJm987qbC
+        nntctM66t268fa01oF2CA5KQmGPYUxMuNtwXim5M5jYWxxQ/MC4jGE52I/IlKhvJUlO1TQfp7Tchq33DI9LBNIhYnOAObPfxVzO2vimY52NfQPmUn41y11pyD21NO12Z
+        rayrYit1VWyXatiu1LB9pobt6kRbsUK1wRiGXRL73m56ZH+NylaoBfC4594a0uNP4mEgtw/Pp/3wXHfrGti0kI1EGcq2StdtXsOEQhsevw5Gr1V3K2E2v6dtfrf7CQ3I
+        Ppjg6l5TUNmoPbjw5z+db39qK/7dacni7DaFtOWzzp3RvvwDWJ1DVakc4sxz8IwSxcrUZNuodCkXr4B6o5KBzDyakcVl3xRSj/r+N6jssm9DmBkctJuQ15GFQUzu4gHt
+        D75HddblGGbk8tlfbhPyGprAxWc736E6O5tElTHZ/vgXdPv+WWVeb0xNto0K6NMX6epMnVEZwyQXkR2kP/fEW+tDTmL5ohDvrew1P1dUzRdVC0XVYlF1pKhyiio1UPX1
+        KQMVX+lPdSKJiWusqTdYr8dJcgUsXkVVezDFyIiQEp1Mtm2NbYszP9pHdba1DKT60TeFR8pifjg12XbYxF7YJ6PlXe+wOcSVsfnj0y9w+9Sv7Sbk9YlsYIXX2+LGsDIu
+        P9/+/d/5386OYlg++uBH95O1qck2Lpx00j/Q6nEZw8yzrBnZtlogKPEu20d1VksGMvNw3CbkU8jCw2cRuQ8Gr6DKLATEzGHZbUK2zquAsWRAw37NeSVhj3te2S5lYn7U
+        u5T9H38P2E6u9F+YeidXilFZqLJITykeAUlwRLw74gl82uhkbGZu96B9FH6jmMC5Obp7iLCPF1pUDCS+LJdcDf4DoyldiwAAAAAAAAAA
+        AERlZmF1bHQAEAAAAA==
+      >
+      PRESETNAME Default
+      FLOATPOS 245 856 1153 628
+      FXID {91617F33-2960-4892-A0D7-AB11AC65718E}
+      WAK 0 0
+      BYPASS 0 0 0
+      <VST "VST: J-Scope (Jon Grove)" JScope_x64.dll 0 "" 1246978928<5653544A5363706A73636F7065000000> ""
+        cGNTSu9e7f4CAAAAAQAAAAAAAAACAAAAAAAAAAIAAAABAAAAAAAAAAIAAAAAAAAASAAAAAAAAAAAABAA
+        776t3g3wrd4AAAAAj8I1PwAAgD8AAAAAAAAAAK5HIT/MzMw+MzMzPwAAAACkcP0+zcxMPgAAAADXo7A+AAAAAAAAAAAAAAAA
+        V2F2ZWZvcm0gTW9ubwBXYXZlZm9ybSBNb25vABAAAAA=
+      >
+      PRESETNAME "Waveform Mono"
+      FLOATPOS 2711 365 872 474
+      FXID {7030CD5D-2A46-48B1-B10F-ED3070486337}
+      WAK 0 0
+    >
+  >
+  <TRACK {5567BC0A-2A3C-4194-AD91-F78716880C9E}
+    NAME "4klang - 1 - BASS"
+    PEAKCOL 16809984
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 1
+    REC 0 5088 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    TRACKIMGFN "bass_clef.png"
+    FX 1
+    TRACKID {5567BC0A-2A3C-4194-AD91-F78716880C9E}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 0 0
+    <ITEM
+      POSITION 0
+      SNAPOFFS 0
+      LENGTH 74.66666666666667
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 2 0 0 2 0 1 1
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {35767F6F-957C-4084-9B38-C3380FAAA08E}
+      IID 1
+      NAME 07-4klang-MIDI
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {70C3C556-0919-4994-B77C-94D1ADA9AAED}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {DBF07E83-2EA3-4446-AAE5-2BE05FF17748}
+        e 0 90 2d 7f
+        e 480 80 2d 00
+        e 0 90 2c 7f
+        e 480 80 2c 00
+        e 0 90 29 7f
+        e 480 80 29 00
+        e 0 90 2d 7f
+        e 960 80 2d 00
+        e 0 90 2c 7f
+        e 480 80 2c 00
+        e 0 90 29 7f
+        e 480 80 29 00
+        e 0 90 2d 7f
+        e 960 80 2d 00
+        e 0 90 2c 7f
+        e 480 80 2c 00
+        e 0 90 29 7f
+        e 960 80 29 00
+        e 0 90 2a 7f
+        e 480 80 2a 00
+        e 0 90 2a 7f
+        e 480 80 2a 00
+        e 0 90 31 7f
+        e 960 80 31 00
+        e 0 90 2d 7f
+        e 480 80 2d 00
+        e 0 90 2c 7f
+        e 480 80 2c 00
+        e 0 90 29 7f
+        e 480 80 29 00
+        e 0 90 2d 7f
+        e 960 80 2d 00
+        e 0 90 2c 7f
+        e 480 80 2c 00
+        e 0 90 29 7f
+        e 480 80 29 00
+        e 0 90 2d 7f
+        e 960 80 2d 00
+        e 0 90 2c 7f
+        e 480 80 2c 00
+        e 0 90 29 7f
+        e 960 80 29 00
+        e 0 90 2a 7f
+        e 480 80 2a 00
+        e 0 90 2a 7f
+        e 480 80 2a 00
+        e 0 90 31 7f
+        e 960 80 31 00
+        e 0 90 2d 7f
+        e 480 80 2d 00
+        e 0 90 2c 7f
+        e 480 80 2c 00
+        e 0 90 29 7f
+        e 480 80 29 00
+        e 0 90 2d 7f
+        e 960 80 2d 00
+        e 0 90 2c 7f
+        e 480 80 2c 00
+        e 0 90 29 7f
+        e 480 80 29 00
+        e 0 90 2d 7f
+        e 960 80 2d 00
+        e 0 90 2c 7f
+        e 480 80 2c 00
+        e 0 90 29 7f
+        e 960 80 29 00
+        e 0 90 2a 7f
+        e 480 80 2a 00
+        e 0 90 2a 7f
+        e 480 80 2a 00
+        e 0 90 31 7f
+        e 960 80 31 00
+        e 0 90 2d 7f
+        e 480 80 2d 00
+        e 0 90 2c 7f
+        e 480 80 2c 00
+        e 0 90 29 7f
+        e 480 80 29 00
+        e 0 90 2d 7f
+        e 960 80 2d 00
+        e 0 90 2c 7f
+        e 480 80 2c 00
+        e 0 90 29 7f
+        e 480 80 29 00
+        e 0 90 2d 7f
+        e 960 80 2d 00
+        e 0 90 2c 7f
+        e 480 80 2c 00
+        e 0 90 29 7f
+        e 960 80 29 00
+        E 1920 b0 7b 00
+        CCINTERP 32
+        CHASE_CC_TAKEOFFS 1
+        GUID {69F8DF41-CD27-4D0B-A19E-4B3851F48789}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 0
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        VELLANE -1 100 0 0 1
+        CFGEDITVIEW -1466.606393 0.02687 53 16 0 -1 0 0 0 0.5
+        KEYSNAP 0
+        TRACKSEL 252
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 764 204 2451 1162 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+  >
+  <TRACK {51F72A16-D8C2-47AA-B8E1-97EAC39C33F7}
+    NAME "4klang - 2 - GUITAR"
+    PEAKCOL 16842496
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 0 5088 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    TRACKIMGFN "guitar.png"
+    FX 1
+    TRACKID {51F72A16-D8C2-47AA-B8E1-97EAC39C33F7}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 0 0
+    <ITEM
+      POSITION 32
+      SNAPOFFS 0
+      LENGTH 42.66666666666667
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 2 0 0 2 0 1 1
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {299E822E-3827-446C-9F0B-FDD3B2A568CC}
+      IID 1
+      NAME 07-4klang-MIDI
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {3336B8C2-90EC-40D3-B9AB-7542A3C79D71}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {7CFB6B6E-35FE-4828-AC83-69129981CCB7}
+        E 0 90 3c 7f
+        E 480 80 3c 00
+        E 0 90 3c 7f
+        E 960 80 3c 00
+        E 0 90 3c 7f
+        E 1440 80 3c 00
+        E 0 90 3c 7f
+        E 480 80 3c 00
+        E 0 90 3c 7f
+        E 480 80 3c 00
+        E 0 90 3c 7f
+        E 480 80 3c 00
+        E 0 90 3c 7f
+        E 960 80 3c 00
+        E 0 90 3c 7f
+        E 1440 80 3c 00
+        E 0 90 3c 7f
+        E 480 80 3c 00
+        E 0 90 3c 7f
+        E 480 80 3c 00
+        E 0 90 3c 7f
+        E 480 80 3c 00
+        E 0 90 3c 7f
+        E 960 80 3c 00
+        E 0 90 3c 7f
+        E 1440 80 3c 00
+        E 0 90 3c 7f
+        E 480 80 3c 00
+        E 0 90 3c 7f
+        E 480 80 3c 00
+        E 0 90 44 7f
+        E 480 80 44 00
+        E 0 90 44 7f
+        E 960 80 44 00
+        E 0 90 44 7f
+        E 1440 80 44 00
+        E 0 90 44 7f
+        E 960 80 44 00
+        E 0 90 3c 7f
+        E 480 80 3c 00
+        E 0 90 3c 7f
+        E 960 80 3c 00
+        E 0 90 3c 7f
+        E 1440 80 3c 00
+        E 0 90 3c 7f
+        E 480 80 3c 00
+        E 0 90 3c 7f
+        E 480 80 3c 00
+        E 0 90 3c 7f
+        E 480 80 3c 00
+        E 0 90 3c 7f
+        E 960 80 3c 00
+        E 0 90 3c 7f
+        E 1440 80 3c 00
+        E 0 90 3c 7f
+        E 480 80 3c 00
+        E 0 90 3c 7f
+        E 480 80 3c 00
+        E 0 90 3c 7f
+        E 480 80 3c 00
+        E 0 90 3c 7f
+        E 960 80 3c 00
+        E 0 90 3c 7f
+        E 1440 80 3c 00
+        E 0 90 3c 7f
+        E 480 80 3c 00
+        E 0 90 3c 7f
+        E 480 80 3c 00
+        E 0 90 44 7f
+        E 480 80 44 00
+        E 0 90 44 7f
+        E 960 80 44 00
+        E 0 90 44 7f
+        E 480 80 44 00
+        E 1920 b0 7b 00
+        CCINTERP 32
+        CHASE_CC_TAKEOFFS 1
+        GUID {69F8DF41-CD27-4D0B-A19E-4B3851F48789}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 0
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        VELLANE -1 100 0 0 1
+        CFGEDITVIEW 75.167347 0.056291 55 16 0 -1 0 0 0 0.5
+        KEYSNAP 0
+        TRACKSEL 252
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 180 417 2431 1148 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+  >
+  <TRACK {AA05DBD4-A7FC-42F3-8073-64AA83180628}
+    NAME "4klang - 3 - GUITAR"
+    PEAKCOL 16842496
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 0 5088 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    TRACKIMGFN "guitar.png"
+    FX 1
+    TRACKID {AA05DBD4-A7FC-42F3-8073-64AA83180628}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 0 0
+    <ITEM
+      POSITION 32
+      SNAPOFFS 0
+      LENGTH 42.66666666666667
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 2 0 0 2 0 1 1
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {EBFBCF98-58DA-41A0-96E5-D0CD62681E72}
+      IID 1
+      NAME 07-4klang-MIDI
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {5C17B41D-7520-4C0D-ABB8-DFA7F5902431}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {A714D08E-5B05-4A99-B0FF-1E2BDDC4F40C}
+        E 0 90 35 7f
+        E 480 80 35 00
+        E 0 90 35 7f
+        E 960 80 35 00
+        E 0 90 35 7f
+        E 1440 80 35 00
+        E 0 90 35 7f
+        E 480 80 35 00
+        E 0 90 35 7f
+        E 480 80 35 00
+        E 0 90 35 7f
+        E 480 80 35 00
+        E 0 90 35 7f
+        E 960 80 35 00
+        E 0 90 35 7f
+        E 1440 80 35 00
+        E 0 90 35 7f
+        E 480 80 35 00
+        E 0 90 35 7f
+        E 480 80 35 00
+        E 0 90 38 7f
+        E 480 80 38 00
+        E 0 90 38 7f
+        E 960 80 38 00
+        E 0 90 38 7f
+        E 1440 80 38 00
+        E 0 90 38 7f
+        E 480 80 38 00
+        E 0 90 38 7f
+        E 480 80 38 00
+        E 0 90 3d 7f
+        E 480 80 3d 00
+        E 0 90 3d 7f
+        E 960 80 3d 00
+        E 0 90 3d 7f
+        E 1440 80 3d 00
+        E 0 90 3d 7f
+        E 960 80 3d 00
+        E 0 90 35 7f
+        E 480 80 35 00
+        E 0 90 35 7f
+        E 960 80 35 00
+        E 0 90 35 7f
+        E 1440 80 35 00
+        E 0 90 35 7f
+        E 480 80 35 00
+        E 0 90 35 7f
+        E 480 80 35 00
+        E 0 90 35 7f
+        E 480 80 35 00
+        E 0 90 35 7f
+        E 960 80 35 00
+        E 0 90 35 7f
+        E 1440 80 35 00
+        E 0 90 35 7f
+        E 480 80 35 00
+        E 0 90 35 7f
+        E 480 80 35 00
+        E 0 90 38 7f
+        E 480 80 38 00
+        E 0 90 38 7f
+        E 960 80 38 00
+        E 0 90 38 7f
+        E 1440 80 38 00
+        E 0 90 38 7f
+        E 480 80 38 00
+        E 0 90 38 7f
+        E 480 80 38 00
+        E 0 90 3d 7f
+        E 480 80 3d 00
+        E 0 90 3d 7f
+        E 960 80 3d 00
+        E 0 90 3d 7f
+        E 480 80 3d 00
+        E 1920 b0 7b 00
+        CCINTERP 32
+        CHASE_CC_TAKEOFFS 1
+        GUID {69F8DF41-CD27-4D0B-A19E-4B3851F48789}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 0
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        VELLANE -1 100 0 0 1
+        CFGEDITVIEW 32742.857143 0.056291 56 16 0 -1 0 0 0 0.5
+        KEYSNAP 0
+        TRACKSEL 252
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 129 529 2380 1260 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+  >
+  <TRACK {B75D9C55-1F34-4042-8011-CBD9B97DEED7}
+    NAME "4klang - 4 - SYNTH"
+    PEAKCOL 33554176
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 0 5088 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    TRACKIMGFN "synth.png"
+    FX 1
+    TRACKID {B75D9C55-1F34-4042-8011-CBD9B97DEED7}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 0 0
+    <ITEM
+      POSITION 42.66666666666666
+      SNAPOFFS 0
+      LENGTH 10
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 2 0 0 2 0 1 1
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {27695E9E-0BCD-4F7C-817D-6A5E728CC391}
+      IID 1
+      NAME 07-4klang-MIDI
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {C11B1B82-C4EE-4FA7-93B1-3591CC537EE7}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {70A05433-8703-4538-81B5-2E024A71CD63}
+        e 0 90 4d 7f
+        e 480 80 4d 00
+        e 480 90 4d 7f
+        e 480 80 4d 00
+        e 480 90 4d 7f
+        e 480 80 4d 00
+        e 480 90 4d 7f
+        e 480 80 4d 00
+        e 480 90 4d 7f
+        e 480 80 4d 00
+        e 480 90 4d 7f
+        e 480 80 4d 00
+        e 480 90 4d 7f
+        e 480 80 4d 00
+        e 480 90 4d 7f
+        e 960 80 4d 00
+        e 0 90 54 7f
+        e 480 80 54 00
+        e 480 90 54 7f
+        e 480 80 54 00
+        e 480 90 54 7f
+        e 480 80 54 00
+        e 480 90 54 7f
+        e 480 80 54 00
+        e 480 90 54 7f
+        e 480 80 54 00
+        e 480 90 55 7f
+        e 480 80 55 00
+        e 480 90 55 7f
+        e 480 80 55 00
+        e 480 90 55 7f
+        e 960 80 55 00
+        E 0 b0 7b 00
+        CCINTERP 32
+        CHASE_CC_TAKEOFFS 1
+        GUID {69F8DF41-CD27-4D0B-A19E-4B3851F48789}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 0
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        VELLANE -1 100 0 0 1
+        CFGEDITVIEW -6620.35717 0.046741 44 16 0 -1 0 0 0 0.5
+        KEYSNAP 0
+        TRACKSEL 252
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 164 475 2415 1206 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+    <ITEM
+      POSITION 63.9999999999612
+      SNAPOFFS 0
+      LENGTH 10
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 2 0 0 2 0 1 1
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {053BBFB3-BDD1-4057-A9FB-18C3A6320F10}
+      IID 1
+      NAME 07-4klang-MIDI
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {5783BCD4-1AA7-4972-8F87-FF2F366CDC5C}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {CD070EFD-D4FE-4B2A-B9B3-10C383277DC6}
+        e 0 90 4d 7f
+        e 480 80 4d 00
+        e 480 90 4d 7f
+        e 480 80 4d 00
+        e 480 90 4d 7f
+        e 480 80 4d 00
+        e 480 90 4d 7f
+        e 480 80 4d 00
+        e 480 90 4d 7f
+        e 480 80 4d 00
+        e 480 90 4d 7f
+        e 480 80 4d 00
+        e 480 90 4d 7f
+        e 480 80 4d 00
+        e 480 90 4d 7f
+        e 960 80 4d 00
+        e 0 90 54 7f
+        e 480 80 54 00
+        e 480 90 54 7f
+        e 480 80 54 00
+        e 480 90 54 7f
+        e 480 80 54 00
+        e 480 90 54 7f
+        e 480 80 54 00
+        e 480 90 54 7f
+        e 480 80 54 00
+        e 480 90 55 7f
+        e 480 80 55 00
+        e 480 90 55 7f
+        e 480 80 55 00
+        e 480 90 55 7f
+        e 960 80 55 00
+        E 0 b0 7b 00
+        CCINTERP 32
+        CHASE_CC_TAKEOFFS 1
+        GUID {69F8DF41-CD27-4D0B-A19E-4B3851F48789}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 0
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        VELLANE -1 100 0 0 1
+        CFGEDITVIEW -6620.35717 0.046741 44 16 0 -1 0 0 0 0.5
+        KEYSNAP 0
+        TRACKSEL 252
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 164 475 2415 1206 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+  >
+  <TRACK {A7FA16B9-3A98-433D-86B3-3090A7FC2352}
+    NAME "4klang - 5 - PAD"
+    PEAKCOL 33521919
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 0 5088 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    TRACKIMGFN "pads.png"
+    FX 1
+    TRACKID {A7FA16B9-3A98-433D-86B3-3090A7FC2352}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 0 0
+    <ITEM
+      POSITION 8
+      SNAPOFFS 0
+      LENGTH 66.66666666666667
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 2 0 0 2 0 1 1
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {56414CE3-CEF8-4E92-A27A-12DB06B0DCC9}
+      IID 1
+      NAME 07-4klang-MIDI
+      VOLPAN 1 0 1 -1
+      SOFFS 8 24
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {0F15FD75-6CA2-4D06-9A08-B53921C3056E}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {8D9625CA-A19E-46E8-91A3-17DF9372F974}
+        e 0 90 35 7f
+        e 4320 80 35 00
+        e 480 90 32 7f
+        e 480 80 32 00
+        e 480 90 33 7f
+        e 960 80 33 00
+        e 0 90 39 7f
+        e 960 80 39 00
+        e 0 90 35 7f
+        e 4320 80 35 00
+        e 480 90 32 7f
+        e 480 80 32 00
+        e 480 90 33 7f
+        e 960 80 33 00
+        e 0 90 39 7f
+        e 960 80 39 00
+        e 0 90 35 7f
+        e 4320 80 35 00
+        e 480 90 32 7f
+        e 480 80 32 00
+        e 480 90 33 7f
+        e 960 80 33 00
+        e 0 90 39 7f
+        e 960 80 39 00
+        e 0 90 6a 7f
+        e 5760 80 6a 00
+        E 1920 b0 7b 00
+        CCINTERP 32
+        CHASE_CC_TAKEOFFS 1
+        GUID {69F8DF41-CD27-4D0B-A19E-4B3851F48789}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 0
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        VELLANE -1 100 0 0 1
+        CFGEDITVIEW 0 0.011156 66 16 0 -1 0 0 0 0.5
+        KEYSNAP 0
+        TRACKSEL 252
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 764 204 2451 1162 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+    <ITEM
+      POSITION 82.66666666666667
+      SNAPOFFS 0
+      LENGTH 2.66666666666666
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 2 0 0 2 0 1 1
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {B68C3CC4-AAB2-429D-83EE-9D846E45876A}
+      IID 1
+      NAME 07-4klang-MIDI
+      VOLPAN 1 0 1 -1
+      SOFFS 8 24
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {D60C07B6-B243-4680-9F22-0B7E1A828764}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {3A98AAE1-4110-4148-A2E7-450DC6BD9952}
+        e 0 90 35 7f
+        e 4320 80 35 00
+        e 480 90 32 7f
+        e 480 80 32 00
+        e 480 90 33 7f
+        e 960 80 33 00
+        e 0 90 39 7f
+        e 960 80 39 00
+        e 0 90 35 7f
+        e 4320 80 35 00
+        e 480 90 32 7f
+        e 480 80 32 00
+        e 480 90 33 7f
+        e 960 80 33 00
+        e 0 90 39 7f
+        e 960 80 39 00
+        e 0 90 35 7f
+        e 4320 80 35 00
+        e 480 90 32 7f
+        e 480 80 32 00
+        e 480 90 33 7f
+        e 960 80 33 00
+        e 0 90 39 7f
+        e 960 80 39 00
+        e 0 90 6a 7f
+        e 5760 80 6a 00
+        E 1920 b0 7b 00
+        CCINTERP 32
+        CHASE_CC_TAKEOFFS 1
+        GUID {69F8DF41-CD27-4D0B-A19E-4B3851F48789}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 0
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        VELLANE -1 100 0 0 1
+        CFGEDITVIEW 0 0.011156 66 16 0 -1 0 0 0 0.5
+        KEYSNAP 0
+        TRACKSEL 252
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 764 204 2451 1162 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+  >
+  <TRACK {E008569F-6E47-43D6-90FF-7DB5F406C1DD}
+    NAME "4klang - 6 - KICK"
+    PEAKCOL 33521664
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 0 5088 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    TRACKIMGFN "kick.png"
+    FX 1
+    TRACKID {E008569F-6E47-43D6-90FF-7DB5F406C1DD}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 0 0
+    <FXCHAIN
+      WNDRECT 24 52 655 408
+      SHOW 0
+      LASTSEL 0
+      DOCKED 0
+    >
+    <ITEM
+      POSITION 10.66666666666667
+      SNAPOFFS 0
+      LENGTH 64
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {D4B2D604-7D70-4642-A453-88018488BF06}
+      IID 1
+      NAME 07-4klang-MIDI
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {C9D6683D-0E01-4284-844A-D831CBA59F0D}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {E2C699B8-5296-4F64-A144-02FC9ED9B2E9}
+        e 0 90 24 7f
+        e 480 80 24 00
+        e 0 90 24 7f
+        e 480 80 24 00
+        e 1920 90 24 7f
+        e 480 80 24 00
+        e 1440 90 24 7f
+        e 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        e 0 90 24 7f
+        e 480 80 24 00
+        e 960 90 24 7f
+        e 480 80 24 00
+        e 0 90 24 7f
+        e 480 80 24 00
+        e 1920 90 24 7f
+        e 480 80 24 00
+        e 1440 90 24 7f
+        e 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        e 0 90 24 7f
+        e 480 80 24 00
+        e 960 90 24 7f
+        e 480 80 24 00
+        e 0 90 24 7f
+        e 480 80 24 00
+        e 1920 90 24 7f
+        e 480 80 24 00
+        e 1440 90 24 7f
+        e 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        e 0 90 24 7f
+        e 480 80 24 00
+        e 960 90 24 7f
+        e 480 80 24 00
+        e 0 90 24 7f
+        e 480 80 24 00
+        e 1920 90 24 7f
+        e 480 80 24 00
+        e 1440 90 24 7f
+        e 480 80 24 00
+        E 2400 b0 7b 00
+        CCINTERP 32
+        CHASE_CC_TAKEOFFS 1
+        GUID {69F8DF41-CD27-4D0B-A19E-4B3851F48789}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 0
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        VELLANE -1 100 0 0 1
+        CFGEDITVIEW 12202.77551 0.254465 83 18 0 -1 0 0 0 0.5
+        KEYSNAP 0
+        TRACKSEL 252
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 670 353 1681 1084 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+    <ITEM
+      POSITION 74.66666666666667
+      SNAPOFFS 0
+      LENGTH 10
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {A21E0E5E-A6D1-4E51-943E-160B83B3F1F8}
+      IID 1
+      NAME 07-4klang-MIDI
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {C0460C19-6615-4E0E-8565-242061637D02}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {AD4E8B6B-D562-45B2-89E3-FF292F88054A}
+        E 0 90 24 7f
+        E 480 80 24 00
+        E 2400 90 24 7f
+        E 480 80 24 00
+        E 4320 b0 7b 00
+        CCINTERP 32
+        CHASE_CC_TAKEOFFS 1
+        GUID {69F8DF41-CD27-4D0B-A19E-4B3851F48789}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 0
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        VELLANE -1 100 0 0 1
+        CFGEDITVIEW -3704.633109 0.027581 80 18 0 -1 0 0 0 0.5
+        KEYSNAP 0
+        TRACKSEL 252
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 498 644 1758 1375 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+  >
+  <TRACK {3DC4C3D4-EA5F-45E7-A8B5-83F042039C88}
+    NAME "4klang - 7 - SNARE"
+    PEAKCOL 16777471
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 0 5088 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    TRACKIMGFN "snare_top.png"
+    FX 1
+    TRACKID {3DC4C3D4-EA5F-45E7-A8B5-83F042039C88}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 0 0
+    <ITEM
+      POSITION 10.66666666666667
+      SNAPOFFS 0
+      LENGTH 64
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {DAC78D5A-3A46-4CB7-A184-AC32784CAF04}
+      IID 1
+      NAME 07-4klang-MIDI
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {1178D096-5E75-47C9-B106-56CAF4ED4F70}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {67266B32-9A73-4308-8583-A8FAD113C849}
+        e 1920 90 24 7f
+        e 480 80 24 00
+        e 3360 90 24 7f
+        e 480 80 24 00
+        e 3360 90 24 7f -27
+        e 480 80 24 00 -27
+        e 3360 90 24 7f
+        e 480 80 24 00
+        e 3360 90 24 7f 1
+        e 480 80 24 00 1
+        e 3360 90 24 7f 1
+        e 480 80 24 00 1
+        e 3360 90 24 60
+        e 480 80 24 00
+        E 5280 b0 7b 00
+        CCINTERP 32
+        CHASE_CC_TAKEOFFS 1
+        GUID {69F8DF41-CD27-4D0B-A19E-4B3851F48789}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 0
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        VELLANE -1 100 0 0 1
+        CFGEDITVIEW 27253.616327 0.361314 87 18 0 -1 0 0 0 0.5
+        KEYSNAP 0
+        TRACKSEL 252
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 697 425 1957 1156 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+  >
+  <TRACK {3FCC4B7D-A017-4625-8CFF-7606E34AC31B}
+    NAME "4klang - 8 - snare"
+    PEAKCOL 25198847
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 0 5088 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    TRACKIMGFN "snare_bottom.png"
+    FX 1
+    TRACKID {3FCC4B7D-A017-4625-8CFF-7606E34AC31B}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 0 0
+    <ITEM
+      POSITION 10.66666666666667
+      SNAPOFFS 0
+      LENGTH 64
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {4D53F05C-D2DE-4D25-A80E-17F52D65AD69}
+      IID 1
+      NAME 07-4klang-MIDI
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {576BC73A-A23D-418F-8BF1-212C4B812DF5}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {CEC97908-09D3-4D04-87CF-28F5DA461E02}
+        E 1440 90 24 7f
+        E 480 80 24 00
+        E 1440 90 24 7f
+        E 480 80 24 00
+        E 480 90 24 7f
+        E 480 80 24 00
+        E 480 90 24 7f
+        E 480 80 24 00
+        E 1440 90 24 7f
+        E 480 80 24 00
+        E 1440 90 24 7f
+        E 480 80 24 00
+        E 1440 90 24 7f
+        E 480 80 24 00
+        E 480 90 24 7f
+        E 480 80 24 00
+        E 480 90 24 7f
+        E 480 80 24 00
+        E 1440 90 24 7f
+        E 480 80 24 00
+        E 1440 90 24 7f
+        E 480 80 24 00
+        E 1440 90 24 7f
+        E 480 80 24 00
+        E 480 90 24 7f
+        E 480 80 24 00
+        E 480 90 24 7f
+        E 480 80 24 00
+        E 1440 90 24 7f
+        E 480 80 24 00
+        E 1440 90 24 7f
+        E 480 80 24 00
+        E 1440 90 24 7f
+        E 480 80 24 00
+        E 480 90 24 7f
+        E 480 80 24 00
+        E 480 90 24 7f
+        E 480 80 24 00
+        E 1920 b0 7b 00
+        CCINTERP 32
+        CHASE_CC_TAKEOFFS 1
+        GUID {69F8DF41-CD27-4D0B-A19E-4B3851F48789}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 0
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        VELLANE -1 100 0 0 1
+        CFGEDITVIEW 171213.855014 0.021485 87 18 0 -1 0 0 0 0.5
+        KEYSNAP 0
+        TRACKSEL 252
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 976 480 2236 1211 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+    <ITEM
+      POSITION 74.66666666666667
+      SNAPOFFS 0
+      LENGTH 10
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {4BF8D827-3DB0-443B-AB79-1857AF8F6321}
+      IID 1
+      NAME 07-4klang-MIDI
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {72EBB999-449E-4B0B-90CD-86F39CF3A379}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {8FA1D2F0-DD22-4477-9F89-9E1BC501E0E8}
+        E 1920 90 24 7f
+        E 480 80 24 00
+        E 960 90 24 7f
+        E 480 80 24 00
+        E 480 90 24 7f
+        E 480 80 24 00
+        E 960 90 24 7f
+        E 480 80 24 00
+        E 1440 b0 7b 00
+        CCINTERP 32
+        CHASE_CC_TAKEOFFS 1
+        GUID {69F8DF41-CD27-4D0B-A19E-4B3851F48789}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 0
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        VELLANE -1 100 0 0 1
+        CFGEDITVIEW -13106.144986 0.021485 87 18 0 -1 0 0 0 0.5
+        KEYSNAP 0
+        TRACKSEL 252
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 976 480 2236 1211 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+  >
+  <TRACK {F2AABEFB-CD53-4C9E-A0A1-1F0303EB52B1}
+    NAME "4klang - 9 - HIHAT"
+    PEAKCOL 16810239
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 0 5088 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    TRACKIMGFN "hihat.png"
+    FX 1
+    TRACKID {F2AABEFB-CD53-4C9E-A0A1-1F0303EB52B1}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 0 0
+    <ITEM
+      POSITION 10.66666666666667
+      SNAPOFFS 0
+      LENGTH 64
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {06911902-2AAF-4B14-AE38-4426215A5901}
+      IID 1
+      NAME 07-4klang-MIDI
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {186CA540-6079-4C78-88DC-CC366E2091C7}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {B7DD7010-3E3D-49CB-8CFC-50F8067B1C7F}
+        e 0 90 24 7f
+        e 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        e 1440 90 24 7f
+        e 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        e 1440 90 24 7f
+        e 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        e 1440 90 24 7f
+        e 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        E 2400 b0 7b 00
+        CCINTERP 32
+        CHASE_CC_TAKEOFFS 1
+        GUID {69F8DF41-CD27-4D0B-A19E-4B3851F48789}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 0
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        VELLANE -1 100 0 0 1
+        CFGEDITVIEW 183755.133792 0.069366 87 18 0 -1 0 0 0 0.5
+        KEYSNAP 0
+        TRACKSEL 252
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 526 458 1786 1189 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+    <ITEM
+      POSITION 74.66666666666667
+      SNAPOFFS 0
+      LENGTH 10
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {42B49BE2-0ABF-4BDA-8DC4-A50B9AF6D8EB}
+      IID 1
+      NAME 07-4klang-MIDI
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {2E98D4BB-C853-4E2E-BE40-95BC34EA1235}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {22827896-3583-4F27-9BA2-D11700C5622C}
+        E 0 90 24 7f
+        E 480 80 24 00
+        E 480 90 24 7f
+        E 480 80 24 00
+        E 480 90 24 7f
+        E 480 80 24 00
+        E 480 90 24 7f
+        E 480 80 24 00
+        E 480 90 24 7f
+        E 480 80 24 00
+        E 480 90 24 7f
+        E 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        E 480 90 24 7f
+        E 480 80 24 00
+        E 480 90 24 7f
+        E 480 80 24 00
+        E 480 90 24 7f
+        E 480 80 24 00
+        E 480 90 24 7f
+        E 480 80 24 00
+        E 480 90 24 7f
+        E 480 80 24 00
+        E 480 90 24 7f
+        E 480 80 24 00
+        E 480 b0 7b 00
+        CCINTERP 32
+        CHASE_CC_TAKEOFFS 1
+        GUID {69F8DF41-CD27-4D0B-A19E-4B3851F48789}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 0
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        VELLANE -1 100 0 0 1
+        CFGEDITVIEW -556.553079 0.069366 87 18 0 -1 0 0 0 0.5
+        KEYSNAP 0
+        TRACKSEL 252
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 976 480 2236 1211 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+  >
+  <TRACK {63C6C046-88F8-4106-8F3B-0EB822CBFE27}
+    NAME "4klang - 10 - OHAT"
+    PEAKCOL 16842751
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 0 5088 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    TRACKIMGFN "hihat.png"
+    FX 1
+    TRACKID {63C6C046-88F8-4106-8F3B-0EB822CBFE27}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 0 0
+    <ITEM
+      POSITION 10.66666666666667
+      SNAPOFFS 0
+      LENGTH 64
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {C02FCDB7-BD30-4BE5-827B-2834B2426A1E}
+      IID 1
+      NAME 07-4klang-MIDI
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {DC82FF97-DE01-4DCD-AF66-AE0012696BD1}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {B3650E4A-AA6B-4EA4-8749-0514B0570BEC}
+        e 2400 90 24 7f
+        e 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        e 1920 90 24 7f
+        e 960 80 24 00
+        e 3360 90 24 7f
+        e 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        e 1920 90 24 7f
+        e 960 80 24 00
+        e 3360 90 24 7f
+        e 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        e 1920 90 24 7f
+        e 960 80 24 00
+        e 3360 90 24 7f
+        e 480 80 24 00
+        e 480 90 24 7f
+        e 480 80 24 00
+        E 3840 b0 7b 00
+        CCINTERP 32
+        CHASE_CC_TAKEOFFS 1
+        GUID {69F8DF41-CD27-4D0B-A19E-4B3851F48789}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 0
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        VELLANE -1 100 0 0 1
+        CFGEDITVIEW -13801.461133 0.017828 87 18 0 -1 0 0 0 0.5
+        KEYSNAP 0
+        TRACKSEL 252
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 594 409 1854 1140 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+  >
+  <TRACK {FB32C38C-42AE-4F10-B36F-5A0F1CC30509}
+    NAME "4klang - 11 - CRASH"
+    PEAKCOL 25231359
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 0 5088 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    TRACKIMGFN "cymbal_large.png"
+    FX 1
+    TRACKID {FB32C38C-42AE-4F10-B36F-5A0F1CC30509}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 0 0
+    <ITEM
+      POSITION 0
+      SNAPOFFS 0
+      LENGTH 80
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {82FD3317-E917-4BA6-A9FD-9AD556A6AA29}
+      IID 1
+      NAME 07-4klang-MIDI
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {F0F28756-09E1-4C6D-AA65-1F194567F5CA}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {ACDC7AA4-64A2-436E-89E3-4EAAC4D6BA1F}
+        e 0 90 24 7f
+        e 15360 80 24 00
+        E 0 b0 7b 00
+        CCINTERP 32
+        CHASE_CC_TAKEOFFS 1
+        GUID {69F8DF41-CD27-4D0B-A19E-4B3851F48789}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 0
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        VELLANE -1 100 0 0 1
+        CFGEDITVIEW 0 0.003073 87 18 0 -1 0 0 0 0.5
+        KEYSNAP 0
+        TRACKSEL 252
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 2662 824 3922 1555 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+    <ITEM
+      POSITION 85
+      SNAPOFFS 0
+      LENGTH 5.33333333333333
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {1E8DE3F3-8B2B-47DE-8AD7-05A488DA5365}
+      IID 1
+      NAME 07-4klang-MIDI
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {00F55C83-F64B-4B51-A815-20757955D6B8}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {1850D6F5-4A40-4FF0-A8BF-068A4EA9B8DB}
+        e 0 90 24 7f
+        e 15360 80 24 00
+        E 0 b0 7b 00
+        CCINTERP 32
+        CHASE_CC_TAKEOFFS 1
+        GUID {69F8DF41-CD27-4D0B-A19E-4B3851F48789}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 0
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        VELLANE -1 100 0 0 1
+        CFGEDITVIEW 0 0.003073 87 18 0 -1 0 0 0 0.5
+        KEYSNAP 0
+        TRACKSEL 252
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 2662 824 3922 1555 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+  >
+  <TRACK {AA2FBB14-D299-4BF7-9E2A-439597450CEC}
+    NAME "4klang - 12 - EFFECT"
+    PEAKCOL 16842496
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 0 5088 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    TRACKIMGFN "idea.png"
+    FX 1
+    TRACKID {AA2FBB14-D299-4BF7-9E2A-439597450CEC}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 0 0
+    <ITEM
+      POSITION 0
+      SNAPOFFS 0
+      LENGTH 85.33333333333333
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {1AB33E8B-9E05-4C78-9815-C4FF6C856639}
+      IID 1
+      NAME 07-4klang-MIDI
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {16C30E39-59EE-4F76-BF8A-53D057FB9AE9}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {35CC2167-6FA5-4E1A-AE4F-53CAB926CA3F}
+        e 28800 90 24 7f
+        e 1920 80 24 00
+        E 0 b0 7b 00
+        CCINTERP 32
+        CHASE_CC_TAKEOFFS 1
+        GUID {69F8DF41-CD27-4D0B-A19E-4B3851F48789}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 0
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        VELLANE -1 100 0 0 1
+        CFGEDITVIEW 30828.016327 0.021471 87 18 0 -1 0 0 0 0.5
+        KEYSNAP 0
+        TRACKSEL 252
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 2662 824 3922 1555 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+  >
+  <TRACK {3D58A7CC-6784-467D-A8D0-4E7270994465}
+    NAME "4klang - 13"
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 1 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 0 5088 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {3D58A7CC-6784-467D-A8D0-4E7270994465}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 0 0
+  >
+  <TRACK {5793FFB8-9D1C-4217-8FA1-141A093FAE2E}
+    NAME "4klang - 14"
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 1 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 0 5088 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {5793FFB8-9D1C-4217-8FA1-141A093FAE2E}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 0 0
+  >
+  <TRACK {D0BA211C-9933-422E-9705-C90C11F0BA1B}
+    NAME "4klang - 15"
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 1 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 0 5088 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {D0BA211C-9933-422E-9705-C90C11F0BA1B}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 0 0
+  >
+  <TRACK {20398A4C-BD43-4404-85FC-0711E9231B67}
+    NAME "4klang - 16"
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 1 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 0 5088 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {20398A4C-BD43-4404-85FC-0711E9231B67}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 0 0
+  >
+  <TRACK {A8EDF82E-9F10-4FEF-A259-876EC3131985}
+    NAME ""
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    PANLAWFLAGS 3
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 0 0 1 0 0 0 0 0
+    VU 64
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {A8EDF82E-9F10-4FEF-A259-876EC3131985}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+  >
+  <TRACK {36C124F2-407B-40DE-AF7F-736FDFC2A0AA}
+    NAME ""
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    PANLAWFLAGS 3
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 0 0 1 0 0 0 0 0
+    VU 64
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {36C124F2-407B-40DE-AF7F-736FDFC2A0AA}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+  >
+  <TRACK {95818A9A-7D27-4083-A01F-BECD177BB57D}
+    NAME ""
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    PANLAWFLAGS 3
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 0 0 1 0 0 0 0 0
+    VU 64
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {95818A9A-7D27-4083-A01F-BECD177BB57D}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+  >
+  <TRACK {318B267D-9459-47BB-B4A3-65B9EFD4E0F2}
+    NAME ""
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    PANLAWFLAGS 3
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 0 0 1 0 0 0 0 0
+    VU 64
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {318B267D-9459-47BB-B4A3-65B9EFD4E0F2}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+  >
+>
