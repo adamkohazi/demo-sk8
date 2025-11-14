@@ -350,19 +350,24 @@ float calcOcclusion(vec3 pos, in vec3 nor)
 void main(void)
 {
     // Pixel coordinates (from -1 to 1)
-    // Also downscales image to get that retro look
-    vec2 p = (2.0*floor(gl_FragCoord)-vec2(1280, 720))/720.;
-
-    // Camera position
-    vec3 rayOrigin = vec3(0, 0.2, -2);
-    //vec3 rayOrigin = vec3(1.0*sin(TIME), 0.2, -1.0*cos(TIME));
-    vec3 cameraDirection = vec3(0,0.2,0) - rayOrigin;
+    vec2 uv = (2.0*floor(gl_FragCoord)-vec2(1280, 720))/720.;
     
-    // Find ray direction for ray marching, based on position and direction
-    vec3 i_ww = normalize(cameraDirection);
-    vec3 i_uu = normalize(cross(i_ww, vec3(0.0, 1.0, 0.0)));
-    vec3 i_vv = normalize(cross(i_uu, i_ww));
-    vec3 rayDirection = normalize(p.x * i_uu + p.y * i_vv + 2.0 * i_ww);
+    // Camera position and target point
+    // Camera is moved around a circle pointing to the center
+    float r = 2.0;
+    float h = 0.5;
+    //vec3 rayOrigin = vec3(r*sin(iTime/10.0),h,r*cos(iTime/10.0));
+    vec3 rayOrigin = vec3(0,0.3,-1.5);
+    vec3 cameraPointingAt = vec3(0,0.3,0);
+    float zoom = 2.0;
+    
+    // Calculating ray angles
+    vec3 ww = normalize(vec3(cameraPointingAt - rayOrigin));
+    vec3 uu = normalize(cross(ww, vec3(0,1,0)));
+    vec3 vv = normalize(cross(uu, ww));
+
+    vec3 rayDirection = normalize(ww*zoom + uv.x*uu + uv.y*vv);
+
     
     vec3 render = castRay(rayOrigin, rayDirection);
     float distance = render.x;

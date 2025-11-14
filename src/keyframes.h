@@ -49,18 +49,20 @@ struct Keyframe {
 template<typename ValueType, size_t N>
 ValueType findValue(float time, const Keyframe<ValueType>(&keys)[N]) {
     // Find previous and next keyframes
-    for (size_t i = 1; i < N && time < keys[i].time; ++i) {
-        float a = (float)keys[i - 1].value;
-        float b = (float)keys[i].value;
-        float t = (time - keys[i - 1].time) / (keys[i].time - keys[i - 1].time);
-        // Interpolate
-        return
-            keys[i].mode == STEP ? INTERP_STEP(a, b, t) :
-            keys[i].mode == LINEAR ? INTERP_LINEAR(a, b, t) :
-            keys[i].mode == QUADRATIC_IN ? INTERP_QUADRATIC_IN(a, b, t) :
-            keys[i].mode == SMOOTHSTEP ? INTERP_SMOOTHSTEP(a, b, t) :
-            INTERP_CUBIC_IN(a, b, t);
-    }
+    size_t i = 1;
+    while ((i < N) && (time > keys[i].time))
+        i++;
+    float a = (float)keys[i - 1].value;
+    float b = (float)keys[i].value;
+    float t = (time - keys[i - 1].time) / (keys[i].time - keys[i - 1].time);
+    // Interpolate
+    return
+        keys[i].mode == STEP ? INTERP_STEP(a, b, t) :
+        keys[i].mode == LINEAR ? INTERP_LINEAR(a, b, t) :
+        keys[i].mode == QUADRATIC_IN ? INTERP_QUADRATIC_IN(a, b, t) :
+        keys[i].mode == QUADRATIC_OUT ? INTERP_QUADRATIC_OUT(a, b, t) :
+        INTERP_SMOOTHSTEP(a, b, t);
+
     // Fallback to last keyframe
     return (float)keys[N - 1].value;
 }
