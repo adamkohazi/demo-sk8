@@ -1,3 +1,58 @@
+#define PI 3.14159
+
+/* Parameters */
+#define RAYMARCH_MAXITER 1024
+#define RAYMARCH_MINSTEP 0.001
+#define RAYMARCH_MAXDIST 128.0
+
+#define SHADOW_MAXDIST 32.0
+#define SHADOW_HARDNESS 8.0
+
+#define OCCLUSION_STEPS 5
+
+// Background
+#define SUNLIGHT_DIRECTION normalize(vec3(5, 3, -10))
+#define SUN_DIRECTION normalize(vec3(5, 1, -10))
+#define SUN_COLOR normalize(vec3(8, 4, 0))
+
+#define SKY_COLOR normalize(vec3(1, 3, 5))
+#define AMBIENT_COLOR normalize(vec3(2, 1, 0))
+
+#define CLOUD_FREQ 2.0
+#define CLOUD_COLOR vec3(0.3, 0.4, 0.5)
+
+// Material IDs
+#define MAT_ID_DEFAULT 0
+#define MAT_ID_WATER 1
+#define MAT_ID_SAND 2
+#define MAT_ID_CONCRETE 3
+#define MAT_ID_PALM_TRUNK 4
+#define MAT_ID_PALM_LEAF 5
+#define MAT_ID_DECK 6
+#define MAT_ID_WHEEL 7
+#define MAT_ID_TRUCK 8
+#define MAT_ID_LEG 9
+#define MAT_ID_SHOE 10
+
+// Objects
+#define WATER_COLOR vec3(0.05, 0.1, 0.2)
+#define SAND_LIGHT vec3(0.5)
+#define SAND_DARK vec3(0.5)
+#define CONCRETE_LIGHT vec3(0.6)
+#define CONCRETE_DARK vec3(0.4)
+#define PALM_TRUNK vec3(0.3, 0.2, 0.1)
+#define PALM_LEAF vec3(0.1, 0.2, 0.1)
+#define COLOR_DECK vec3(1, 0, 0)
+#define COLOR_WHEEL vec3(1)
+#define COLOR_TRUCK vec3(0.3)
+#define COLOR_LEG vec3(0.1,0.2,0.4)
+#define COLOR_SHOE vec3(1)
+
+// Lighing
+#define SUN_BRIGHTNESS 4.0
+#define SKY_BRIGHTNESS 0.5
+#define BOUNCE_BRIGHTNESS 0.2
+
 // Outside variables
 uniform float TIME;
 
@@ -15,18 +70,8 @@ uniform float LEGLANKLE;
 uniform vec3 BODYHIPEULER;
 uniform vec3 BODYHIPPOS;
 
-// Constants
-const float PI = 3.14159;
-
 /* Data types */
-// Board
-// Structure describing relative board position
-struct BoardPosition {
-    vec3 position;
-    vec3 euler;
-};
 
-//Body
 // Structure describing relative position of a single leg
 struct LegPosition {
     // https://image1.slideserve.com/1887324/slide12-l.jpg
@@ -35,26 +80,72 @@ struct LegPosition {
     float ankleAngle;
 };
 
-// Structure describing relative position of the lower body
-struct BodyPosition {
-    vec3 hipPosition;
-    vec3 hipEuler;
-    LegPosition rightLeg;
-    LegPosition leftLeg;
-};
+/* Generic functions */
+// Convert to polar coords from cartesian coords
+vec3 polarCoords(vec3 cartesian) {
+    return vec3(
+        length(cartesian), //r
+        atan(cartesian.y, cartesian.x), //theta
+        acos(cartesian.z / length(cartesian))); //pi
+}
+
+
+/* Hash and Noise */
+// Hash: 1 out, 2 in
+// Copyright (c)2014 David Hoskins.
+// https://www.shadertoy.com/view/4djSRW
+float hash12(vec2 p)
+{
+	vec3 p3  = fract(vec3(p.xyx) * .1031);
+    p3 += dot(p3, p3.yzx + 33.33);
+    return fract((p3.x + p3.y) * p3.z);
+}
+
+// 2D Value noise by iq:
+// https://www.shadertoy.com/view/4dXBRH
+vec3 noise32(in vec2 p)
+{
+    vec2 i = floor(p);
+    vec2 f = fract(p);
+    // cubic interpolant
+    vec2 u = f*f*(3.0-2.0*f);
+    vec2 du = 6.0*f*(1.0-f);
+    
+    float va = hash12(i + vec2(0,0));
+    float vb = hash12(i + vec2(1,0));
+    float vc = hash12(i + vec2(0,1));
+    float vd = hash12(i + vec2(1,1));
+    
+    float k0 = va;
+    float k1 = vb - va;
+    float k2 = vc - va;
+    float k4 = va - vb - vc + vd;
+
+    return vec3(va+(vb-va)*u.x+(vc-va)*u.y+(va-vb-vc+vd)*u.x*u.y, // value
+                du*(u.yx*(va-vb-vc+vd) + vec2(vb,vc) - va));      // derivative  
+}
+
+// Fractal brownian motion - multiple octaves of noise
+vec3 fbm(vec2 p) {
+    return(
+        0.5 * noise32(p) +
+        0.25 * noise32(p*=2.02) +
+        0.125 * noise32(p*=2.02) +
+        0.0625 * noise32(p*=2.02)
+    )/0.9375;
+}
+
 
 /* SDF primitives */
-//Box
+// Sphere
+float SDFSphere(vec3 position, float radius) {
+    return length(position)-radius;
+}
+// Box
 float SDFBox(vec3 position, vec3 size) {
     vec3 q = abs(position) - 0.5 * size;
     return length(max(q, 0.0)) + min(max(q.x, max(q.y, q.z)), 0.0);
 }
-
-// Sphere
-float SDFSphere(vec3 position, float size) {
-  return length(position)-size;
-}
-
 // Capsule
 float SDFCapsule(vec3 position, vec3 startPoint, vec3 endPoint, float radius) {
   vec3 pa = position - startPoint;
@@ -69,33 +160,51 @@ float SDFCylinder(vec3 position, float height, float radius) {
   return min(max(d.x,d.y),0.0) + length(max(d,0.0));
 }
 
+
 /* SDF transformations */
-// 3D rotations
 // Rotate point around arbitrary axis
 // https://suricrasia.online/blog/shader-functions/
-vec3 rotateA(float theta, vec3 axis, vec3 point) {
-    return mix(dot(axis, point)*axis, point, cos(theta)) + cross(axis,point)*sin(theta);
+vec3 rotateA(vec3 point, vec3 axis, float theta) {
+    return mix(dot(axis, point)*axis, point, cos(theta)) + sin(theta)*cross(axis,point);
 }
 
 // Rotate point around main axis
 vec3 rotateX(float theta, vec3 point) {
-    return rotateA(theta, vec3(1,0,0), point);
+    return rotateA(point, vec3(1,0,0), theta);
 }
 
 vec3 rotateY(float theta, vec3 point) {
-    return rotateA(theta, vec3(0,1,0), point);
+    return rotateA(point, vec3(0,1,0), theta);
 }
 
 vec3 rotateZ(float theta, vec3 point) {
-    return rotateA(theta, vec3(0,0,1), point);
+    return rotateA(point, vec3(0,0,1), theta);
 }
 
-// Smooth Operators
-float opSmoothUnion( float d1, float d2, float k ) {
+// Twist around arbitrary axis
+vec3 twistA(vec3 point, vec3 axis, float twist) {
+    return rotateA(point, axis, dot(point, axis) * twist);
+}
+
+
+/* SDF operators */
+float opSmoothUnion(float d1, float d2, float k) {
     float h = clamp( 0.5 + 0.5*(d2-d1)/k, 0.0, 1.0 );
     return mix( d2, d1, h ) - k*h*(1.0-h);
 }
 
+float opSmoothSubtraction(float d1, float d2, float k) {
+    float h = clamp( 0.5 - 0.5*(d2+d1)/k, 0.0, 1.0 );
+    return mix( d2, -d1, h ) + k*h*(1.0-h);
+}
+
+float opSmoothIntersection(float d1, float d2, float k) {
+    float h = clamp( 0.5 - 0.5*(d2-d1)/k, 0.0, 1.0 );
+    return mix( d2, d1, h ) + k*h*(1.0-h);
+}
+
+
+/* Scene Assets */
 // Deck of a skateboard
 float SDFDeck(vec3 position) {
     position.x -= clamp(position.x, -0.25, 0.25);
@@ -129,36 +238,16 @@ float SDFTrucks(vec3 position) {
     return distance;
 }
 
-// Assemble skateboard from components
-float SDFSkateboard(vec3 position, BoardPosition board) {
-    vec3 centerpoint = vec3(0.0, 0.05, 0.0);
-    position -= centerpoint;
-    position -= board.position;
-    position = rotateZ(board.euler.z * 2.0 * PI, position);
-    position = rotateY(board.euler.y * 2.0 * PI, position); 
-    position = rotateX(board.euler.x * 2.0 * PI, position);
-    return min(SDFDeck(position + centerpoint),
-               min(SDFWheels(position + centerpoint),
-                   SDFTrucks(position + centerpoint))
-    );
-}
 
-// Shoe
-float SDFShoe(vec3 position, vec3 startPoint, vec3 endPoint, float radius) {
-  return max(
-      SDFCapsule(position, startPoint, endPoint, radius),
-      -dot(position-startPoint, cross(vec3(1,0,0), normalize(endPoint-startPoint)))
-  );
-}
-
+// Single leg
 float SDFLeg(vec3 position, LegPosition leg){
     const float thighLen = 0.4;
     const float shinLen = 0.3;
-    const float footLen = 0.12;
+    const float footLen = 0.1;
     
     const float thighWidth = 0.05;
-    const float shinWidth = 0.04;
-    const float footWidth = 0.04;
+    const float shinWidth = 0.05;
+    const float footWidth = 0.06;
     
     //Hip joint rotation
     position = rotateY(leg.hipJoint.z, position); //rotation
@@ -180,71 +269,73 @@ float SDFLeg(vec3 position, LegPosition leg){
     //distance = min(distance, SDFSphere(position-anklePos, 0.05));
     //distance = min(distance, SDFSphere(position-toePos, 0.05));
     
-    // Draw limbs
-    // Draw with cylinders
-    //distance = min(distance, SDFCylinder(rotateX(hipRAngle           ,position-hipRPos )+vec3(0,0.5*thighLen,0), 0.5*thighLen, 0.04));
-    //distance = min(distance, SDFCylinder(rotateX(hipRAngle+kneeRAngle,position-kneeRPos)+vec3(0,0.5*shinLen, 0), 0.5*shinLen , 0.03));
-    //distance = min(distance, SDFCylinder(rotateX(hipRAngle+kneeRAngle+ankleRAngle,position-ankleRPos)+vec3(0,0.5*footLen, 0), 0.5*footLen , 0.03));
-    
     // Draw with capsules
-    float distance = SDFCapsule(position, vec3(0), kneePos, thighWidth);
-    distance = min(distance, SDFCapsule(position, kneePos, anklePos, shinWidth));
-    distance = min(distance, SDFShoe(position, anklePos, toePos, footWidth));
+    float distance = SDFCapsule(position, vec3(0), kneePos, thighWidth); // thigh
+    distance = min(distance, SDFSphere(position-kneePos, thighWidth)); // knee
+    distance = min(distance, SDFCapsule(position, kneePos, anklePos, shinWidth)); // shin
+    
+    // Shoe
+    float shoe = max(
+        SDFCapsule(position, anklePos-0.1*(toePos-anklePos), toePos, footWidth), // extend heel back a bit
+        -dot(position-anklePos, cross(vec3(1,0,0), normalize(toePos-anklePos)))
+    );
+    distance = min(distance, shoe);
     
     return distance;
 }
 
-// Body
-float SDFBody(vec3 position, BodyPosition body) {
-    // Scale joint movements
-    body.hipEuler *= (2.0 * PI);
-    body.rightLeg.hipJoint.x *= 2.0 * PI * 140.0 / 360.0;
-    body.rightLeg.hipJoint.y *= 0.25 * PI;
-    body.rightLeg.hipJoint.z *= 0.25 * PI;
-    body.rightLeg.kneeAngle *= 2.0 * PI * 140.0 / 360.0;
-    body.rightLeg.ankleAngle = 0.5 * PI * (0.5 * body.rightLeg.ankleAngle - 1.0);
-
-    body.leftLeg.hipJoint.x *= 2.0 * PI * 140.0 / 360.0;
-    body.leftLeg.hipJoint.y *= 0.25 * PI;
-    body.leftLeg.hipJoint.z *= 0.25 * PI;
-    body.leftLeg.kneeAngle *= 2.0 * PI * 140.0 / 360.0;
-    body.leftLeg.ankleAngle = 0.5 * PI * (0.5 * body.leftLeg.ankleAngle - 1.0);
-
-
-    // Relative move according to keyframe info
-    position -= body.hipPosition;
+/* Main Scene */
+// This function defines the scene by returning the distance of the nearest point from given
+// position. Also sets the material ID for that point, via the "out" argument.
+float map(in vec3 position, out int materialID) {
+    // Water
+    float distance = position.y + 1.0;
+    float material_distance = distance;
+    materialID = MAT_ID_WATER;
     
-    const float hipHeight = 0.8;
-    const float hipWidth = 0.2;
-
-    float distance = 10.0;
+    // Sand
+    if(position.z > -20.0+3.0*sin(0.1*position.x))
+        materialID = MAT_ID_SAND;
     
-    position = rotateY(body.hipEuler.y, position);
+    // Platform
+    if(position.z > -2.0) {
+        distance = position.y;
+        material_distance = distance;
+        materialID = MAT_ID_CONCRETE;
+    }
     
-    vec3 hipRPos = vec3(hipWidth/2., hipHeight, 0);
-    //distance = min(distance, SDFSphere(position-hipRPos, 0.05));
-    vec3 hipLPos = vec3(-hipWidth/2., hipHeight, 0);
-    //distance = min(distance, SDFSphere(position-hipLPos, 0.05));
+    // Skateboard
+    const vec3 centerpoint = vec3(0,0.05,0);
+    vec3 local_pos = position-centerpoint;
     
-    return min(
-        SDFLeg(position-hipRPos, body.rightLeg),
-        SDFLeg(position-hipLPos, body.leftLeg)
-    );
-}
-
-// Scene
-float map(in vec3 position) {
-
-    // Ground plane
-    float distance = 10.0;
-    distance = min(distance, dot(position, vec3(0, 1, 0)));
-
-    // Board
-    BoardPosition boardPosition = BoardPosition(
-        BOARDPOS, // position
-        BOARDEULER  // euler
-    );
+    local_pos -= BOARDPOS;
+    local_pos = rotateZ(BOARDEULER.z, local_pos);
+    local_pos = rotateY(BOARDEULER.y, local_pos); 
+    local_pos = rotateX(BOARDEULER.x, local_pos);
     
+    // Deck
+    distance = min(distance, SDFDeck(local_pos + centerpoint));
+    // Update material
+    if (abs(distance-material_distance) > RAYMARCH_MINSTEP)
+        materialID = MAT_ID_DECK;
+    material_distance = distance;
+    
+    // Wheels
+    distance = min(distance, SDFWheels(local_pos + centerpoint));
+    // Update material
+    if (abs(distance-material_distance) > RAYMARCH_MINSTEP)
+        materialID = MAT_ID_WHEEL;
+    material_distance = distance;
+    
+    // Deck
+    distance = min(distance, SDFTrucks(local_pos + centerpoint));
+    // Update material
+    if (abs(distance-material_distance) > RAYMARCH_MINSTEP)
+        materialID = MAT_ID_TRUCK;
+    material_distance = distance;
+    
+    
+    // Body
     LegPosition legPosR = LegPosition(
         LEGRHIP, // hipJoint (x: flexion, y: abduction, z: rotation)
         LEGRKNEE, //kneeAngle
@@ -256,77 +347,167 @@ float map(in vec3 position) {
         LEGLKNEE, //kneeAngle
         LEGLANKLE  // ankleAngle
     );
-
-    BodyPosition bodyPosition = BodyPosition(
-        BODYHIPPOS, // hipPosition
-        BODYHIPEULER, // hipEuler
-        legPosR,
-        legPosL
-    );
     
-    distance = min(distance, SDFSkateboard(position, boardPosition));
-    distance = min(distance, SDFBody(position, bodyPosition));
+    // Scale joint movements
+    
+    legPosR.hipJoint.x *= 2.0 * PI * 140.0 / 360.0;
+    legPosR.hipJoint.y *= 0.25 * PI;
+    legPosR.hipJoint.z *= 0.25 * PI;
+    legPosR.kneeAngle *= 2.0 * PI * 140.0 / 360.0;
+    legPosR.ankleAngle = 0.5 * PI * (0.5 * legPosR.ankleAngle - 1.0);
+
+    legPosL.hipJoint.x *= 2.0 * PI * 140.0 / 360.0;
+    legPosL.hipJoint.y *= 0.25 * PI;
+    legPosL.hipJoint.z *= 0.25 * PI;
+    legPosL.kneeAngle *= 2.0 * PI * 140.0 / 360.0;
+    legPosL.ankleAngle = 0.5 * PI * (0.5 * legPosL.ankleAngle - 1.0);
+
+
+    // Relative move according to keyframe info
+    const float hipHeight = 0.8;
+    const float hipWidth = 0.2;
+    local_pos = position - BODYHIPPOS;
+    
+    // Twist hip
+    local_pos = rotateY(2.0 * PI * BODYHIPEULER.y, local_pos);
+    
+    vec3 hipRPos = vec3(hipWidth/2., hipHeight, 0);
+    //distance = min(distance, SDFSphere(position-hipRPos, 0.05));
+    vec3 hipLPos = vec3(-hipWidth/2., hipHeight, 0);
+    //distance = min(distance, SDFSphere(position-hipLPos, 0.05));
+    
+    distance = min(distance, min(
+        SDFLeg(local_pos-hipRPos, legPosL),
+        SDFLeg(local_pos-hipLPos, legPosL)
+    ));
+    
+    // Update material
+    if (abs(distance-material_distance) > RAYMARCH_MINSTEP)
+        materialID = MAT_ID_LEG;
+    material_distance = distance;
+    
+    
+    // Repeating boardwalk
+    position.x -= 20.0*round(position.x/20.0);
+    
+    // Ledges
+    distance = min(distance, SDFBox(position-vec3(0,0,-1.5), vec3(3, 1, 0.5)));
+    
+    // Update material
+    if (abs(distance-material_distance) > RAYMARCH_MINSTEP)
+        materialID = MAT_ID_CONCRETE;
+    material_distance = distance;
+
+    // Palm tree - trunk
+    vec3 location = position-vec3(0,-1,-12);
+    distance = min(distance, length(location+vec3(sin(2.0*location.y/15.0), -clamp(location.y, 0.0, 15.0), 0)) - 0.3);
+    
+    // Update material
+    if (abs(distance-material_distance) > RAYMARCH_MINSTEP)
+        materialID = MAT_ID_PALM_TRUNK;
+    material_distance = distance;
+    
+    // Palm tree - leaves
+    //Make leaves curve downward and position at top of trunk
+    location.y -= 15.0+sin(length(location.xz));
+    
+    vec3 polar = polarCoords(location);
+    float leaves = polar.x-max(0.1,4.0*cos(5.0*polar.y)*cos(5.0*polar.z))-0.5; //Leaves
+    
+    distance = min(distance, leaves);
+    
+    // Update material
+    if (abs(distance-material_distance) > RAYMARCH_MINSTEP)
+        materialID = MAT_ID_PALM_LEAF;
+    material_distance = distance;
+    
+    // Combine SDFs:
     return distance;
 }
 
-// Calculate surface normal
-// https://iquilezles.org/articles/normalsSDF/
-vec3 calculateNormal(vec3 p) {
-    float EPS = 0.001;
-    vec3 v1 = vec3(
-        map(p + vec3(EPS, 0.0, 0.0)),
-        map(p + vec3(0.0, EPS, 0.0)),
-        map(p + vec3(0.0, 0.0, EPS)));
-    vec3 v2 = vec3(
-        map(p - vec3(EPS, 0.0, 0.0)),
-        map(p - vec3(0.0, EPS, 0.0)),
-        map(p - vec3(0.0, 0.0, EPS)));
+vec3 drawBackground(vec3 direction) {
+    // Sky gradient
+    float gradient = 0.5 * pow(1.0-direction.y, 4.0);
+    vec3 color = mix(SKY_COLOR, AMBIENT_COLOR, gradient);
+    
+    // Sun
+    float sunAngle = clamp(dot(direction, SUN_DIRECTION), 0.0, 1.0);
+    color += 0.5 * SUN_COLOR * pow(sunAngle, 50.0);
+    color += 5.0 * SUN_COLOR * pow(sunAngle, 1000.0);
+    
 
-    return normalize(v1 - v2);
+    // Clouds
+    if (direction.y > 0.0) {
+        float clouds = fbm((CLOUD_FREQ/direction.y)*direction.xz).x;
+        vec3 cloudColor = mix(CLOUD_COLOR, 3.0*SUN_COLOR, pow(sunAngle, 3.0));
+        color = mix(color, cloudColor, 0.5*smoothstep(0.4, 1.0, clouds));
+    }
+    
+    // Mountains
+    if (direction.y < 0.3 * fbm(5.0*direction.xz).x - 0.1)
+        color = mix(color, vec3(0.3), 0.5+5.0*direction.y);
+    
+    return color;
 }
 
-// Ray marching: Follow a ray of light from camera origin until collision to find distance
-// and material. Material is passed along using the "out" argument.
-vec3 castRay(in vec3 rayOrigin, vec3 rayDirection) {
-    // material
-    float brightness = 1.0;
-
+/* Ray marching */
+// Follow a ray of light from camera origin until collision to find distance
+// and material. Material ID is passed along using the "out" argument.
+float castRay(in vec3 rayOrigin, vec3 rayDirection, out int materialID) {
     // Start from origin
     float distance = 0.0;
-    for(int i=0; i<100; i++) {
+    for(int i=0; i<RAYMARCH_MAXITER; i++) {
         // Find stepsize for marching (distance of closest point from current position)
-        float step = map(rayOrigin + distance * rayDirection);
+        float step = map(rayOrigin + distance * rayDirection, materialID)/2.0;
 
         // An object is hit
-        if(step < 0.001) {
-            return vec3(distance, 0.5, 0);
-        }
+        if(step < RAYMARCH_MINSTEP)
+            return distance;
             
         // March!
         distance += step;
-    } 
-    
-    // Object not hit
-    return vec3(-1, 1, 0);
+
+        // If ray doesn't hit any objects and maximum render distance is reached,
+        // draw the background
+        if(length(rayOrigin + distance * rayDirection) > RAYMARCH_MAXDIST)
+            break;
+    }
+    // Return a negative distance, so background is not affected by lighting.
+    return -1.0;
+}
+
+/* Calculations for rendering */
+// Calculate surface normal
+// https://iquilezles.org/articles/normalsSDF/
+vec3 calculateNormal(vec3 p) {
+    int dummy;
+    vec3 v1 = vec3(
+        map(p + vec3(RAYMARCH_MINSTEP,  0 ,  0 ), dummy),
+        map(p + vec3( 0 , RAYMARCH_MINSTEP,  0 ), dummy),
+        map(p + vec3( 0 ,  0 , RAYMARCH_MINSTEP), dummy));
+    vec3 v2 = vec3(
+        map(p - vec3(RAYMARCH_MINSTEP,  0 ,  0 ), dummy),
+        map(p - vec3( 0 , RAYMARCH_MINSTEP,  0 ), dummy),
+        map(p - vec3( 0 ,  0 , RAYMARCH_MINSTEP), dummy));
+
+    return normalize(v1 - v2);
 }
 
 // Calculate soft shadows
 // Thanks iq!
 // https://iquilezles.org/articles/rmshadows/
-float softShadow( in vec3 ro, in vec3 rd, float mint, float maxt, float w )
+float softShadow(in vec3 rayOrigin, vec3 rayDirection)
 {
     float res = 1.0;
-    float ph = 1e20;
-    float t = mint;
-    for(int i=0; i<256 && t<maxt; i++) {
-        float h = map(ro + rd*t);
-        if(h<0.001)
+    float distance = 0.0;   // Min distance
+    int dummy;
+    while (distance < SHADOW_MAXDIST) // Max distance
+    {
+        float step = map(rayOrigin + distance * rayDirection, dummy);
+        if(step < RAYMARCH_MINSTEP)
             return 0.0;
-        float y = h*h/(2.0*ph);
-        float d = sqrt(h*h-y*y);
-        res = min( res, d/(w*max(0.0,t-y)) );
-        ph = h;
-        t += h;
+        res = min(res, SHADOW_HARDNESS * step/distance);
+        distance += step;
     }
     return res;
 }
@@ -334,87 +515,185 @@ float softShadow( in vec3 ro, in vec3 rd, float mint, float maxt, float w )
 // Calculate ambient occlusions
 // Stole it from here:
 // https://www.shadertoy.com/view/3lsSzf
-float calcOcclusion(vec3 pos, in vec3 nor)
+float calcOcclusion(vec3 position, in vec3 normal)
 {
-	float occ = 0.0;
-    float sca = 1.0;
-    for(int i=0; i<5; i++) {
-        float h = 0.01 + 0.11*float(i)/4.0;
-        vec3 opos = pos + h*nor;
-        occ += (h-map(opos))*sca;
-        sca *= 0.95;
+    // Total accumulated occlusion
+    float occlusion = 0.0;
+    
+    int dummy_material;
+    
+    // Loop through sample points to calculate occlusion
+    for(int i = 1; i < OCCLUSION_STEPS; i++)
+    {
+        // Calculate the offset 'height' for the current sample
+        float height = 1.0 * pow(float(i)/float(OCCLUSION_STEPS), 2.0);
+        
+        // Calculate position
+        vec3 samplePosition = position + height * normal;
+        
+        // Increase occlusion based on distance from map
+        occlusion += map(samplePosition, dummy_material) / height;
     }
-    return clamp(1.0 - 2.0*occ, 0.0, 1.0);
+    
+    // Return the final occlusion value, clamped between 0.0 and 1.0, where 1.0 means no occlusion
+    return clamp(occlusion/float(OCCLUSION_STEPS), 0.0, 1.0);
 }
 
-void main(void)
-{
+
+/* Entry Point */
+
+//void mainImage( out vec4 fragColor, in vec2 fragCoord ) {
+void main(void) {
     // Pixel coordinates (from -1 to 1)
+    //vec2 uv = (2.0*floor(fragCoord)-iResolution.xy)/iResolution.y;
     vec2 uv = (2.0*floor(gl_FragCoord)-vec2(1280, 720))/720.;
     
     // Camera position and target point
     // Camera is moved around a circle pointing to the center
     float r = 2.0;
-    float h = 0.5;
-    //vec3 rayOrigin = vec3(r*sin(iTime/10.0),h,r*cos(iTime/10.0));
-    vec3 rayOrigin = vec3(0,0.3,-1.5);
-    vec3 cameraPointingAt = vec3(0,0.3,0);
-    float zoom = 2.0;
+    float h = 0.3;
+    float speed = 0.1;
+    //vec3 rayOrigin = vec3(r*sin(iTime * speed),h,r*cos(iTime * speed));
+    vec3 rayOrigin = vec3(0,0.3,1.5);
     
     // Calculating ray angles
-    vec3 ww = normalize(vec3(cameraPointingAt - rayOrigin));
+    vec3 target = vec3(0,0,0);
+    float zoom = 2.0;
+    vec3 ww = normalize(vec3(target - rayOrigin));
     vec3 uu = normalize(cross(ww, vec3(0,1,0)));
     vec3 vv = normalize(cross(uu, ww));
-
     vec3 rayDirection = normalize(ww*zoom + uv.x*uu + uv.y*vv);
-
     
-    vec3 render = castRay(rayOrigin, rayDirection);
-    float distance = render.x;
-    float brightness = render.y;
+    // Render Scene (single render pass)
+    // Perform ray marhcing:
+    // This finds the material and distance for the current pixel.
+    int materialID;
+    float distance = castRay(rayOrigin, rayDirection, materialID);
     
-    // Calculate lighting for valid collisions:
-    // This excludes lighting the background
-    if (distance > 0.0) {
-        // Ray hit
+    // This will be the final color of pixel
+    vec3 color;
+    
+    // Ray hit
+    if(distance > 0.0) {
+        // Surface parameters
         vec3 position = rayOrigin + distance * rayDirection;
         vec3 normal = calculateNormal(position);
+        float noise = fbm(5.0*position.xz + position.y).x;
         
-        // Ambient light 1
-        float lightAmbientStrength = 0.0;
-         
-        // Diffused light 1
-        vec3 light1Direction = normalize(vec3(0.3, 1, 0.2));
+        // Material
+        // Water
+        if(materialID == MAT_ID_WATER) {
+            // Reflectivity (Fresnel)
+            float reflectivity = pow(1.0 - clamp(dot(normal, -rayDirection), 0.0, 1.0), 5.0); //5.0 is magic number
+            
+            // Displacement vector from noise (simulating waves)
+            //vec3 displacement = fbm(position.xz+0.2*iTime);
+            vec3 displacement = fbm(position.xz+0.2*TIME);
+            
+            // Reflection
+            rayDirection = reflect(rayDirection, normalize(vec3(0,10.0+distance,0)+displacement));
+            vec3 reflection = drawBackground(rayDirection-vec3(0, 0.05, 0));
+            
+            // If not reflected, show water color
+            vec3 water = WATER_COLOR;
+            color = mix(water, reflection, reflectivity);
+            
+            // Add specular reflection for sun
+            color += SUN_COLOR * pow(clamp(dot(rayDirection, SUN_DIRECTION), 0.0, 1.0), 5.0); 
+        }
+        // Lights don't affect water
+        else {
+            // Unmapped Material - checkerboard pattern
+            if (materialID == MAT_ID_DEFAULT) {
+                vec2 s = sign(fract(position.xz * 0.5)-0.5);
+                color = mix(vec3(10,0,10), vec3(0), clamp(s.x*s.y, 0.0, 1.0));
+            }
+            
+            // Sand
+            if (materialID == MAT_ID_SAND) {
+                color = mix(0.3 * SKY_COLOR, vec3(1.0), noise);
+            }
+            
+            // Concrete
+            if (materialID == MAT_ID_CONCRETE) {
+                color = mix(CONCRETE_DARK, CONCRETE_LIGHT, noise);
+            }
+            
+            // Sand
+            if (materialID == MAT_ID_PALM_TRUNK) {
+                color = PALM_TRUNK;
+            }
+            
+            // Sand
+            if (materialID == MAT_ID_PALM_LEAF) {
+                color = PALM_LEAF;
+            }
+            
+            // Deck
+            if (materialID == MAT_ID_DECK) {
+                color = COLOR_DECK;
+            }
+            
+            // Wheels
+            if (materialID == MAT_ID_WHEEL) {
+                color = COLOR_WHEEL;
+            }
+            
+            // Trucks
+            if (materialID == MAT_ID_TRUCK) {
+                color = COLOR_TRUCK;
+            }
+            
+            // Legs
+            if (materialID == MAT_ID_LEG) {
+                color = COLOR_LEG;
+            }
+            
+            // Shoes
+            if (materialID == MAT_ID_SHOE) {
+                color = COLOR_SHOE;
+            }
+            
         
-        float light1Strength = 1.0;
-        float diffusedLight1 = clamp(dot(normal, light1Strength*light1Direction),0.0, 1.0);
+            // Ambient occlusion
+            float occlusion = calcOcclusion(position, normal);
 
-        // Soft shadows
-        float minDistance = 0.01;
-        float maxDistance = 5.0;
-        float hardness = 0.5;
-        float shadow1 = softShadow(position + 0.001*normal, light1Direction, minDistance, maxDistance, hardness);
+            // Soft shadows
+            float shadow = clamp(softShadow(position + RAYMARCH_MINSTEP * normal, SUNLIGHT_DIRECTION), 0.0, 1.0);
+
+            // Direct light from Sun
+            vec3 sunLight = SUN_BRIGHTNESS * SUN_COLOR * clamp(dot(normal, SUNLIGHT_DIRECTION), 0.0, 1.0);
+
+            // Diffused light from Sky
+            vec3 skyLight = SKY_BRIGHTNESS * SKY_COLOR * (0.5+0.5*normal.y);
+            
+            // Bounce light from sunny surfaces
+            vec3 bounceLight = BOUNCE_BRIGHTNESS * AMBIENT_COLOR * dot(normal, SUN_DIRECTION*(vec3(-1,0,-1)));
+            
+            // Specular using Blinn-Phong
+            vec3 half1 = normalize(SUN_DIRECTION - rayDirection);
+            vec3 specular = SUN_BRIGHTNESS * SUN_COLOR * pow(clamp(dot(half1, normal), 0.0, 1.0), 16.0) //16.0 sets radius
+                // Fresnel effect
+                * pow(1.0 - clamp(dot(half1, SUNLIGHT_DIRECTION), 0.0, 1.0), 5.0); //5.0 is magic number
+
+            // Combine lights and shadows
+            color *= (shadow*sunLight + skyLight + bounceLight);
         
-        // Fake ambient occlusion
-        //float occlusion = calcOcclusion(position, normal) * 1.0;
+            // Shiny surfaces
+            if(materialID == MAT_ID_CONCRETE)
+                color += noise * specular * shadow;
+        }
         
-        //Mixing lights
-        float linear = 0.0;
-        linear += lightAmbientStrength;
-        linear += diffusedLight1 * shadow1;
-        //linear *= occlusion;
-        
-        brightness = brightness * linear;
-        
-        // Distance fog
-        brightness += min(1.0, 0.01*distance*distance);
     }
     
-    vec3 color = vec3(brightness);
-
+    // If nothing was hit - background
+    else
+        color = drawBackground(rayDirection);
+    
     // Gamma correction
     color = pow(color, vec3(0.4545));
 
     // Output to screen
+    //fragColor = vec4(color,1.0);
     gl_FragColor = vec4(color, 1.0);
 }
