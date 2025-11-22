@@ -46,7 +46,7 @@
 #define COLOR_WHEEL vec3(1)
 #define COLOR_TRUCK vec3(0.3)
 #define COLOR_LEG vec3(0.1,0.2,0.4)
-#define COLOR_SHOE vec3(1)
+#define COLOR_SHOE vec3(0.05)
 
 // Lighing
 #define SUN_BRIGHTNESS 4.0
@@ -56,29 +56,54 @@
 // Outside variables
 uniform float TIME;
 
-uniform vec3 BOARDPOS;
 uniform vec3 BOARDEULER;
-
-uniform vec3 LEGRHIP;
-uniform float LEGRKNEE;
-uniform float LEGRANKLE;
-
-uniform vec3 LEGLHIP;
-uniform float LEGLKNEE;
-uniform float LEGLANKLE;
+uniform vec3 BOARDPOS;
 
 uniform vec3 BODYHIPEULER;
 uniform vec3 BODYHIPPOS;
 
-/* Data types */
+// Hip Internal/External rotation:
+//  -1: Fully rotated internally
+//   0: Straight
+//   1: Fully rotated externally
+//float hip_rotation_r = 0.0;
+uniform float hip_rotation_r;
 
-// Structure describing relative position of a single leg
-struct LegPosition {
-    // https://image1.slideserve.com/1887324/slide12-l.jpg
-    vec3 hipJoint; // (x: flexion, y: abduction, z: rotation)
-    float kneeAngle;
-    float ankleAngle;
-};
+// Hip Flexion/Extension:
+//   0: Fully extended
+//   1: Fully flexed
+//float hip_flexion_r = 0.5;
+uniform float hip_flexion_r;
+
+// Hip Abduction:
+//   0: Straight
+//   1: Fully abducted
+//float hip_abduction_r = 1.0;
+uniform float hip_abduction_r;
+
+// Knee Flexion:
+//   0: Fully extended
+//   1: Fully flexed
+//float knee_flexion_r = 0.5;
+uniform float knee_flexion_r;
+
+// Ankle Flexion/Extension:
+//  -1: Fully extended
+//   0: Straight
+//   1: Fully flexed
+//float ankle_flexion_r = 1.0;
+uniform float ankle_flexion_r;
+
+//float hip_flexion_l = 0.0;
+uniform float hip_flexion_l;
+//float hip_abduction_l = 0.0;
+uniform float hip_abduction_l;
+//float hip_rotation_l = 0.0;
+uniform float hip_rotation_l;
+//float knee_flexion_l = 0.0;
+uniform float knee_flexion_l;
+//float ankle_flexion_l = 0.0;
+uniform float ankle_flexion_l;
 
 /* Generic functions */
 // Convert to polar coords from cartesian coords
@@ -148,16 +173,16 @@ float SDFBox(vec3 position, vec3 size) {
 }
 // Capsule
 float SDFCapsule(vec3 position, vec3 startPoint, vec3 endPoint, float radius) {
-  vec3 pa = position - startPoint;
-  vec3 ba = endPoint - startPoint;
-  float h = clamp(dot(pa,ba)/dot(ba,ba), 2.*radius, 1.-2.*radius);
-  return length(pa - ba*h) - radius;
+    vec3 pa = position - startPoint;
+    vec3 ba = endPoint - startPoint;
+    float h = clamp(dot(pa,ba)/dot(ba,ba), 2.*radius, 1.-2.*radius);
+    return length(pa - ba*h) - radius;
 }
 
 // Cylinder
 float SDFCylinder(vec3 position, float height, float radius) {
-  vec2 d = abs(vec2(length(position.xz),position.y)) - vec2(radius,height);
-  return min(max(d.x,d.y),0.0) + length(max(d,0.0));
+    vec2 d = abs(vec2(length(position.xz),position.y)) - vec2(radius,height);
+    return min(max(d.x,d.y),0.0) + length(max(d,0.0));
 }
 
 
@@ -239,51 +264,6 @@ float SDFTrucks(vec3 position) {
 }
 
 
-// Single leg
-float SDFLeg(vec3 position, LegPosition leg){
-    const float thighLen = 0.4;
-    const float shinLen = 0.3;
-    const float footLen = 0.1;
-    
-    const float thighWidth = 0.05;
-    const float shinWidth = 0.05;
-    const float footWidth = 0.06;
-    
-    //Hip joint rotation
-    position = rotateY(leg.hipJoint.z, position); //rotation
-    
-    //Calculate joint positions
-    // Knee
-    vec3 kneePos = rotateX(leg.hipJoint.x,-vec3(0,thighLen,0)); //flexion
-    kneePos = rotateZ(leg.hipJoint.y, kneePos); //abduction
- 
-    // Ankle
-    vec3 anklePos = kneePos + rotateX(-(leg.hipJoint.x + leg.kneeAngle),-vec3(0,shinLen,0));
-    anklePos = rotateZ(leg.hipJoint.y/2.0, anklePos); //abduction
-    
-    // Toe
-    vec3 toePos = anklePos + rotateX(-(leg.hipJoint.x + leg.kneeAngle + leg.ankleAngle),-vec3(0,footLen,0));
-    
-    // Draw joints
-    //distance = min(distance, SDFSphere(position-kneePos, 0.05));
-    //distance = min(distance, SDFSphere(position-anklePos, 0.05));
-    //distance = min(distance, SDFSphere(position-toePos, 0.05));
-    
-    // Draw with capsules
-    float distance = SDFCapsule(position, vec3(0), kneePos, thighWidth); // thigh
-    distance = min(distance, SDFSphere(position-kneePos, thighWidth)); // knee
-    distance = min(distance, SDFCapsule(position, kneePos, anklePos, shinWidth)); // shin
-    
-    // Shoe
-    float shoe = max(
-        SDFCapsule(position, anklePos-0.1*(toePos-anklePos), toePos, footWidth), // extend heel back a bit
-        -dot(position-anklePos, cross(vec3(1,0,0), normalize(toePos-anklePos)))
-    );
-    distance = min(distance, shoe);
-    
-    return distance;
-}
-
 /* Main Scene */
 // This function defines the scene by returning the distance of the nearest point from given
 // position. Also sets the material ID for that point, via the "out" argument.
@@ -306,85 +286,130 @@ float map(in vec3 position, out int materialID) {
     
     // Skateboard
     const vec3 centerpoint = vec3(0,0.05,0);
-    vec3 local_pos = position-centerpoint;
+    vec3 board_position = position-centerpoint;
     
-    local_pos -= BOARDPOS;
-    local_pos = rotateZ(BOARDEULER.z, local_pos);
-    local_pos = rotateY(BOARDEULER.y, local_pos); 
-    local_pos = rotateX(BOARDEULER.x, local_pos);
+    board_position -= BOARDPOS;
+    board_position = rotateZ(BOARDEULER.z, board_position);
+    board_position = rotateY(BOARDEULER.y, board_position); 
+    board_position = rotateX(BOARDEULER.x, board_position);
     
     // Deck
-    distance = min(distance, SDFDeck(local_pos + centerpoint));
+    distance = min(distance, SDFDeck(board_position + centerpoint));
     // Update material
     if (abs(distance-material_distance) > RAYMARCH_MINSTEP)
         materialID = MAT_ID_DECK;
     material_distance = distance;
     
     // Wheels
-    distance = min(distance, SDFWheels(local_pos + centerpoint));
+    distance = min(distance, SDFWheels(board_position + centerpoint));
     // Update material
     if (abs(distance-material_distance) > RAYMARCH_MINSTEP)
         materialID = MAT_ID_WHEEL;
     material_distance = distance;
     
     // Deck
-    distance = min(distance, SDFTrucks(local_pos + centerpoint));
+    distance = min(distance, SDFTrucks(board_position + centerpoint));
     // Update material
     if (abs(distance-material_distance) > RAYMARCH_MINSTEP)
         materialID = MAT_ID_TRUCK;
     material_distance = distance;
-    
-    
-    // Body
-    LegPosition legPosR = LegPosition(
-        LEGRHIP, // hipJoint (x: flexion, y: abduction, z: rotation)
-        LEGRKNEE, //kneeAngle
-        LEGRANKLE  // ankleAngle
-    );
-    
-    LegPosition legPosL = LegPosition(
-        LEGLHIP, // hipJoint (x: flexion, y: abduction, z: rotation)
-        LEGLKNEE, //kneeAngle
-        LEGLANKLE  // ankleAngle
-    );
-    
-    // Scale joint movements
-    
-    legPosR.hipJoint.x *= 2.0 * PI * 140.0 / 360.0;
-    legPosR.hipJoint.y *= 0.25 * PI;
-    legPosR.hipJoint.z *= 0.25 * PI;
-    legPosR.kneeAngle *= 2.0 * PI * 140.0 / 360.0;
-    legPosR.ankleAngle = 0.5 * PI * (0.5 * legPosR.ankleAngle - 1.0);
-
-    legPosL.hipJoint.x *= 2.0 * PI * 140.0 / 360.0;
-    legPosL.hipJoint.y *= 0.25 * PI;
-    legPosL.hipJoint.z *= 0.25 * PI;
-    legPosL.kneeAngle *= 2.0 * PI * 140.0 / 360.0;
-    legPosL.ankleAngle = 0.5 * PI * (0.5 * legPosL.ankleAngle - 1.0);
-
 
     // Relative move according to keyframe info
-    const float hipHeight = 0.8;
+    const float hipHeight = 0.81;
     const float hipWidth = 0.2;
-    local_pos = position - BODYHIPPOS;
+    
+    const float thighLen = 0.4;
+    const float shinLen = 0.3;
+    const float footLen = 0.1;
+    
+    const float thighWidth = 0.04;
+    const float shinWidth = 0.04;
+    const float footWidth = 0.05;
+    vec3 body_position = position - BODYHIPPOS;
     
     // Twist hip
-    local_pos = rotateY(2.0 * PI * BODYHIPEULER.y, local_pos);
+    body_position = rotateY(2.0 * PI * (BODYHIPEULER.y+0.5), body_position);
     
-    vec3 hipRPos = vec3(hipWidth/2., hipHeight, 0);
-    //distance = min(distance, SDFSphere(position-hipRPos, 0.05));
-    vec3 hipLPos = vec3(-hipWidth/2., hipHeight, 0);
-    //distance = min(distance, SDFSphere(position-hipLPos, 0.05));
+    vec3 leg_r_position = body_position-vec3(0.5*hipWidth, hipHeight, 0);
+    vec3 leg_l_position = body_position-vec3(-0.5*hipWidth, hipHeight, 0);
     
-    distance = min(distance, min(
-        SDFLeg(local_pos-hipRPos, legPosL),
-        SDFLeg(local_pos-hipLPos, legPosL)
-    ));
+    // 1. Hip rotation
+    leg_r_position = rotateY(0.25 * PI * hip_rotation_r, leg_r_position);
+    leg_l_position = rotateY(0.25 * PI * hip_rotation_l, leg_l_position);
+    
+    //Calculate joint positions
+    // Knee
+    vec3 knee_right_point = rotateX(140.0 / 360.0 * 2.0 * PI * hip_flexion_r,-vec3(0,thighLen,0)); // 2. Flexion
+    knee_right_point = rotateZ(0.25 * PI * hip_abduction_r, knee_right_point); // 3. Abduction
+    
+    vec3 knee_left_point = rotateX(140.0 / 360.0 * 2.0 * PI * hip_flexion_l,-vec3(0,thighLen,0)); // 2. Flexion
+    knee_left_point = rotateZ(0.25 * PI * hip_abduction_l, knee_left_point); // 3. Abduction
+ 
+    // Ankle
+    vec3 ankle_right_point = knee_right_point + rotateX(140.0 / 360.0 * 2.0 * PI * hip_flexion_r - 140.0 / 360.0 * 2.0 * PI * knee_flexion_r,-vec3(0,shinLen,0));
+    ankle_right_point = rotateZ(0.25 * PI * hip_abduction_r, ankle_right_point - knee_right_point) + knee_right_point; //flexion
+    
+    vec3 ankle_left_point = knee_left_point + rotateX(140.0 / 360.0 * 2.0 * PI * hip_flexion_l - 140.0 / 360.0 * 2.0 * PI * knee_flexion_l,-vec3(0,shinLen,0));
+    ankle_left_point = rotateZ(0.25 * PI * hip_abduction_l, ankle_left_point - knee_left_point) + knee_left_point; //flexion
+    
+    // Toe
+    vec3 toe_right_point = ankle_right_point + rotateX(140.0 / 360.0 * 2.0 * PI * hip_flexion_r - 140.0 / 360.0 * 2.0 * PI * knee_flexion_r + 0.25 * PI * ankle_flexion_r +  0.5 * PI,-vec3(0,footLen,0));
+    toe_right_point = rotateZ(0.25 * PI * hip_abduction_r, toe_right_point - ankle_right_point) + ankle_right_point; //flexion
+    
+    vec3 toe_left_point = ankle_left_point + rotateX(140.0 / 360.0 * 2.0 * PI * hip_flexion_l - 140.0 / 360.0 * 2.0 * PI * knee_flexion_l + 0.25 * PI * ankle_flexion_l +  0.5 * PI,-vec3(0,footLen,0));
+    toe_left_point = rotateZ(0.25 * PI * hip_abduction_l, toe_left_point - ankle_left_point) + ankle_left_point; //flexion
+    
+    // Draw thighs
+    float leg_right = SDFCapsule(leg_r_position, vec3(0), knee_right_point, thighWidth);
+    float leg_left = SDFCapsule(leg_l_position, vec3(0), knee_left_point, thighWidth);
+    
+    // Draw shins
+    leg_right = opSmoothUnion(leg_right, SDFCapsule(leg_r_position, knee_right_point, ankle_right_point, shinWidth), shinWidth); 
+    leg_left = opSmoothUnion(leg_left, SDFCapsule(leg_l_position, knee_left_point, ankle_left_point, shinWidth), shinWidth);
+    
+    // Add wrinkles
+    leg_right -= 0.04 * fbm(5.0 * leg_r_position.yz).x;
+    leg_left -= 0.04 * fbm(5.0 * leg_l_position.yz).x;
+    
+    // Cut to length
+    leg_right = max(leg_right, dot(leg_r_position - ankle_right_point - 0.05, normalize(ankle_right_point - knee_right_point))); 
+    leg_left = max(leg_left, dot(leg_l_position - ankle_left_point - 0.05, normalize(ankle_left_point - knee_left_point)));
+    
+    // Combine
+    distance = min(distance, leg_right);
+    distance = min(distance, leg_left);
     
     // Update material
     if (abs(distance-material_distance) > RAYMARCH_MINSTEP)
         materialID = MAT_ID_LEG;
     material_distance = distance;
+    
+    
+    // Shoe
+    distance = min(distance, max(
+        SDFCapsule(leg_r_position, 1.1*ankle_right_point-0.1*toe_right_point, toe_right_point, footWidth), // extend heel back a bit
+        -dot(
+            leg_r_position-ankle_right_point+0.02,
+            normalize(cross(cross(ankle_right_point-knee_right_point, toe_right_point-ankle_right_point), toe_right_point-ankle_right_point)) // Cut sole flat
+            )
+        )
+    );
+    
+    distance = min(distance, max(
+        SDFCapsule(leg_l_position, 1.1*ankle_left_point-0.1*toe_left_point, toe_left_point, footWidth), // extend heel back a bit
+        -dot(
+            leg_l_position-ankle_left_point+0.02,
+            normalize(cross(cross(ankle_left_point-knee_left_point, toe_left_point-ankle_left_point), toe_left_point-ankle_left_point)) // Cut sole flat
+            )
+        )
+    );
+    
+    // Update material
+    if (abs(distance-material_distance) > RAYMARCH_MINSTEP)
+        materialID = MAT_ID_SHOE;
+    material_distance = distance;
+    
+    
     
     
     // Repeating boardwalk
@@ -541,23 +566,23 @@ float calcOcclusion(vec3 position, in vec3 normal)
 
 
 /* Entry Point */
-
-//void mainImage( out vec4 fragColor, in vec2 fragCoord ) {
-void main(void) {
+void main(void)
+//void mainImage( out vec4 fragColor, in vec2 fragCoord )
+{
     // Pixel coordinates (from -1 to 1)
     //vec2 uv = (2.0*floor(fragCoord)-iResolution.xy)/iResolution.y;
     vec2 uv = (2.0*floor(gl_FragCoord)-vec2(1280, 720))/720.;
     
     // Camera position and target point
     // Camera is moved around a circle pointing to the center
-    float r = 2.0;
+    float r = 1.5;
     float h = 0.3;
     float speed = 0.1;
     //vec3 rayOrigin = vec3(r*sin(iTime * speed),h,r*cos(iTime * speed));
     vec3 rayOrigin = vec3(0,0.3,1.5);
     
     // Calculating ray angles
-    vec3 target = vec3(0,0,0);
+    vec3 target = vec3(0,0.3,0);
     float zoom = 2.0;
     vec3 ww = normalize(vec3(target - rayOrigin));
     vec3 uu = normalize(cross(ww, vec3(0,1,0)));
