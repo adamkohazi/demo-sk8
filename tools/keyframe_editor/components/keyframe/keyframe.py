@@ -74,6 +74,19 @@ class Keyframe(EventDispatcher):
         if changed:
             self.dispatch("on_change")
     
+    def copy_from(self, time: float, previous_keyframe: 'Keyframe'):
+        """Copy properties from a previous keyframe into this one."""
+        # Set the time for the new keyframe (may be a new time)
+        self.time = time
+
+        # Copy nodes from the previous keyframe, creating new Node instances
+        self._nodes = []
+        for prev_node in previous_keyframe.nodes:
+            new_node = Node(track=prev_node.track, value=prev_node.value, mode=prev_node.mode)
+            self._nodes.append(new_node)
+            
+        self.dispatch("on_change")
+    
     def add_node(self, track_name: str, value: float = 0.0, mode: Mode = Mode.STEP):
         if any(n.track == track_name for n in self._nodes):
             raise ValueError(f"Track '{track_name}' already exists.")

@@ -60,7 +60,22 @@ class Timeline(EventDispatcher):
     def add_keyframe(self, time: float = None):
         key = round(float(time), 2) if time is not None else self.time
         if all(kf.time != key for kf in self._keyframes):
-            new_keyframe = Keyframe(key, self._tracks)
+            # Find the previous keyframe (if it exists)
+            previous_keyframe = None
+            for kf in reversed(self._keyframes):
+                if kf.time < key:
+                    previous_keyframe = kf
+                    break
+            
+            # Create a copy of the previous keyframe
+            if previous_keyframe:
+                new_keyframe = Keyframe(key, self._tracks)
+                new_keyframe.copy_from(key, previous_keyframe)
+            
+            # Create a new default keyframe
+            else:
+                new_keyframe = Keyframe(key, self._tracks)
+
             self._keyframes.append(new_keyframe)
             self.dispatch('on_change')
     
