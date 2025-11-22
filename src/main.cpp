@@ -342,44 +342,41 @@ void entrypoint(void) {
 
         // Update positions
         // Board
-        glUniform3f(glGetUniformLocation(shaderProgram, VAR_BOARDPOS),
-            findValue(time, boardPos_x),
-            findValue(time, boardPos_y),
-            findValue(time, boardPos_z));
-
         glUniform3f(glGetUniformLocation(shaderProgram, VAR_BOARDEULER),
             findValue(time, boardEuler_x),
             findValue(time, boardEuler_y),
             findValue(time, boardEuler_z));
 
-        // Right leg
-        glUniform3f(glGetUniformLocation(shaderProgram, VAR_LEGRHIP),
-            findValue(time, legRightHip_x),
-            findValue(time, legRightHip_y),
-            findValue(time, legRightHip_z));
-
-        glUniform1f(glGetUniformLocation(shaderProgram, VAR_LEGRKNEE), findValue(time, legRightKnee));
-        glUniform1f(glGetUniformLocation(shaderProgram, VAR_LEGRANKLE), findValue(time, legRightAnkle));
-
-        // Left leg
-        glUniform3f(glGetUniformLocation(shaderProgram, VAR_LEGLHIP),
-            findValue(time, legLeftHip_x),
-            findValue(time, legLeftHip_y),
-            findValue(time, legLeftHip_z));
-
-        glUniform1f(glGetUniformLocation(shaderProgram, VAR_LEGLKNEE), findValue(time, legLeftKnee));
-        glUniform1f(glGetUniformLocation(shaderProgram, VAR_LEGLANKLE), findValue(time, legLeftAnkle));
+        glUniform3f(glGetUniformLocation(shaderProgram, VAR_BOARDPOS),
+            findValue(time, boardPos_x),
+            findValue(time, boardPos_y),
+            findValue(time, boardPos_z));
 
         // Body
+        glUniform3f(glGetUniformLocation(shaderProgram, VAR_BODYHIPEULER),
+            findValue(time, bodyHipEuler_x),
+            findValue(time, bodyHipEuler_y),
+            findValue(time, bodyHipEuler_z));
+
         glUniform3f(glGetUniformLocation(shaderProgram, VAR_BODYHIPPOS),
             findValue(time, bodyHipPosition_x),
             findValue(time, bodyHipPosition_y),
             findValue(time, bodyHipPosition_z));
 
-        glUniform3f(glGetUniformLocation(shaderProgram, VAR_BODYHIPEULER),
-            findValue(time, bodyHipEuler_x),
-            findValue(time, bodyHipEuler_y),
-            findValue(time, bodyHipEuler_z));
+        // Legs
+        glUniform1f(glGetUniformLocation(shaderProgram, VAR_hip_rotation_r), findValue(time, hip_rotation_r));
+        glUniform1f(glGetUniformLocation(shaderProgram, VAR_hip_flexion_r), findValue(time, hip_flexion_r));
+        glUniform1f(glGetUniformLocation(shaderProgram, VAR_hip_abduction_r), findValue(time, hip_abduction_r));
+        
+        glUniform1f(glGetUniformLocation(shaderProgram, VAR_knee_flexion_r), findValue(time, knee_flexion_r));
+        glUniform1f(glGetUniformLocation(shaderProgram, VAR_ankle_flexion_r), findValue(time, ankle_flexion_r));
+
+        glUniform1f(glGetUniformLocation(shaderProgram, VAR_hip_rotation_l), findValue(time, hip_rotation_l));
+        glUniform1f(glGetUniformLocation(shaderProgram, VAR_hip_flexion_l), findValue(time, hip_flexion_l));
+        glUniform1f(glGetUniformLocation(shaderProgram, VAR_hip_abduction_l), findValue(time, hip_abduction_l));
+
+        glUniform1f(glGetUniformLocation(shaderProgram, VAR_knee_flexion_l), findValue(time, knee_flexion_l));
+        glUniform1f(glGetUniformLocation(shaderProgram, VAR_ankle_flexion_l), findValue(time, ankle_flexion_l));
 
         // Draw fullscreen
         glRects(-1, -1, 1, 1);
