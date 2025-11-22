@@ -94,16 +94,18 @@ uniform float knee_flexion_r;
 //float ankle_flexion_r = 1.0;
 uniform float ankle_flexion_r;
 
+//float hip_rotation_l = 0.0;
+uniform float hip_rotation_l;
 //float hip_flexion_l = 0.0;
 uniform float hip_flexion_l;
 //float hip_abduction_l = 0.0;
 uniform float hip_abduction_l;
-//float hip_rotation_l = 0.0;
-uniform float hip_rotation_l;
 //float knee_flexion_l = 0.0;
 uniform float knee_flexion_l;
 //float ankle_flexion_l = 0.0;
 uniform float ankle_flexion_l;
+
+float displacement;
 
 /* Generic functions */
 // Convert to polar coords from cartesian coords
@@ -287,6 +289,8 @@ float map(in vec3 position, out int materialID) {
     // Skateboard
     const vec3 centerpoint = vec3(0,0.05,0);
     vec3 board_position = position-centerpoint;
+
+    board_position.x -= displacement;
     
     board_position -= BOARDPOS;
     board_position = rotateZ(BOARDEULER.z, board_position);
@@ -326,6 +330,8 @@ float map(in vec3 position, out int materialID) {
     const float shinWidth = 0.04;
     const float footWidth = 0.05;
     vec3 body_position = position - BODYHIPPOS;
+
+    body_position.x -= displacement;
     
     // Twist hip
     body_position = rotateY(2.0 * PI * (BODYHIPEULER.y+0.5), body_position);
@@ -335,7 +341,7 @@ float map(in vec3 position, out int materialID) {
     
     // 1. Hip rotation
     leg_r_position = rotateY(0.25 * PI * hip_rotation_r, leg_r_position);
-    leg_l_position = rotateY(0.25 * PI * hip_rotation_l, leg_l_position);
+    leg_l_position = rotateY(-0.25 * PI * hip_rotation_l, leg_l_position);
     
     //Calculate joint positions
     // Knee
@@ -343,21 +349,21 @@ float map(in vec3 position, out int materialID) {
     knee_right_point = rotateZ(0.25 * PI * hip_abduction_r, knee_right_point); // 3. Abduction
     
     vec3 knee_left_point = rotateX(140.0 / 360.0 * 2.0 * PI * hip_flexion_l,-vec3(0,thighLen,0)); // 2. Flexion
-    knee_left_point = rotateZ(0.25 * PI * hip_abduction_l, knee_left_point); // 3. Abduction
+    knee_left_point = rotateZ(-0.25 * PI * hip_abduction_l, knee_left_point); // 3. Abduction
  
     // Ankle
     vec3 ankle_right_point = knee_right_point + rotateX(140.0 / 360.0 * 2.0 * PI * hip_flexion_r - 140.0 / 360.0 * 2.0 * PI * knee_flexion_r,-vec3(0,shinLen,0));
     ankle_right_point = rotateZ(0.25 * PI * hip_abduction_r, ankle_right_point - knee_right_point) + knee_right_point; //flexion
     
     vec3 ankle_left_point = knee_left_point + rotateX(140.0 / 360.0 * 2.0 * PI * hip_flexion_l - 140.0 / 360.0 * 2.0 * PI * knee_flexion_l,-vec3(0,shinLen,0));
-    ankle_left_point = rotateZ(0.25 * PI * hip_abduction_l, ankle_left_point - knee_left_point) + knee_left_point; //flexion
+    ankle_left_point = rotateZ(-0.25 * PI * hip_abduction_l, ankle_left_point - knee_left_point) + knee_left_point; //flexion
     
     // Toe
     vec3 toe_right_point = ankle_right_point + rotateX(140.0 / 360.0 * 2.0 * PI * hip_flexion_r - 140.0 / 360.0 * 2.0 * PI * knee_flexion_r + 0.25 * PI * ankle_flexion_r +  0.5 * PI,-vec3(0,footLen,0));
     toe_right_point = rotateZ(0.25 * PI * hip_abduction_r, toe_right_point - ankle_right_point) + ankle_right_point; //flexion
     
     vec3 toe_left_point = ankle_left_point + rotateX(140.0 / 360.0 * 2.0 * PI * hip_flexion_l - 140.0 / 360.0 * 2.0 * PI * knee_flexion_l + 0.25 * PI * ankle_flexion_l +  0.5 * PI,-vec3(0,footLen,0));
-    toe_left_point = rotateZ(0.25 * PI * hip_abduction_l, toe_left_point - ankle_left_point) + ankle_left_point; //flexion
+    toe_left_point = rotateZ(-0.25 * PI * hip_abduction_l, toe_left_point - ankle_left_point) + ankle_left_point; //flexion
     
     // Draw thighs
     float leg_right = SDFCapsule(leg_r_position, vec3(0), knee_right_point, thighWidth);
@@ -372,8 +378,8 @@ float map(in vec3 position, out int materialID) {
     leg_left -= 0.04 * fbm(5.0 * leg_l_position.yz).x;
     
     // Cut to length
-    leg_right = max(leg_right, dot(leg_r_position - ankle_right_point - 0.05, normalize(ankle_right_point - knee_right_point))); 
-    leg_left = max(leg_left, dot(leg_l_position - ankle_left_point - 0.05, normalize(ankle_left_point - knee_left_point)));
+    leg_right = max(leg_right, dot(leg_r_position - ankle_right_point, normalize(ankle_right_point - knee_right_point)) + 0.05); 
+    leg_left = max(leg_left, dot(leg_l_position - ankle_left_point, normalize(ankle_left_point - knee_left_point)) + 0.05);
     
     // Combine
     distance = min(distance, leg_right);
@@ -572,6 +578,12 @@ void main(void)
     // Pixel coordinates (from -1 to 1)
     //vec2 uv = (2.0*floor(fragCoord)-iResolution.xy)/iResolution.y;
     vec2 uv = (2.0*floor(gl_FragCoord)-vec2(1280, 720))/720.;
+
+    // Fisheye
+    uv *= (1.0 + 0.3 * pow(length(uv), 2.0));
+
+    // Movement
+    displacement = TIME;
     
     // Camera position and target point
     // Camera is moved around a circle pointing to the center
@@ -579,10 +591,10 @@ void main(void)
     float h = 0.3;
     float speed = 0.1;
     //vec3 rayOrigin = vec3(r*sin(iTime * speed),h,r*cos(iTime * speed));
-    vec3 rayOrigin = vec3(0,0.3,1.5);
+    vec3 rayOrigin = vec3(displacement,0.3,1.5);
     
     // Calculating ray angles
-    vec3 target = vec3(0,0.3,0);
+    vec3 target = vec3(displacement,0.3,0);
     float zoom = 2.0;
     vec3 ww = normalize(vec3(target - rayOrigin));
     vec3 uu = normalize(cross(ww, vec3(0,1,0)));

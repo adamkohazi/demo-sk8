@@ -31,807 +31,807 @@
                 {
                     "track": "boardEuler_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "boardEuler_y",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "boardEuler_z",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "boardPos_x",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.1,
+                    "mode": 1
                 },
                 {
                     "track": "boardPos_y",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "boardPos_z",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipEuler_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipEuler_y",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.1,
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipEuler_z",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_x",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.1,
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_y",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_z",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": -0.1,
+                    "mode": 1
                 },
                 {
                     "track": "hip_rotation_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": -0.5,
+                    "mode": 1
                 },
                 {
                     "track": "hip_flexion_r",
-                    "value": 1.0,
-                    "mode": 0
+                    "value": 0.1,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.1,
+                    "mode": 1
                 },
                 {
                     "track": "knee_flexion_r",
-                    "value": 1.0,
-                    "mode": 0
+                    "value": 0.1,
+                    "mode": 3
                 },
                 {
                     "track": "ankle_flexion_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": -0.2,
+                    "mode": 3
                 },
                 {
                     "track": "hip_rotation_l",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.7,
+                    "mode": 1
                 },
                 {
                     "track": "hip_flexion_l",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_l",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.2,
+                    "mode": 1
                 },
                 {
                     "track": "knee_flexion_l",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.1,
+                    "mode": 3
                 },
                 {
                     "track": "ankle_flexion_l",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.2,
+                    "mode": 3
                 }
             ]
         },
         {
-            "time": 1.0,
+            "time": 2.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "boardEuler_y",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "boardEuler_z",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "boardPos_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "boardPos_y",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "boardPos_z",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipEuler_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipEuler_y",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipEuler_z",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_x",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.1,
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_y",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": -0.3,
+                    "mode": 4
                 },
                 {
                     "track": "bodyHipPosition_z",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": -0.2,
+                    "mode": 1
                 },
                 {
                     "track": "hip_rotation_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.1,
+                    "mode": 1
                 },
                 {
                     "track": "hip_flexion_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.4,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.1,
+                    "mode": 1
                 },
                 {
                     "track": "knee_flexion_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.8,
+                    "mode": 3
                 },
                 {
                     "track": "ankle_flexion_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 1.2,
+                    "mode": 1
                 },
                 {
                     "track": "hip_rotation_l",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "hip_flexion_l",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.5,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_l",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.2,
+                    "mode": 1
                 },
                 {
                     "track": "knee_flexion_l",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.8,
+                    "mode": 3
                 },
                 {
                     "track": "ankle_flexion_l",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.6,
+                    "mode": 3
                 }
             ]
         },
         {
-            "time": 1.0,
+            "time": 4.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "boardEuler_y",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "boardEuler_z",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.6,
+                    "mode": 2
                 },
                 {
                     "track": "boardPos_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "boardPos_y",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.1,
+                    "mode": 2
                 },
                 {
                     "track": "boardPos_z",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipEuler_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipEuler_y",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipEuler_z",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_x",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.1,
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_y",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.1,
+                    "mode": 2
                 },
                 {
                     "track": "bodyHipPosition_z",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "hip_rotation_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.8,
+                    "mode": 1
                 },
                 {
                     "track": "hip_flexion_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.4,
+                    "mode": 4
                 },
                 {
                     "track": "hip_abduction_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.2,
+                    "mode": 1
                 },
                 {
                     "track": "knee_flexion_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.8,
+                    "mode": 4
                 },
                 {
                     "track": "ankle_flexion_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": -0.5,
+                    "mode": 4
                 },
                 {
                     "track": "hip_rotation_l",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "hip_flexion_l",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": -0.1,
+                    "mode": 2
                 },
                 {
                     "track": "hip_abduction_l",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.2,
+                    "mode": 1
                 },
                 {
                     "track": "knee_flexion_l",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": -0.1,
+                    "mode": 2
                 },
                 {
                     "track": "ankle_flexion_l",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": -1.5,
+                    "mode": 2
                 }
             ]
         },
         {
-            "time": 1.0,
+            "time": 6.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "boardEuler_y",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "boardEuler_z",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 3
                 },
                 {
                     "track": "boardPos_x",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": -0.1,
+                    "mode": 1
                 },
                 {
                     "track": "boardPos_y",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.5,
+                    "mode": 3
                 },
                 {
                     "track": "boardPos_z",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipEuler_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipEuler_y",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipEuler_z",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_x",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.1,
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_y",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.3,
+                    "mode": 3
                 },
                 {
                     "track": "bodyHipPosition_z",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": -0.3,
+                    "mode": 1
                 },
                 {
                     "track": "hip_rotation_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.8,
+                    "mode": 1
                 },
                 {
                     "track": "hip_flexion_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.5,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.2,
+                    "mode": 1
                 },
                 {
                     "track": "knee_flexion_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.7,
+                    "mode": 3
                 },
                 {
                     "track": "ankle_flexion_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.6,
+                    "mode": 3
                 },
                 {
                     "track": "hip_rotation_l",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "hip_flexion_l",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.5,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_l",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.2,
+                    "mode": 1
                 },
                 {
                     "track": "knee_flexion_l",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.8,
+                    "mode": 3
                 },
                 {
                     "track": "ankle_flexion_l",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.5,
+                    "mode": 3
                 }
             ]
         },
         {
-            "time": 1.0,
+            "time": 8.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "boardEuler_y",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "boardEuler_z",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "boardPos_x",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.1,
+                    "mode": 1
                 },
                 {
                     "track": "boardPos_y",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 2
                 },
                 {
                     "track": "boardPos_z",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipEuler_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipEuler_y",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipEuler_z",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_x",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.1,
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_y",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_z",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": -0.1,
+                    "mode": 1
                 },
                 {
                     "track": "hip_rotation_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.5,
+                    "mode": 1
                 },
                 {
                     "track": "hip_flexion_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.1,
+                    "mode": 2
                 },
                 {
                     "track": "hip_abduction_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.1,
+                    "mode": 1
                 },
                 {
                     "track": "knee_flexion_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.2,
+                    "mode": 2
                 },
                 {
                     "track": "ankle_flexion_r",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 2
                 },
                 {
                     "track": "hip_rotation_l",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.5,
+                    "mode": 1
                 },
                 {
                     "track": "hip_flexion_l",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.1,
+                    "mode": 2
                 },
                 {
                     "track": "hip_abduction_l",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.1,
+                    "mode": 1
                 },
                 {
                     "track": "knee_flexion_l",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.2,
+                    "mode": 2
                 },
                 {
                     "track": "ankle_flexion_l",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 2
                 }
             ]
         },
         {
-            "time": 1.0,
+            "time": 9.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "boardEuler_y",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "boardEuler_z",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "boardPos_x",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.1,
+                    "mode": 1
                 },
                 {
                     "track": "boardPos_y",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "boardPos_z",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipEuler_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipEuler_y",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipEuler_z",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_x",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.1,
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_y",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": -0.13,
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_z",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": -0.1,
+                    "mode": 1
                 },
                 {
                     "track": "hip_rotation_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.5,
+                    "mode": 1
                 },
                 {
                     "track": "hip_flexion_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.3,
+                    "mode": 1
                 },
                 {
                     "track": "hip_abduction_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.1,
+                    "mode": 1
                 },
                 {
                     "track": "knee_flexion_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.5,
+                    "mode": 3
                 },
                 {
                     "track": "ankle_flexion_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.6,
+                    "mode": 3
                 },
                 {
                     "track": "hip_rotation_l",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.5,
+                    "mode": 1
                 },
                 {
                     "track": "hip_flexion_l",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.3,
+                    "mode": 1
                 },
                 {
                     "track": "hip_abduction_l",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.1,
+                    "mode": 1
                 },
                 {
                     "track": "knee_flexion_l",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.5,
+                    "mode": 3
                 },
                 {
                     "track": "ankle_flexion_l",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.6,
+                    "mode": 3
                 }
             ]
         },
         {
-            "time": 1.0,
+            "time": 11.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "boardEuler_y",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "boardEuler_z",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "boardPos_x",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.1,
+                    "mode": 1
                 },
                 {
                     "track": "boardPos_y",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 4
                 },
                 {
                     "track": "boardPos_z",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipEuler_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipEuler_y",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipEuler_z",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_x",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.1,
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_y",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_z",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": -0.1,
+                    "mode": 1
                 },
                 {
                     "track": "hip_rotation_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.5,
+                    "mode": 1
                 },
                 {
                     "track": "hip_flexion_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.1,
+                    "mode": 1
                 },
                 {
                     "track": "hip_abduction_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.1,
+                    "mode": 1
                 },
                 {
                     "track": "knee_flexion_r",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.2,
+                    "mode": 2
                 },
                 {
                     "track": "ankle_flexion_r",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 2
                 },
                 {
                     "track": "hip_rotation_l",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.5,
+                    "mode": 1
                 },
                 {
                     "track": "hip_flexion_l",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.1,
+                    "mode": 1
                 },
                 {
                     "track": "hip_abduction_l",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.1,
+                    "mode": 1
                 },
                 {
                     "track": "knee_flexion_l",
-                    "value": 0.0,
-                    "mode": 0
+                    "value": 0.2,
+                    "mode": 2
                 },
                 {
                     "track": "ankle_flexion_l",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 2
                 }
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -946,7 +946,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -1061,7 +1061,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -1176,7 +1176,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -1291,7 +1291,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -1406,7 +1406,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -1521,7 +1521,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -1636,7 +1636,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -1751,7 +1751,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -1866,7 +1866,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -1981,7 +1981,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -2096,7 +2096,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -2211,7 +2211,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -2326,7 +2326,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -2441,7 +2441,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -2556,7 +2556,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -2671,7 +2671,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -2786,7 +2786,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -2901,7 +2901,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -3016,7 +3016,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -3131,7 +3131,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -3246,7 +3246,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -3361,7 +3361,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -3476,7 +3476,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -3591,7 +3591,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -3706,7 +3706,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -3821,7 +3821,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -3936,7 +3936,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -4051,7 +4051,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -4166,7 +4166,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -4281,7 +4281,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -4396,7 +4396,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -4511,7 +4511,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -4626,7 +4626,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -4741,7 +4741,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -4856,7 +4856,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -4971,7 +4971,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -5086,7 +5086,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -5201,7 +5201,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -5316,7 +5316,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -5431,7 +5431,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -5546,7 +5546,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -5661,7 +5661,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -5776,7 +5776,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -5891,7 +5891,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -6006,7 +6006,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -6121,7 +6121,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -6236,7 +6236,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -6351,7 +6351,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -6466,7 +6466,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -6581,7 +6581,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -6696,7 +6696,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -6811,7 +6811,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -6926,7 +6926,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -7041,7 +7041,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -7156,7 +7156,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -7271,7 +7271,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -7386,7 +7386,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -7501,7 +7501,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -7616,7 +7616,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -7731,7 +7731,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -7846,7 +7846,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -7961,7 +7961,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -8076,7 +8076,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -8191,7 +8191,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -8306,7 +8306,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -8421,7 +8421,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -8536,7 +8536,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -8651,7 +8651,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -8766,7 +8766,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -8881,7 +8881,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -8996,7 +8996,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -9111,7 +9111,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -9226,7 +9226,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -9341,7 +9341,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -9456,7 +9456,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -9571,7 +9571,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -9686,7 +9686,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -9801,7 +9801,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -9916,7 +9916,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -10031,7 +10031,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -10146,7 +10146,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -10261,7 +10261,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -10376,7 +10376,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -10491,7 +10491,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -10606,7 +10606,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -10721,7 +10721,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -10836,7 +10836,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -10951,7 +10951,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -11066,7 +11066,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -11181,7 +11181,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -11296,7 +11296,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -11411,7 +11411,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -11526,7 +11526,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -11641,7 +11641,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -11756,7 +11756,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -11871,7 +11871,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -11986,7 +11986,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -12101,7 +12101,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -12216,7 +12216,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -12331,7 +12331,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -12446,7 +12446,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -12561,7 +12561,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -12676,7 +12676,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -12791,7 +12791,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -12906,7 +12906,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -13021,7 +13021,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -13136,7 +13136,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -13251,7 +13251,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -13366,7 +13366,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -13481,7 +13481,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -13596,7 +13596,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -13711,7 +13711,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -13826,7 +13826,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -13941,7 +13941,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -14056,7 +14056,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -14171,7 +14171,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -14286,7 +14286,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -14401,7 +14401,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -14516,7 +14516,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -14631,7 +14631,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -14746,7 +14746,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -14861,7 +14861,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -14976,7 +14976,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -15091,7 +15091,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -15206,7 +15206,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -15321,7 +15321,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -15436,7 +15436,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -15551,7 +15551,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -15666,7 +15666,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -15781,7 +15781,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -15896,7 +15896,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -16011,7 +16011,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -16126,7 +16126,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -16241,7 +16241,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -16356,7 +16356,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -16471,7 +16471,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -16586,7 +16586,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -16701,7 +16701,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -16816,7 +16816,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -16931,7 +16931,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -17046,7 +17046,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -17161,7 +17161,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -17276,7 +17276,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -17391,7 +17391,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -17506,7 +17506,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -17621,7 +17621,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -17736,7 +17736,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -17851,7 +17851,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -17966,7 +17966,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -18081,7 +18081,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -18196,7 +18196,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -18311,7 +18311,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -18426,7 +18426,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -18541,7 +18541,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -18656,7 +18656,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -18771,7 +18771,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -18886,7 +18886,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -19001,7 +19001,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -19116,7 +19116,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -19231,7 +19231,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -19346,7 +19346,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -19461,7 +19461,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -19576,7 +19576,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -19691,7 +19691,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -19806,7 +19806,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -19921,7 +19921,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -20036,7 +20036,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -20151,7 +20151,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -20266,7 +20266,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -20381,7 +20381,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -20496,7 +20496,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -20611,7 +20611,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -20726,7 +20726,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -20841,7 +20841,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -20956,7 +20956,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -21071,7 +21071,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -21186,7 +21186,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -21301,7 +21301,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -21416,7 +21416,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -21531,7 +21531,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -21646,7 +21646,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -21761,7 +21761,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -21876,7 +21876,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -21991,7 +21991,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -22106,7 +22106,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -22221,7 +22221,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -22336,7 +22336,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -22451,7 +22451,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -22566,7 +22566,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -22681,7 +22681,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -22796,7 +22796,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -22911,7 +22911,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -23026,7 +23026,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -23141,7 +23141,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -23256,7 +23256,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -23371,7 +23371,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -23486,7 +23486,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -23601,7 +23601,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -23716,7 +23716,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -23831,7 +23831,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -23946,7 +23946,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -24061,7 +24061,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -24176,7 +24176,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -24291,7 +24291,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -24406,7 +24406,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -24521,7 +24521,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -24636,7 +24636,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -24751,7 +24751,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -24866,7 +24866,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -24981,7 +24981,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -25096,7 +25096,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -25211,7 +25211,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -25326,7 +25326,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -25441,7 +25441,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -25556,7 +25556,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -25671,7 +25671,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -25786,7 +25786,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -25901,7 +25901,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -26016,7 +26016,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -26131,7 +26131,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -26246,7 +26246,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -26361,7 +26361,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -26476,7 +26476,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -26591,7 +26591,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -26706,7 +26706,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -26821,7 +26821,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -26936,7 +26936,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -27051,7 +27051,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -27166,7 +27166,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -27281,7 +27281,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -27396,7 +27396,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -27511,7 +27511,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -27626,7 +27626,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -27741,7 +27741,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -27856,7 +27856,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -27971,7 +27971,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -28086,7 +28086,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -28201,7 +28201,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -28316,7 +28316,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -28431,7 +28431,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -28546,7 +28546,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -28661,7 +28661,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -28776,7 +28776,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -28891,7 +28891,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -29006,7 +29006,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -29121,7 +29121,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
@@ -29236,7 +29236,7 @@
             ]
         },
         {
-            "time": 1.0,
+            "time": 20.0,
             "nodes": [
                 {
                     "track": "boardEuler_x",
