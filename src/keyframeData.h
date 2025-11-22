@@ -72,46 +72,58 @@ std::unordered_map<std::string, Keyframe<float>*> trackMap = {
 
 template<typename ValueType>
 float loadKeyframesFromJSON(const std::string& filename) {
-    // Read file
-    std::ifstream file(filename);
-    if (!file.is_open()) {
-        throw std::runtime_error("Could not open file: " + filename);
-    }
+    float time = 0.0f;
 
-    // Parse JSON
-    json j;
-    file >> j;
-
-    // Map from track to next insertion index
-    std::unordered_map<std::string, size_t> insertIndices;
-
-    for (const auto& frame : j["keyframes"]) {
-        float time = frame["time"];
-        for (const auto& node : frame["nodes"]) {
-            std::string track = node["track"];
-            ValueType value = node["value"];
-            Interpolation mode = static_cast<Interpolation>(node["mode"].get<int>());
-
-            // Find destination array pointer
-            auto it = trackMap.find(track);
-            if (it == trackMap.end()) {
-                // Unknown track, skip or warn
-                continue;
+    while (true) {
+        try {
+            // Read file
+            std::ifstream file(filename);
+            if (!file.is_open()) {
+                throw std::runtime_error("Could not open file: " + filename);
             }
 
-            size_t index = insertIndices[track]++;
-            if (index >= MAX_KEYFRAMES) {
-                // Too many keyframes, skip extras
-                continue;
+            // Parse JSON
+            json j;
+            file >> j;
+
+            // Map from track to next insertion index
+            std::unordered_map<std::string, size_t> insertIndices;
+
+            for (const auto& frame : j["keyframes"]) {
+                time = frame["time"];
+                for (const auto& node : frame["nodes"]) {
+                    std::string track = node["track"];
+                    ValueType value = node["value"];
+                    Interpolation mode = static_cast<Interpolation>(node["mode"].get<int>());
+
+                    // Find destination array pointer
+                    auto it = trackMap.find(track);
+                    if (it == trackMap.end()) {
+                        // Unknown track, skip or warn
+                        continue;
+                    }
+
+                    size_t index = insertIndices[track]++;
+                    if (index >= MAX_KEYFRAMES) {
+                        // Too many keyframes, skip extras
+                        continue;
+                    }
+
+                    // Directly write into the array
+                    it->second[index] = Keyframe<ValueType>{ time, value, mode };
+                }
             }
 
-            // Directly write into the array
-            it->second[index] = Keyframe<ValueType>{ time, value, mode };
+            // If no exceptions were thrown, return the time value from the JSON
+            return j["time"];
+        }
+        catch (const std::exception& e) {
+            // If an exception is thrown, retry with a small delay
+            std::this_thread::sleep_for(std::chrono::milliseconds(50)); // Adjust as needed
         }
     }
-
-    return j["time"];
 }
+
 
 #else
 constexpr Keyframe<float> boardPos_x[] = {
