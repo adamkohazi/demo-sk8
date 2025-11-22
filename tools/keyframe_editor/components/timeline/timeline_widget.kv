@@ -23,7 +23,7 @@
         KeyframeEditor:
             id: keyframe_editor
             size_hint_x: None
-            width: '350dp'
+            width: '460dp'
             
 
     BoxLayout:
@@ -35,6 +35,13 @@
             text: 'Timeline:'
             size_hint_x: None
             width: 80
+        
+        Button:
+            text: '-'
+            size_hint_x: None
+            width: 40
+            on_press: 
+                root.timeline.time = max(root.timeline.time - 0.1, root.min)
 
         Slider:
             id: time_slider
@@ -44,6 +51,13 @@
 
             on_touch_up:
                 if self.collide_point(*args[1].pos): root.timeline.time = self.value
+        
+        Button:
+            text: '+'
+            size_hint_x: None
+            width: 40
+            on_press: 
+                root.timeline.time = min(root.timeline.time + 0.1, root.max)
 
         Label:
             id: time_label
