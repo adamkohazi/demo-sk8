@@ -187,13 +187,14 @@
     <Bscmake />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\assets\keyframes\keyframe_data.h" />
     <ClInclude Include="..\assets\music\output\4klang.h" />
     <ClInclude Include="..\src\fp.h" />
     <ClInclude Include="..\src\glext.h" />
     <ClInclude Include="..\src\khrplatform.h" />
     <ClInclude Include="..\src\audio.h" />
     <ClCompile Include="..\src\main.cpp" />
-    <ClInclude Include="..\src\keyframeData.h" />
+    <ClInclude Include="..\src\keyframe_loader.h" />
     <ClInclude Include="..\src\keyframes.h" />
     <ClInclude Include="..\src\nlohmann\json.hpp" />
   </ItemGroup>

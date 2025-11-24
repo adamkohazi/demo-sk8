@@ -5,7 +5,7 @@
 // Function to load keyframes from JSON
 #ifdef DEBUG
 #include <fstream>
-constexpr size_t MAX_KEYFRAMES = 255;
+constexpr size_t MAX_KEYFRAMES = 16;
 
 Keyframe<float> boardEuler_x[MAX_KEYFRAMES];
 Keyframe<float> boardEuler_y[MAX_KEYFRAMES];
@@ -126,92 +126,6 @@ float loadKeyframesFromJSON(const std::string& filename) {
 
 
 #else
-constexpr Keyframe<float> boardPos_x[] = {
-    { 0.0f, 0.0f, LINEAR }
-};
-
-constexpr Keyframe<float> boardPos_y[] = {
-    { 0.0f, 0.0f, LINEAR }
-};
-
-constexpr Keyframe<float> boardPos_z[] = {
-    { 0.0f, 0.0f, LINEAR }
-};
-
-constexpr Keyframe<float> boardEuler_x[] = {
-    { 0.0f, 0.0f, LINEAR }
-};
-
-constexpr Keyframe<float> boardEuler_y[] = {
-    { 0.0f, 0.0f, LINEAR }
-};
-
-constexpr Keyframe<float> boardEuler_z[] = {
-    { 0.0f, 0.0f, LINEAR }
-};
-
-constexpr Keyframe<float> legRightHip_x[] = {
-    { 0.0f, 0.0f, LINEAR }
-};
-
-constexpr Keyframe<float> legRightHip_y[] = {
-    { 0.0f, 0.0f, LINEAR }
-};
-
-constexpr Keyframe<float> legRightHip_z[] = {
-    { 0.0f, 0.0f, LINEAR }
-};
-
-constexpr Keyframe<float> legRightKnee[] = {
-    { 0.0f, 0.0f, LINEAR }
-};
-
-constexpr Keyframe<float> legRightAnkle[] = {
-    { 0.0f, 0.0f, LINEAR }
-};
-
-constexpr Keyframe<float> legLeftHip_x[] = {
-    { 0.0f, 0.0f, LINEAR }
-};
-
-constexpr Keyframe<float> legLeftHip_y[] = {
-    { 0.0f, 0.0f, LINEAR }
-};
-
-constexpr Keyframe<float> legLeftHip_z[] = {
-    { 0.0f, 0.0f, LINEAR }
-};
-
-constexpr Keyframe<float> legLeftKnee[] = {
-    { 0.0f, 0.0f, LINEAR }
-};
-
-constexpr Keyframe<float> legLeftAnkle[] = {
-    { 0.0f, 0.0f, LINEAR }
-};
-
-constexpr Keyframe<float> bodyHipPosition_x[] = {
-    { 0.0f, 0.0f, LINEAR }
-};
-
-constexpr Keyframe<float> bodyHipPosition_y[] = {
-    { 0.0f, 0.1f, LINEAR }
-};
-
-constexpr Keyframe<float> bodyHipPosition_z[] = {
-    { 0.0f, 0.0f, LINEAR }
-};
-
-constexpr Keyframe<float> bodyHipEuler_x[] = {
-    { 0.0f, 0.0f, LINEAR }
-};
-
-constexpr Keyframe<float> bodyHipEuler_y[] = {
-    { 0.0f, 0.0f, LINEAR }
-};
-
-constexpr Keyframe<float> bodyHipEuler_z[] = {
-    { 0.0f, 0.0f, LINEAR }
-};
+    #include "../assets/keyframes/keyframe_data.h"
 #endif
 
