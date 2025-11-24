@@ -7,7 +7,7 @@ constexpr Keyframe<float> boardEuler_x[] = {
     { 6.0, 0.0, LINEAR },
     { 8.0, 0.0, LINEAR },
     { 9.0, 0.0, LINEAR },
-    { 11.0, 0.0, LINEAR },
+    { 10.0, 0.0, LINEAR },
     { 20.0, 0.0, STEP },
 };
 
@@ -18,40 +18,40 @@ constexpr Keyframe<float> boardEuler_y[] = {
     { 6.0, 0.0, LINEAR },
     { 8.0, 0.0, LINEAR },
     { 9.0, 0.0, LINEAR },
-    { 11.0, 0.0, LINEAR },
+    { 10.0, 0.0, LINEAR },
     { 20.0, 0.0, STEP },
 };
 
 constexpr Keyframe<float> boardEuler_z[] = {
     { 0.0, 0.0, LINEAR },
     { 2.0, 0.0, LINEAR },
-    { 4.0, 0.6, QUADRATIC_IN },
+    { 4.0, -0.8, LINEAR },
     { 6.0, 0.0, QUADRATIC_OUT },
     { 8.0, 0.0, LINEAR },
     { 9.0, 0.0, LINEAR },
-    { 11.0, 0.0, LINEAR },
+    { 10.0, 0.0, LINEAR },
     { 20.0, 0.0, STEP },
 };
 
 constexpr Keyframe<float> boardPos_x[] = {
-    { 0.0, 0.1, LINEAR },
-    { 2.0, 0.0, LINEAR },
-    { 4.0, 0.0, LINEAR },
-    { 6.0, -0.1, LINEAR },
+    { 0.0, -0.1, LINEAR },
+    { 2.0, 0.1, LINEAR },
+    { 4.0, -0.2, LINEAR },
+    { 6.0, 0.1, LINEAR },
     { 8.0, 0.1, LINEAR },
-    { 9.0, 0.1, LINEAR },
-    { 11.0, 0.1, LINEAR },
+    { 9.0, -0.1, LINEAR },
+    { 10.0, -0.1, LINEAR },
     { 20.0, 0.0, STEP },
 };
 
 constexpr Keyframe<float> boardPos_y[] = {
     { 0.0, 0.0, LINEAR },
     { 2.0, 0.0, LINEAR },
-    { 4.0, 0.1, QUADRATIC_IN },
+    { 4.0, 0.2, QUADRATIC_IN },
     { 6.0, 0.5, QUADRATIC_OUT },
     { 8.0, 0.0, QUADRATIC_IN },
-    { 9.0, 0.0, LINEAR },
-    { 11.0, 0.0, SMOOTHSTEP },
+    { 9.0, 0.0, QUADRATIC_IN },
+    { 10.0, 0.0, LINEAR },
     { 20.0, 0.0, STEP },
 };
 
@@ -62,7 +62,7 @@ constexpr Keyframe<float> boardPos_z[] = {
     { 6.0, 0.0, LINEAR },
     { 8.0, 0.0, LINEAR },
     { 9.0, 0.0, LINEAR },
-    { 11.0, 0.0, LINEAR },
+    { 10.0, 0.0, LINEAR },
     { 20.0, 0.0, STEP },
 };
 
@@ -73,18 +73,18 @@ constexpr Keyframe<float> bodyHipEuler_x[] = {
     { 6.0, 0.0, LINEAR },
     { 8.0, 0.0, LINEAR },
     { 9.0, 0.0, LINEAR },
-    { 11.0, 0.0, LINEAR },
+    { 10.0, 0.0, LINEAR },
     { 20.0, 0.0, STEP },
 };
 
 constexpr Keyframe<float> bodyHipEuler_y[] = {
-    { 0.0, 0.1, LINEAR },
+    { 0.0, -0.1, LINEAR },
     { 2.0, 0.0, LINEAR },
     { 4.0, 0.0, LINEAR },
     { 6.0, 0.0, LINEAR },
     { 8.0, 0.0, LINEAR },
     { 9.0, 0.0, LINEAR },
-    { 11.0, 0.0, LINEAR },
+    { 10.0, -0.1, LINEAR },
     { 20.0, 0.0, STEP },
 };
 
@@ -95,18 +95,18 @@ constexpr Keyframe<float> bodyHipEuler_z[] = {
     { 6.0, 0.0, LINEAR },
     { 8.0, 0.0, LINEAR },
     { 9.0, 0.0, LINEAR },
-    { 11.0, 0.0, LINEAR },
+    { 10.0, 0.0, LINEAR },
     { 20.0, 0.0, STEP },
 };
 
 constexpr Keyframe<float> bodyHipPosition_x[] = {
-    { 0.0, 0.1, LINEAR },
-    { 2.0, 0.1, LINEAR },
-    { 4.0, 0.1, LINEAR },
-    { 6.0, 0.1, LINEAR },
+    { 0.0, -0.1, LINEAR },
+    { 2.0, 0.0, LINEAR },
+    { 4.0, -0.3, LINEAR },
+    { 6.0, -0.1, LINEAR },
     { 8.0, 0.1, LINEAR },
-    { 9.0, 0.1, LINEAR },
-    { 11.0, 0.1, LINEAR },
+    { 9.0, -0.1, LINEAR },
+    { 10.0, -0.1, LINEAR },
     { 20.0, 0.0, STEP },
 };
 
@@ -114,10 +114,10 @@ constexpr Keyframe<float> bodyHipPosition_y[] = {
     { 0.0, 0.0, LINEAR },
     { 2.0, -0.3, SMOOTHSTEP },
     { 4.0, 0.1, QUADRATIC_IN },
-    { 6.0, 0.3, QUADRATIC_OUT },
-    { 8.0, 0.0, LINEAR },
-    { 9.0, -0.13, LINEAR },
-    { 11.0, 0.0, LINEAR },
+    { 6.0, 0.4, QUADRATIC_OUT },
+    { 8.0, -0.01, QUADRATIC_IN },
+    { 9.0, -0.1, QUADRATIC_IN },
+    { 10.0, 0.0, QUADRATIC_OUT },
     { 20.0, 0.0, STEP },
 };
 
@@ -125,120 +125,120 @@ constexpr Keyframe<float> bodyHipPosition_z[] = {
     { 0.0, -0.1, LINEAR },
     { 2.0, -0.2, LINEAR },
     { 4.0, 0.0, LINEAR },
-    { 6.0, -0.3, LINEAR },
-    { 8.0, -0.1, LINEAR },
-    { 9.0, -0.1, LINEAR },
-    { 11.0, -0.1, LINEAR },
+    { 6.0, -0.2, LINEAR },
+    { 8.0, 0.1, LINEAR },
+    { 9.0, -0.2, LINEAR },
+    { 10.0, -0.1, LINEAR },
     { 20.0, 0.0, STEP },
 };
 
 constexpr Keyframe<float> hip_rotation_r[] = {
-    { 0.0, -0.5, LINEAR },
-    { 2.0, 0.1, LINEAR },
-    { 4.0, 0.8, LINEAR },
-    { 6.0, 0.8, LINEAR },
-    { 8.0, 0.5, LINEAR },
-    { 9.0, 0.5, LINEAR },
-    { 11.0, 0.5, LINEAR },
-    { 20.0, 0.0, STEP },
-};
-
-constexpr Keyframe<float> hip_flexion_r[] = {
-    { 0.0, 0.1, QUADRATIC_OUT },
-    { 2.0, 0.4, QUADRATIC_OUT },
-    { 4.0, 0.4, SMOOTHSTEP },
-    { 6.0, 0.5, QUADRATIC_OUT },
-    { 8.0, 0.1, QUADRATIC_IN },
-    { 9.0, 0.3, LINEAR },
-    { 11.0, 0.1, LINEAR },
-    { 20.0, 0.0, STEP },
-};
-
-constexpr Keyframe<float> hip_abduction_r[] = {
-    { 0.0, 0.1, LINEAR },
-    { 2.0, 0.1, LINEAR },
-    { 4.0, 0.2, LINEAR },
-    { 6.0, 0.2, LINEAR },
-    { 8.0, 0.1, LINEAR },
-    { 9.0, 0.1, LINEAR },
-    { 11.0, 0.1, LINEAR },
-    { 20.0, 0.0, STEP },
-};
-
-constexpr Keyframe<float> knee_flexion_r[] = {
-    { 0.0, 0.1, QUADRATIC_OUT },
-    { 2.0, 0.8, QUADRATIC_OUT },
-    { 4.0, 0.8, SMOOTHSTEP },
-    { 6.0, 0.7, QUADRATIC_OUT },
-    { 8.0, 0.2, QUADRATIC_IN },
-    { 9.0, 0.5, QUADRATIC_OUT },
-    { 11.0, 0.2, QUADRATIC_IN },
-    { 20.0, 0.0, STEP },
-};
-
-constexpr Keyframe<float> ankle_flexion_r[] = {
-    { 0.0, -0.2, QUADRATIC_OUT },
-    { 2.0, 1.2, LINEAR },
-    { 4.0, -0.5, SMOOTHSTEP },
-    { 6.0, 0.6, QUADRATIC_OUT },
-    { 8.0, 0.0, QUADRATIC_IN },
-    { 9.0, 0.6, QUADRATIC_OUT },
-    { 11.0, 0.0, QUADRATIC_IN },
-    { 20.0, 0.0, STEP },
-};
-
-constexpr Keyframe<float> hip_rotation_l[] = {
     { 0.0, 0.7, LINEAR },
     { 2.0, 0.0, LINEAR },
     { 4.0, 0.0, LINEAR },
     { 6.0, 0.0, LINEAR },
     { 8.0, 0.5, LINEAR },
-    { 9.0, 0.5, LINEAR },
-    { 11.0, 0.5, LINEAR },
+    { 9.0, 0.2, LINEAR },
+    { 10.0, 0.7, LINEAR },
     { 20.0, 0.0, STEP },
 };
 
-constexpr Keyframe<float> hip_flexion_l[] = {
+constexpr Keyframe<float> hip_flexion_r[] = {
     { 0.0, 0.0, QUADRATIC_OUT },
-    { 2.0, 0.5, QUADRATIC_OUT },
+    { 2.0, 0.45, QUADRATIC_OUT },
     { 4.0, -0.1, QUADRATIC_IN },
-    { 6.0, 0.5, QUADRATIC_OUT },
-    { 8.0, 0.1, QUADRATIC_IN },
+    { 6.0, 0.3, QUADRATIC_OUT },
+    { 8.0, 0.0, QUADRATIC_IN },
     { 9.0, 0.3, LINEAR },
-    { 11.0, 0.1, LINEAR },
+    { 10.0, 0.0, LINEAR },
     { 20.0, 0.0, STEP },
 };
 
-constexpr Keyframe<float> hip_abduction_l[] = {
+constexpr Keyframe<float> hip_abduction_r[] = {
     { 0.0, 0.2, LINEAR },
     { 2.0, 0.2, LINEAR },
     { 4.0, 0.2, LINEAR },
     { 6.0, 0.2, LINEAR },
-    { 8.0, 0.1, LINEAR },
+    { 8.0, 0.2, LINEAR },
     { 9.0, 0.1, LINEAR },
-    { 11.0, 0.1, LINEAR },
+    { 10.0, 0.2, LINEAR },
+    { 20.0, 0.0, STEP },
+};
+
+constexpr Keyframe<float> knee_flexion_r[] = {
+    { 0.0, 0.0, QUADRATIC_OUT },
+    { 2.0, 0.8, QUADRATIC_OUT },
+    { 4.0, -0.1, QUADRATIC_IN },
+    { 6.0, 0.7, QUADRATIC_OUT },
+    { 8.0, 0.1, QUADRATIC_IN },
+    { 9.0, 0.4, SMOOTHSTEP },
+    { 10.0, 0.0, LINEAR },
+    { 20.0, 0.0, STEP },
+};
+
+constexpr Keyframe<float> ankle_flexion_r[] = {
+    { 0.0, -0.2, QUADRATIC_OUT },
+    { 2.0, 0.6, QUADRATIC_OUT },
+    { 4.0, -1.5, QUADRATIC_IN },
+    { 6.0, 0.4, QUADRATIC_OUT },
+    { 8.0, 0.2, QUADRATIC_IN },
+    { 9.0, 0.2, QUADRATIC_IN },
+    { 10.0, -0.2, LINEAR },
+    { 20.0, 0.0, STEP },
+};
+
+constexpr Keyframe<float> hip_rotation_l[] = {
+    { 0.0, -0.5, LINEAR },
+    { 2.0, 0.1, LINEAR },
+    { 4.0, 0.8, LINEAR },
+    { 6.0, 0.8, LINEAR },
+    { 8.0, 0.5, LINEAR },
+    { 9.0, 0.2, LINEAR },
+    { 10.0, -0.5, LINEAR },
+    { 20.0, 0.0, STEP },
+};
+
+constexpr Keyframe<float> hip_flexion_l[] = {
+    { 0.0, 0.1, QUADRATIC_OUT },
+    { 2.0, 0.4, QUADRATIC_OUT },
+    { 4.0, 0.5, SMOOTHSTEP },
+    { 6.0, 0.3, QUADRATIC_OUT },
+    { 8.0, 0.0, QUADRATIC_IN },
+    { 9.0, 0.3, LINEAR },
+    { 10.0, 0.1, LINEAR },
+    { 20.0, 0.0, STEP },
+};
+
+constexpr Keyframe<float> hip_abduction_l[] = {
+    { 0.0, 0.1, LINEAR },
+    { 2.0, 0.1, LINEAR },
+    { 4.0, 0.2, LINEAR },
+    { 6.0, 0.2, LINEAR },
+    { 8.0, 0.2, LINEAR },
+    { 9.0, 0.1, LINEAR },
+    { 10.0, 0.1, LINEAR },
     { 20.0, 0.0, STEP },
 };
 
 constexpr Keyframe<float> knee_flexion_l[] = {
     { 0.0, 0.1, QUADRATIC_OUT },
     { 2.0, 0.8, QUADRATIC_OUT },
-    { 4.0, -0.1, QUADRATIC_IN },
-    { 6.0, 0.8, QUADRATIC_OUT },
-    { 8.0, 0.2, QUADRATIC_IN },
-    { 9.0, 0.5, QUADRATIC_OUT },
-    { 11.0, 0.2, QUADRATIC_IN },
+    { 4.0, 1.0, SMOOTHSTEP },
+    { 6.0, 0.5, QUADRATIC_OUT },
+    { 8.0, 0.1, QUADRATIC_IN },
+    { 9.0, 0.4, SMOOTHSTEP },
+    { 10.0, 0.1, SMOOTHSTEP },
     { 20.0, 0.0, STEP },
 };
 
 constexpr Keyframe<float> ankle_flexion_l[] = {
-    { 0.0, 0.2, QUADRATIC_OUT },
-    { 2.0, 0.6, QUADRATIC_OUT },
-    { 4.0, -1.5, QUADRATIC_IN },
-    { 6.0, 0.5, QUADRATIC_OUT },
-    { 8.0, 0.0, QUADRATIC_IN },
-    { 9.0, 0.6, QUADRATIC_OUT },
-    { 11.0, 0.0, QUADRATIC_IN },
+    { 0.0, -0.2, QUADRATIC_OUT },
+    { 2.0, 1.2, LINEAR },
+    { 4.0, -0.5, SMOOTHSTEP },
+    { 6.0, 0.3, QUADRATIC_OUT },
+    { 8.0, 0.2, QUADRATIC_IN },
+    { 9.0, 0.1, QUADRATIC_IN },
+    { 10.0, -0.2, LINEAR },
     { 20.0, 0.0, STEP },
 };
 
