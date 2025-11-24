@@ -12,7 +12,7 @@
 #include "audio.h"
 
 #include "keyframes.h"
-#include "keyframeData.h"
+#include "keyframe_loader.h"
 
 #define XRES 1280
 #define YRES 720
@@ -145,7 +145,7 @@ static LRESULT CALLBACK WindowProcedure(HWND hwnd, UINT msg, WPARAM wParam, LPAR
 
                 case 'R':
                     // Reload keyframe data
-                    float time_cursor = loadKeyframesFromJSON<float>("../assets/keyframes.json");
+                    float time_cursor = loadKeyframesFromJSON<float>("../assets/keyframes/keyframes.json");
                     seekAudio(time_cursor);
                     return 0;
             }
@@ -289,9 +289,12 @@ void entrypoint(void) {
 
 #ifdef DEBUG
     // Prepare keyframe data file for auto-reloading
-    const std::string keyframesPath = "../assets/keyframes.json";
+    const std::string keyframesPath = "../assets/keyframes/keyframes.json";
     std::filesystem::file_time_type lastWriteTime = std::filesystem::last_write_time(keyframesPath);
     auto lastCheckTime = std::chrono::steady_clock::now();
+
+    // Load it fot the first time
+    loadKeyframesFromJSON<float>(keyframesPath);
 #endif
 
     // Activate fragment shader
