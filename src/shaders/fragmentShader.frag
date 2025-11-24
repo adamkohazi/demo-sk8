@@ -395,18 +395,18 @@ float map(in vec3 position, out int materialID) {
     distance = min(distance, max(
         SDFCapsule(leg_r_position, 1.1*ankle_right_point-0.1*toe_right_point, toe_right_point, footWidth), // extend heel back a bit
         -dot(
-            leg_r_position-ankle_right_point+0.02,
+            leg_r_position-ankle_right_point,
             normalize(cross(cross(ankle_right_point-knee_right_point, toe_right_point-ankle_right_point), toe_right_point-ankle_right_point)) // Cut sole flat
-            )
+            )-0.02
         )
     );
     
     distance = min(distance, max(
         SDFCapsule(leg_l_position, 1.1*ankle_left_point-0.1*toe_left_point, toe_left_point, footWidth), // extend heel back a bit
         -dot(
-            leg_l_position-ankle_left_point+0.02,
+            leg_l_position-ankle_left_point,
             normalize(cross(cross(ankle_left_point-knee_left_point, toe_left_point-ankle_left_point), toe_left_point-ankle_left_point)) // Cut sole flat
-            )
+            )-0.02
         )
     );
     
