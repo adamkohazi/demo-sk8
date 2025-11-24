@@ -114,6 +114,18 @@
             size_hint_x: None
             width: '100dp'
             on_press: root.export_file(file_path_input.text)
+        
+        Button:
+            text: 'Export .xlsx'
+            size_hint_x: None
+            width: '100dp'
+            on_press: root.timeline.export_excel("keyframes.xlsx")
+        
+        Button:
+            text: 'Export .h'
+            size_hint_x: None
+            width: '100dp'
+            on_press: root.timeline.export_header("keyframe_data.h")
 
         Label:
             text: 'Autosave'
