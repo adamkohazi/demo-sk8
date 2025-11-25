@@ -344,6 +344,9 @@ void entrypoint(void) {
         glUniform1f(glGetUniformLocation(shaderProgram, VAR_TIME), time);
 
         // Update positions
+        // Camera
+        glUniform1f(glGetUniformLocation(shaderProgram, VAR_CAMERA), findValue(time, camera));
+
         // Board
         glUniform3f(glGetUniformLocation(shaderProgram, VAR_BOARDEULER),
             findValue(time, boardEuler_x),
@@ -356,10 +359,7 @@ void entrypoint(void) {
             findValue(time, boardPos_z));
 
         // Body
-        glUniform3f(glGetUniformLocation(shaderProgram, VAR_BODYHIPEULER),
-            findValue(time, bodyHipEuler_x),
-            findValue(time, bodyHipEuler_y),
-            findValue(time, bodyHipEuler_z));
+        glUniform1f(glGetUniformLocation(shaderProgram, VAR_hip_twist), findValue(time, hip_twist));
 
         glUniform3f(glGetUniformLocation(shaderProgram, VAR_BODYHIPPOS),
             findValue(time, bodyHipPosition_x),

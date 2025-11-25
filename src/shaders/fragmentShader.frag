@@ -55,10 +55,12 @@
 // Outside variables
 uniform float TIME;
 
+uniform float CAMERA;
+
 uniform vec3 BOARDEULER;
 uniform vec3 BOARDPOS;
 
-uniform vec3 BODYHIPEULER;
+uniform float hip_twist;
 uniform vec3 BODYHIPPOS;
 
 // Hip Internal/External rotation:
@@ -308,7 +310,7 @@ float map(in vec3 position, out int materialID) {
     vec3 body_position = position - BODYHIPPOS;
     
     // Twist hip
-    body_position = rotateY(2.0 * PI * (BODYHIPEULER.y+0.5), body_position);
+    body_position = rotateY(2.0 * PI * (hip_twist+0.5), body_position);
     
     vec3 leg_r_position = body_position-vec3(0.5*hipWidth, hipHeight, 0);
     vec3 leg_l_position = body_position-vec3(-0.5*hipWidth, hipHeight, 0);
@@ -372,7 +374,7 @@ float map(in vec3 position, out int materialID) {
             leg_r_position-ankle_right_point,
             normalize(cross(cross(ankle_right_point-knee_right_point, toe_right_point-ankle_right_point), toe_right_point-ankle_right_point)) // Cut sole flat
             )
-        )-0.02
+        )-0.01
     );
     
     distance = min(distance, max(
@@ -381,7 +383,7 @@ float map(in vec3 position, out int materialID) {
             leg_l_position-ankle_left_point,
             normalize(cross(cross(ankle_left_point-knee_left_point, toe_left_point-ankle_left_point), toe_left_point-ankle_left_point)) // Cut sole flat
             )
-        )-0.02
+        )-0.01
     );
     
     // Update material
@@ -544,8 +546,15 @@ void main(void) {
     
     // Camera position and target point
     vec3 target = vec3(0,0.2,0);
-
     vec3 offset = vec3(0,0.1,-1);
+
+    if(CAMERA > 0.0)
+        offset = vec3(1,0.1,0);
+
+    if(CAMERA > 1.0)
+        offset = vec3(1,0.5,1);
+
+
     vec3 rayOrigin = target - offset;
     
     // Calculating ray angles

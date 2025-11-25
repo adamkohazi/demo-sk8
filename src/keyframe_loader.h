@@ -7,6 +7,8 @@
 #include <fstream>
 constexpr size_t MAX_KEYFRAMES = 16;
 
+Keyframe<float> camera[MAX_KEYFRAMES];
+
 Keyframe<float> boardEuler_x[MAX_KEYFRAMES];
 Keyframe<float> boardEuler_y[MAX_KEYFRAMES];
 Keyframe<float> boardEuler_z[MAX_KEYFRAMES];
@@ -15,9 +17,7 @@ Keyframe<float> boardPos_x[MAX_KEYFRAMES];
 Keyframe<float> boardPos_y[MAX_KEYFRAMES];
 Keyframe<float> boardPos_z[MAX_KEYFRAMES];
 
-Keyframe<float> bodyHipEuler_x[MAX_KEYFRAMES];
-Keyframe<float> bodyHipEuler_y[MAX_KEYFRAMES];
-Keyframe<float> bodyHipEuler_z[MAX_KEYFRAMES];
+Keyframe<float> hip_twist[MAX_KEYFRAMES];
 
 Keyframe<float> bodyHipPosition_x[MAX_KEYFRAMES];
 Keyframe<float> bodyHipPosition_y[MAX_KEYFRAMES];
@@ -39,6 +39,8 @@ Keyframe<float> ankle_flexion_l[MAX_KEYFRAMES];
 
 // Temporary buffer
 std::unordered_map<std::string, Keyframe<float>*> trackMap = {
+    {"camera", camera},
+
     {"boardEuler_x", boardEuler_x},
     {"boardEuler_y", boardEuler_y},
     {"boardEuler_z", boardEuler_z},
@@ -47,9 +49,7 @@ std::unordered_map<std::string, Keyframe<float>*> trackMap = {
     {"boardPos_y", boardPos_y},
     {"boardPos_z", boardPos_z},
 
-    {"bodyHipEuler_x", bodyHipEuler_x},
-    {"bodyHipEuler_y", bodyHipEuler_y},
-    {"bodyHipEuler_z", bodyHipEuler_z},
+    {"hip_twist", hip_twist},
 
     {"bodyHipPosition_x", bodyHipPosition_x},
     {"bodyHipPosition_y", bodyHipPosition_y},
