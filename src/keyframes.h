@@ -15,7 +15,7 @@ using json = nlohmann::json;
 typedef unsigned char uint8_t;
 
 // Interpolation types
-#define INTERP_STEP(a,b,t)          (a)
+#define INTERP_STEP(a,b,t)          (b)
 #define INTERP_LINEAR(a,b,t)        ((a) + (t) * ((b) - (a)))
 #define INTERP_QUADRATIC_IN(a,b,t)  ((a) + (t) * (t) * ((b) - (a)))
 #define INTERP_QUADRATIC_OUT(a,b,t) ((a) + (2.f * (t) - (t) * (t)) * ((b) - (a)))
