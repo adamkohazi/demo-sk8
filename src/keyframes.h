@@ -15,7 +15,7 @@ using json = nlohmann::json;
 typedef unsigned char uint8_t;
 
 // Interpolation types
-#define INTERP_STEP(a,b,t)          (b)
+#define INTERP_STEP(a,b,t)          (a)
 #define INTERP_LINEAR(a,b,t)        ((a) + (t) * ((b) - (a)))
 #define INTERP_QUADRATIC_IN(a,b,t)  ((a) + (t) * (t) * ((b) - (a)))
 #define INTERP_QUADRATIC_OUT(a,b,t) ((a) + (2.f * (t) - (t) * (t)) * ((b) - (a)))
@@ -50,7 +50,7 @@ template<typename ValueType, size_t N>
 ValueType findValue(float time, const Keyframe<ValueType>(&keys)[N]) {
     // Find previous and next keyframes
     size_t i = 1;
-    while ((i < N) && (time > keys[i].time))
+    while ((i < N) && (time >= keys[i].time))
         i++;
     float a = (float)keys[i - 1].value;
     float b = (float)keys[i].value;
