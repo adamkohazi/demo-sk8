@@ -19,7 +19,7 @@ class TimelineEditor(BoxLayout):
     timeline = ObjectProperty(None)
 
     min = NumericProperty(0.0)
-    max = NumericProperty(10.0)
+    max = NumericProperty(90.0)
     step = NumericProperty(0.01)
 
     _updating = False

@@ -305,7 +305,7 @@ void entrypoint(void) {
 
     // Main loop
     MSG message;
-    float time;
+    float time, new_time, scroll;
     do {
         
         // Message handling
@@ -340,28 +340,31 @@ void entrypoint(void) {
 #endif
 
         // Update time
-        time = GetAudioPlaybackTime();
-        glUniform1f(glGetUniformLocation(shaderProgram, VAR_TIME), time);
+        new_time = GetAudioPlaybackTime();
+        scroll += (new_time - time) * findValue(time, speed);
+        time = new_time;
+
+        glUniform1f(glGetUniformLocation(shaderProgram, VAR_scroll), scroll);
 
         // Update positions
         // Camera
-        glUniform1f(glGetUniformLocation(shaderProgram, VAR_CAMERA), findValue(time, camera));
+        glUniform1f(glGetUniformLocation(shaderProgram, VAR_camera), findValue(time, camera));
 
         // Board
-        glUniform3f(glGetUniformLocation(shaderProgram, VAR_BOARDEULER),
+        glUniform3f(glGetUniformLocation(shaderProgram, VAR_board_euler),
             findValue(time, boardEuler_x),
             findValue(time, boardEuler_y),
             findValue(time, boardEuler_z));
 
-        glUniform3f(glGetUniformLocation(shaderProgram, VAR_BOARDPOS),
+        glUniform3f(glGetUniformLocation(shaderProgram, VAR_board_offset),
             findValue(time, boardPos_x),
             findValue(time, boardPos_y),
             findValue(time, boardPos_z));
 
         // Body
-        glUniform1f(glGetUniformLocation(shaderProgram, VAR_hip_twist), findValue(time, hip_twist));
+        glUniform1f(glGetUniformLocation(shaderProgram, VAR_body_twist), findValue(time, hip_twist));
 
-        glUniform3f(glGetUniformLocation(shaderProgram, VAR_BODYHIPPOS),
+        glUniform3f(glGetUniformLocation(shaderProgram, VAR_body_offset),
             findValue(time, bodyHipPosition_x),
             findValue(time, bodyHipPosition_y),
             findValue(time, bodyHipPosition_z));

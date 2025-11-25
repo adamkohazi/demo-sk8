@@ -3,7 +3,7 @@
 /* Parameters */
 #define RAYMARCH_MAXITER 1024
 #define RAYMARCH_MINSTEP 0.001
-#define RAYMARCH_MAXDIST 128.0
+#define RAYMARCH_MAXDIST 64.0
 
 #define SHADOW_MAXDIST 32.0
 #define SHADOW_HARDNESS 16.0
@@ -52,61 +52,26 @@
 #define SKY_BRIGHTNESS 0.5
 #define BOUNCE_BRIGHTNESS 0.2
 
-// Outside variables
-uniform float TIME;
+uniform float scroll;
+uniform float camera;
 
-uniform float CAMERA;
+uniform vec3 board_euler;
+uniform vec3 board_offset;
 
-uniform vec3 BOARDEULER;
-uniform vec3 BOARDPOS;
+uniform float body_twist;
+uniform vec3 body_offset;
 
-uniform float hip_twist;
-uniform vec3 BODYHIPPOS;
-
-// Hip Internal/External rotation:
-//  -1: Fully rotated internally
-//   0: Straight
-//   1: Fully rotated externally
-//float hip_rotation_r = 0.0;
 uniform float hip_rotation_r;
-
-// Hip Flexion/Extension:
-//   0: Fully extended
-//   1: Fully flexed
-//float hip_flexion_r = 0.5;
 uniform float hip_flexion_r;
-
-// Hip Abduction:
-//   0: Straight
-//   1: Fully abducted
-//float hip_abduction_r = 1.0;
 uniform float hip_abduction_r;
-
-// Knee Flexion:
-//   0: Fully extended
-//   1: Fully flexed
-//float knee_flexion_r = 0.5;
 uniform float knee_flexion_r;
-
-// Ankle Flexion/Extension:
-//  -1: Fully extended
-//   0: Straight
-//   1: Fully flexed
-//float ankle_flexion_r = 1.0;
 uniform float ankle_flexion_r;
 
-//float hip_rotation_l = 0.0;
 uniform float hip_rotation_l;
-//float hip_flexion_l = 0.0;
 uniform float hip_flexion_l;
-//float hip_abduction_l = 0.0;
 uniform float hip_abduction_l;
-//float knee_flexion_l = 0.0;
 uniform float knee_flexion_l;
-//float ankle_flexion_l = 0.0;
 uniform float ankle_flexion_l;
-
-float displacement;
 
 /* Generic functions */
 // Convert to polar coords from cartesian coords
@@ -246,8 +211,8 @@ float SDFTrucks(vec3 position) {
 // This function defines the scene by returning the distance of the nearest point from given
 // position. Also sets the material ID for that point, via the "out" argument.
 float map(in vec3 position, out int materialID) {
-    vec3 moving = position-vec3(-displacement,0,0);
-
+    vec3 moving = position-vec3(-scroll,0,0);
+    
     // Water
     float distance = position.y + 1.0;
     materialID = MAT_ID_WATER;
@@ -270,10 +235,10 @@ float map(in vec3 position, out int materialID) {
     const vec3 centerpoint = vec3(0,0.05,0);
     vec3 board_position = position-centerpoint;
     
-    board_position -= BOARDPOS;
-    board_position = rotateZ(BOARDEULER.z, board_position);
-    board_position = rotateY(BOARDEULER.y, board_position); 
-    board_position = rotateX(BOARDEULER.x, board_position);
+    board_position -= board_offset;
+    board_position = rotateZ(board_euler.z, board_position);
+    board_position = rotateY(board_euler.y, board_position); 
+    board_position = rotateX(board_euler.x, board_position);
     
     // Deck
     distance = min(distance, SDFDeck(board_position + centerpoint));
@@ -307,10 +272,10 @@ float map(in vec3 position, out int materialID) {
     const float thighWidth = 0.04;
     const float shinWidth = 0.04;
     const float footWidth = 0.05;
-    vec3 body_position = position - BODYHIPPOS;
+    vec3 body_position = position - body_offset;
     
     // Twist hip
-    body_position = rotateY(2.0 * PI * (hip_twist+0.5), body_position);
+    body_position = rotateY(2.0 * PI * (body_twist+0.5), body_position);
     
     vec3 leg_r_position = body_position-vec3(0.5*hipWidth, hipHeight, 0);
     vec3 leg_l_position = body_position-vec3(-0.5*hipWidth, hipHeight, 0);
@@ -463,7 +428,7 @@ float castRay(in vec3 rayOrigin, vec3 rayDirection, out int materialID) {
     float distance = 0.0;
     for(int i=0; i<RAYMARCH_MAXITER; i++) {
         // Find stepsize for marching (distance of closest point from current position)
-        float step = map(rayOrigin + distance * rayDirection, materialID)/2.0;
+        float step = map(rayOrigin + distance * rayDirection, materialID);
 
         // An object is hit
         if(step < RAYMARCH_MINSTEP)
@@ -541,24 +506,22 @@ void main(void) {
     // Fisheye
     uv *= (1.0 + 0.5 * pow(0.5 * length(uv), 2.0));
     
-    // Move background
-    displacement = TIME;
     
     // Camera position and target point
     vec3 target = vec3(0,0.2,0);
     vec3 offset = vec3(0,0.1,-1);
+    float zoom = 2.0;
 
-    if(CAMERA > 0.0)
+    if(camera > 0.0)
         offset = vec3(1,0.1,0);
 
-    if(CAMERA > 1.0)
+    if(camera > 1.0)
         offset = vec3(1,0.5,1);
 
 
     vec3 rayOrigin = target - offset;
     
     // Calculating ray angles
-    float zoom = 2.0;
     vec3 ww = normalize(vec3(target - rayOrigin));
     vec3 uu = normalize(cross(ww, vec3(0,1,0)));
     vec3 vv = normalize(cross(uu, ww));
@@ -586,7 +549,7 @@ void main(void) {
             float reflectivity = pow(1.0 - clamp(dot(normal, -rayDirection), 0.0, 1.0), 5.0); //5.0 is magic number
             
             // Displacement vector from noise (simulating waves)
-            addBumps(position - vec3(-displacement,0,displacement), normal, 0.1, 0.5);
+            addBumps(position - vec3(-scroll,0,scroll), normal, 0.1, 0.5);
             
             // Reflect sky and background
             vec3 reflection = drawBackground(reflect(rayDirection, normal));
@@ -607,8 +570,8 @@ void main(void) {
             
             // Concrete
             if (materialID == MAT_ID_CONCRETE) {
-                color = mix(CONCRETE_DARK, CONCRETE_LIGHT, fbm(5.0*(position.xy)-vec2(-displacement,0)));
-                addBumps(position-vec3(-displacement,0,0), normal, 10.0, 0.005);
+                color = mix(CONCRETE_DARK, CONCRETE_LIGHT, fbm(5.0*(position.xy)-vec2(-scroll,0)));
+                addBumps(position-vec3(-scroll,0,0), normal, 10.0, 0.005);
             }
             
             // Palm trunk

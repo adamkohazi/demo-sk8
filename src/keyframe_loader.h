@@ -8,6 +8,7 @@
 constexpr size_t MAX_KEYFRAMES = 32;
 
 Keyframe<float> camera[MAX_KEYFRAMES];
+Keyframe<float> speed[MAX_KEYFRAMES];
 
 Keyframe<float> boardEuler_x[MAX_KEYFRAMES];
 Keyframe<float> boardEuler_y[MAX_KEYFRAMES];
@@ -40,6 +41,8 @@ Keyframe<float> ankle_flexion_l[MAX_KEYFRAMES];
 // Temporary buffer
 std::unordered_map<std::string, Keyframe<float>*> trackMap = {
     {"camera", camera},
+
+    {"speed", speed},
 
     {"boardEuler_x", boardEuler_x},
     {"boardEuler_y", boardEuler_y},
