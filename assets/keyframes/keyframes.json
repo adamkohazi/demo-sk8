@@ -80,8 +80,8 @@
                 },
                 {
                     "track": "bodyHipPosition_y",
-                    "value": 0.0,
-                    "mode": 1
+                    "value": -0.01,
+                    "mode": 3
                 },
                 {
                     "track": "bodyHipPosition_z",
@@ -96,7 +96,7 @@
                 {
                     "track": "hip_flexion_r",
                     "value": 0.0,
-                    "mode": 3
+                    "mode": 1
                 },
                 {
                     "track": "hip_abduction_r",
@@ -106,12 +106,12 @@
                 {
                     "track": "knee_flexion_r",
                     "value": 0.0,
-                    "mode": 3
+                    "mode": 1
                 },
                 {
                     "track": "ankle_flexion_r",
-                    "value": -0.2,
-                    "mode": 3
+                    "value": 0.0,
+                    "mode": 1
                 },
                 {
                     "track": "hip_rotation_l",
@@ -121,7 +121,7 @@
                 {
                     "track": "hip_flexion_l",
                     "value": 0.1,
-                    "mode": 3
+                    "mode": 1
                 },
                 {
                     "track": "hip_abduction_l",
@@ -131,12 +131,12 @@
                 {
                     "track": "knee_flexion_l",
                     "value": 0.1,
-                    "mode": 3
+                    "mode": 4
                 },
                 {
                     "track": "ankle_flexion_l",
-                    "value": -0.2,
-                    "mode": 3
+                    "value": 0.0,
+                    "mode": 1
                 }
             ]
         },
@@ -225,7 +225,7 @@
                 },
                 {
                     "track": "ankle_flexion_r",
-                    "value": 0.6,
+                    "value": 1.0,
                     "mode": 3
                 },
                 {
@@ -325,7 +325,7 @@
                 },
                 {
                     "track": "hip_flexion_r",
-                    "value": -0.1,
+                    "value": 0.0,
                     "mode": 2
                 },
                 {
@@ -335,7 +335,7 @@
                 },
                 {
                     "track": "knee_flexion_r",
-                    "value": -0.1,
+                    "value": 0.2,
                     "mode": 2
                 },
                 {
@@ -365,7 +365,7 @@
                 },
                 {
                     "track": "ankle_flexion_l",
-                    "value": -0.5,
+                    "value": 0.0,
                     "mode": 4
                 }
             ]
@@ -455,7 +455,7 @@
                 },
                 {
                     "track": "ankle_flexion_r",
-                    "value": 0.4,
+                    "value": 1.0,
                     "mode": 3
                 },
                 {
@@ -475,7 +475,7 @@
                 },
                 {
                     "track": "knee_flexion_l",
-                    "value": 0.5,
+                    "value": 0.8,
                     "mode": 3
                 },
                 {
@@ -570,7 +570,7 @@
                 },
                 {
                     "track": "ankle_flexion_r",
-                    "value": 0.2,
+                    "value": 0.3,
                     "mode": 2
                 },
                 {
@@ -595,7 +595,7 @@
                 },
                 {
                     "track": "ankle_flexion_l",
-                    "value": 0.2,
+                    "value": 0.3,
                     "mode": 2
                 }
             ]
@@ -655,7 +655,7 @@
                 },
                 {
                     "track": "bodyHipPosition_y",
-                    "value": -0.1,
+                    "value": -0.11,
                     "mode": 2
                 },
                 {
@@ -685,7 +685,7 @@
                 },
                 {
                     "track": "ankle_flexion_r",
-                    "value": 0.2,
+                    "value": 0.3,
                     "mode": 2
                 },
                 {
@@ -710,7 +710,7 @@
                 },
                 {
                     "track": "ankle_flexion_l",
-                    "value": 0.1,
+                    "value": 0.3,
                     "mode": 2
                 }
             ]
@@ -770,7 +770,7 @@
                 },
                 {
                     "track": "bodyHipPosition_y",
-                    "value": 0.0,
+                    "value": -0.01,
                     "mode": 3
                 },
                 {
@@ -800,7 +800,7 @@
                 },
                 {
                     "track": "ankle_flexion_r",
-                    "value": -0.2,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
@@ -825,7 +825,7 @@
                 },
                 {
                     "track": "ankle_flexion_l",
-                    "value": -0.2,
+                    "value": 0.0,
                     "mode": 1
                 }
             ]
