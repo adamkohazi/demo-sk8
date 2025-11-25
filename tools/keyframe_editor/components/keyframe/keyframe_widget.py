@@ -70,44 +70,38 @@ class KeyframeEditor(BoxLayout):
             
 
             # Buttons to increment and decrement the value by 0.1
-            def decrement_value(instance, track=node.track):
-                try:
-                    current_value = float(value_input.text)
-                    new_value = current_value - 0.1
-                    value_input.text = str(round(new_value, 1))  # Update the value input
-                    self.keyframe.set(track, value=str(round(new_value, 1)))  # Set the new value
-                    self.update()
-                except ValueError:
-                    print(f"Error decrementing value for '{track}': Invalid number format")
-
-            def increment_value(instance, track=node.track):
-                try:
-                    current_value = float(value_input.text)
-                    new_value = current_value + 0.1
-                    value_input.text = str(round(new_value, 1))  # Update the value input
-                    self.keyframe.set(track, value=str(round(new_value, 1)))  # Set the new value
-                    self.update()
-                except ValueError:
-                    print(f"Error incrementing value for '{track}': Invalid number format")
-
-            
             # - button to decrement the value
             decrement_button = Button(
                 text='-',
                 size_hint_x=None,
                 width=40
             )
+
+            def decrement_value(instance, track=node.track, node=node):
+                try:
+                    self.keyframe.set(track, value=round(node.value - 0.1, 1))
+                    self.update()  # Call update to refresh UI
+                except Exception as e:
+                    print(f"Error decrementing value for '{track}': {e}")
+            
             decrement_button.bind(on_press=decrement_value)
-            
-            
+
             # + button to increment the value
             increment_button = Button(
                 text='+',
                 size_hint_x=None,
                 width=40
             )
-            increment_button.bind(on_press=increment_value)
 
+            def increment_value(instance, track=node.track, node=node):
+                try:
+                    self.keyframe.set(track, value=round(node.value + 0.1, 1))
+                    self.update()  # Call update to refresh UI
+                except Exception as e:
+                    print(f"Error decrementing value for '{track}': {e}")
+
+            increment_button.bind(on_press=increment_value)
+            
             row.add_widget(decrement_button)
             row.add_widget(value_input)
             row.add_widget(increment_button)
