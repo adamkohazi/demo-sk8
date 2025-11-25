@@ -7,8 +7,15 @@
 #include <fstream>
 constexpr size_t MAX_KEYFRAMES = 32;
 
-Keyframe<float> camera[MAX_KEYFRAMES];
 Keyframe<float> speed[MAX_KEYFRAMES];
+
+Keyframe<float> camera_x[MAX_KEYFRAMES];
+Keyframe<float> camera_y[MAX_KEYFRAMES];
+Keyframe<float> camera_z[MAX_KEYFRAMES];
+
+Keyframe<float> target_x[MAX_KEYFRAMES];
+Keyframe<float> target_y[MAX_KEYFRAMES];
+Keyframe<float> target_z[MAX_KEYFRAMES];
 
 Keyframe<float> boardEuler_x[MAX_KEYFRAMES];
 Keyframe<float> boardEuler_y[MAX_KEYFRAMES];
@@ -18,7 +25,7 @@ Keyframe<float> boardPos_x[MAX_KEYFRAMES];
 Keyframe<float> boardPos_y[MAX_KEYFRAMES];
 Keyframe<float> boardPos_z[MAX_KEYFRAMES];
 
-Keyframe<float> hip_twist[MAX_KEYFRAMES];
+Keyframe<float> body_twist[MAX_KEYFRAMES];
 
 Keyframe<float> bodyHipPosition_x[MAX_KEYFRAMES];
 Keyframe<float> bodyHipPosition_y[MAX_KEYFRAMES];
@@ -40,9 +47,15 @@ Keyframe<float> ankle_flexion_l[MAX_KEYFRAMES];
 
 // Temporary buffer
 std::unordered_map<std::string, Keyframe<float>*> trackMap = {
-    {"camera", camera},
-
     {"speed", speed},
+
+    {"camera_x", camera_x},
+    {"camera_y", camera_y},
+    {"camera_z", camera_z},
+
+    {"target_x", target_x},
+    {"target_y", target_y},
+    {"target_z", target_z},
 
     {"boardEuler_x", boardEuler_x},
     {"boardEuler_y", boardEuler_y},
@@ -52,7 +65,7 @@ std::unordered_map<std::string, Keyframe<float>*> trackMap = {
     {"boardPos_y", boardPos_y},
     {"boardPos_z", boardPos_z},
 
-    {"hip_twist", hip_twist},
+    {"body_twist", body_twist},
 
     {"bodyHipPosition_x", bodyHipPosition_x},
     {"bodyHipPosition_y", bodyHipPosition_y},

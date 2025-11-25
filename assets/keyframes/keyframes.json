@@ -1,7 +1,12 @@
 {
     "time": 0.0,
     "tracks": [
-        "camera",
+        "camera_x",
+        "camera_y",
+        "camera_z",
+        "target_x",
+        "target_y",
+        "target_z",
         "speed",
         "boardEuler_x",
         "boardEuler_y",
@@ -9,7 +14,7 @@
         "boardPos_x",
         "boardPos_y",
         "boardPos_z",
-        "hip_twist",
+        "body_twist",
         "bodyHipPosition_x",
         "bodyHipPosition_y",
         "bodyHipPosition_z",
@@ -29,13 +34,38 @@
             "time": 0.0,
             "nodes": [
                 {
-                    "track": "camera",
+                    "track": "camera_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.5,
+                    "mode": 1
+                },
+                {
+                    "track": "camera_z",
+                    "value": -0.5,
+                    "mode": 1
+                },
+                {
+                    "track": "target_x",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_z",
+                    "value": -0.6,
+                    "mode": 1
                 },
                 {
                     "track": "speed",
-                    "value": 0.0,
+                    "value": 3.0,
                     "mode": 0
                 },
                 {
@@ -55,7 +85,7 @@
                 },
                 {
                     "track": "boardPos_x",
-                    "value": -0.1,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
@@ -69,13 +99,13 @@
                     "mode": 1
                 },
                 {
-                    "track": "hip_twist",
+                    "track": "body_twist",
                     "value": -0.1,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_x",
-                    "value": -0.1,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
@@ -144,13 +174,178 @@
             "time": 10.0,
             "nodes": [
                 {
-                    "track": "camera",
+                    "track": "camera_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.05,
+                    "mode": 3
+                },
+                {
+                    "track": "camera_z",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_x",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.05,
+                    "mode": 1
+                },
+                {
+                    "track": "target_z",
+                    "value": -0.6,
+                    "mode": 1
                 },
                 {
                     "track": "speed",
+                    "value": 3.0,
+                    "mode": 0
+                },
+                {
+                    "track": "boardEuler_x",
                     "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "boardEuler_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "boardEuler_z",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "boardPos_x",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "boardPos_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "boardPos_z",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "body_twist",
+                    "value": -0.1,
+                    "mode": 1
+                },
+                {
+                    "track": "bodyHipPosition_x",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "bodyHipPosition_y",
+                    "value": -0.02,
+                    "mode": 3
+                },
+                {
+                    "track": "bodyHipPosition_z",
+                    "value": -0.1,
+                    "mode": 1
+                },
+                {
+                    "track": "hip_rotation_r",
+                    "value": 0.7,
+                    "mode": 1
+                },
+                {
+                    "track": "hip_flexion_r",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "hip_abduction_r",
+                    "value": 0.2,
+                    "mode": 1
+                },
+                {
+                    "track": "knee_flexion_r",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "ankle_flexion_r",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "hip_rotation_l",
+                    "value": -0.5,
+                    "mode": 1
+                },
+                {
+                    "track": "hip_flexion_l",
+                    "value": 0.1,
+                    "mode": 1
+                },
+                {
+                    "track": "hip_abduction_l",
+                    "value": 0.1,
+                    "mode": 1
+                },
+                {
+                    "track": "knee_flexion_l",
+                    "value": 0.2,
+                    "mode": 4
+                },
+                {
+                    "track": "ankle_flexion_l",
+                    "value": 0.2,
+                    "mode": 1
+                }
+            ]
+        },
+        {
+            "time": 18.2,
+            "nodes": [
+                {
+                    "track": "camera_x",
+                    "value": -0.2,
+                    "mode": 1
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.05,
+                    "mode": 1
+                },
+                {
+                    "track": "camera_z",
+                    "value": 0.4,
+                    "mode": 1
+                },
+                {
+                    "track": "target_x",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.05,
+                    "mode": 1
+                },
+                {
+                    "track": "target_z",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "speed",
+                    "value": 3.0,
                     "mode": 0
                 },
                 {
@@ -184,7 +379,7 @@
                     "mode": 1
                 },
                 {
-                    "track": "hip_twist",
+                    "track": "body_twist",
                     "value": -0.1,
                     "mode": 1
                 },
@@ -256,16 +451,41 @@
             ]
         },
         {
-            "time": 11.0,
+            "time": 20.7,
             "nodes": [
                 {
-                    "track": "camera",
+                    "track": "camera_x",
+                    "value": 0.2,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.1,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_z",
+                    "value": 1.0,
+                    "mode": 2
+                },
+                {
+                    "track": "target_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.1,
+                    "mode": 1
+                },
+                {
+                    "track": "target_z",
+                    "value": 0.0,
+                    "mode": 1
                 },
                 {
                     "track": "speed",
-                    "value": 0.0,
+                    "value": 3.0,
                     "mode": 0
                 },
                 {
@@ -299,9 +519,9 @@
                     "mode": 1
                 },
                 {
-                    "track": "hip_twist",
+                    "track": "body_twist",
                     "value": -0.3,
-                    "mode": 1
+                    "mode": 2
                 },
                 {
                     "track": "bodyHipPosition_x",
@@ -311,7 +531,7 @@
                 {
                     "track": "bodyHipPosition_y",
                     "value": -0.03,
-                    "mode": 3
+                    "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_z",
@@ -326,7 +546,7 @@
                 {
                     "track": "hip_flexion_r",
                     "value": 0.3,
-                    "mode": 1
+                    "mode": 2
                 },
                 {
                     "track": "hip_abduction_r",
@@ -336,12 +556,12 @@
                 {
                     "track": "knee_flexion_r",
                     "value": 0.0,
-                    "mode": 1
+                    "mode": 2
                 },
                 {
                     "track": "ankle_flexion_r",
                     "value": -0.6,
-                    "mode": 1
+                    "mode": 2
                 },
                 {
                     "track": "hip_rotation_l",
@@ -371,16 +591,41 @@
             ]
         },
         {
-            "time": 11.5,
+            "time": 20.9,
             "nodes": [
                 {
-                    "track": "camera",
+                    "track": "camera_x",
+                    "value": 0.2,
+                    "mode": 1
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.1,
+                    "mode": 1
+                },
+                {
+                    "track": "camera_z",
+                    "value": 1.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_x",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.1,
+                    "mode": 1
+                },
+                {
+                    "track": "target_z",
                     "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "speed",
-                    "value": 0.0,
+                    "value": 3.0,
                     "mode": 0
                 },
                 {
@@ -414,7 +659,7 @@
                     "mode": 1
                 },
                 {
-                    "track": "hip_twist",
+                    "track": "body_twist",
                     "value": -0.3,
                     "mode": 1
                 },
@@ -486,16 +731,41 @@
             ]
         },
         {
-            "time": 12.0,
+            "time": 21.25,
             "nodes": [
                 {
-                    "track": "camera",
+                    "track": "camera_x",
+                    "value": 0.2,
+                    "mode": 1
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.1,
+                    "mode": 1
+                },
+                {
+                    "track": "camera_z",
+                    "value": 1.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.1,
+                    "mode": 1
+                },
+                {
+                    "track": "target_z",
+                    "value": 0.0,
+                    "mode": 1
                 },
                 {
                     "track": "speed",
-                    "value": 0.0,
+                    "value": 3.0,
                     "mode": 0
                 },
                 {
@@ -529,7 +799,7 @@
                     "mode": 1
                 },
                 {
-                    "track": "hip_twist",
+                    "track": "body_twist",
                     "value": -0.3,
                     "mode": 1
                 },
@@ -601,16 +871,41 @@
             ]
         },
         {
-            "time": 15.0,
+            "time": 26.1,
             "nodes": [
                 {
-                    "track": "camera",
+                    "track": "camera_x",
+                    "value": -0.6,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.4,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_z",
+                    "value": 1.0,
+                    "mode": 2
+                },
+                {
+                    "track": "target_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_z",
+                    "value": 0.0,
+                    "mode": 1
                 },
                 {
                     "track": "speed",
-                    "value": 0.0,
+                    "value": 3.0,
                     "mode": 0
                 },
                 {
@@ -644,7 +939,7 @@
                     "mode": 1
                 },
                 {
-                    "track": "hip_twist",
+                    "track": "body_twist",
                     "value": -0.3,
                     "mode": 1
                 },
@@ -716,16 +1011,41 @@
             ]
         },
         {
-            "time": 15.5,
+            "time": 26.4,
             "nodes": [
                 {
-                    "track": "camera",
+                    "track": "camera_x",
+                    "value": -0.6,
+                    "mode": 1
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.4,
+                    "mode": 1
+                },
+                {
+                    "track": "camera_z",
+                    "value": 1.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_x",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_z",
                     "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "speed",
-                    "value": 0.0,
+                    "value": 3.0,
                     "mode": 0
                 },
                 {
@@ -759,7 +1079,7 @@
                     "mode": 1
                 },
                 {
-                    "track": "hip_twist",
+                    "track": "body_twist",
                     "value": -0.3,
                     "mode": 1
                 },
@@ -831,16 +1151,41 @@
             ]
         },
         {
-            "time": 16.0,
+            "time": 26.7,
             "nodes": [
                 {
-                    "track": "camera",
+                    "track": "camera_x",
+                    "value": -0.6,
+                    "mode": 1
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.4,
+                    "mode": 1
+                },
+                {
+                    "track": "camera_z",
+                    "value": 1.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_z",
+                    "value": 0.0,
+                    "mode": 1
                 },
                 {
                     "track": "speed",
-                    "value": 0.0,
+                    "value": 3.0,
                     "mode": 0
                 },
                 {
@@ -874,7 +1219,7 @@
                     "mode": 1
                 },
                 {
-                    "track": "hip_twist",
+                    "track": "body_twist",
                     "value": -0.3,
                     "mode": 1
                 },
@@ -946,16 +1291,41 @@
             ]
         },
         {
-            "time": 17.0,
+            "time": 28.0,
             "nodes": [
                 {
-                    "track": "camera",
+                    "track": "camera_x",
+                    "value": -0.6,
+                    "mode": 1
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.4,
+                    "mode": 1
+                },
+                {
+                    "track": "camera_z",
+                    "value": 1.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_z",
+                    "value": 0.0,
+                    "mode": 1
                 },
                 {
                     "track": "speed",
-                    "value": 0.0,
+                    "value": 3.0,
                     "mode": 0
                 },
                 {
@@ -989,7 +1359,7 @@
                     "mode": 1
                 },
                 {
-                    "track": "hip_twist",
+                    "track": "body_twist",
                     "value": -0.1,
                     "mode": 1
                 },
@@ -1061,16 +1431,41 @@
             ]
         },
         {
-            "time": 20.0,
+            "time": 29.0,
             "nodes": [
                 {
-                    "track": "camera",
+                    "track": "camera_x",
+                    "value": -0.6,
+                    "mode": 1
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.4,
+                    "mode": 1
+                },
+                {
+                    "track": "camera_z",
+                    "value": 1.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_z",
+                    "value": 0.0,
+                    "mode": 1
                 },
                 {
                     "track": "speed",
-                    "value": 0.0,
+                    "value": 3.0,
                     "mode": 0
                 },
                 {
@@ -1104,7 +1499,7 @@
                     "mode": 1
                 },
                 {
-                    "track": "hip_twist",
+                    "track": "body_twist",
                     "value": -0.1,
                     "mode": 1
                 },
@@ -1176,16 +1571,41 @@
             ]
         },
         {
-            "time": 22.0,
+            "time": 31.6,
             "nodes": [
                 {
-                    "track": "camera",
+                    "track": "camera_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 2
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.2,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_z",
+                    "value": 0.8,
+                    "mode": 2
+                },
+                {
+                    "track": "target_x",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_z",
+                    "value": 0.0,
+                    "mode": 1
                 },
                 {
                     "track": "speed",
-                    "value": 0.0,
+                    "value": 3.0,
                     "mode": 0
                 },
                 {
@@ -1219,7 +1639,7 @@
                     "mode": 1
                 },
                 {
-                    "track": "hip_twist",
+                    "track": "body_twist",
                     "value": 0.0,
                     "mode": 1
                 },
@@ -1236,7 +1656,7 @@
                 {
                     "track": "bodyHipPosition_z",
                     "value": -0.2,
-                    "mode": 1
+                    "mode": 3
                 },
                 {
                     "track": "hip_rotation_r",
@@ -1281,31 +1701,56 @@
                 {
                     "track": "knee_flexion_l",
                     "value": 0.8,
-                    "mode": 3
+                    "mode": 4
                 },
                 {
                     "track": "ankle_flexion_l",
                     "value": 1.1,
-                    "mode": 2
+                    "mode": 4
                 }
             ]
         },
         {
-            "time": 24.0,
+            "time": 31.9,
             "nodes": [
                 {
-                    "track": "camera",
+                    "track": "camera_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.3,
+                    "mode": 1
+                },
+                {
+                    "track": "camera_z",
+                    "value": 0.8,
+                    "mode": 1
+                },
+                {
+                    "track": "target_x",
+                    "value": -0.2,
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.4,
+                    "mode": 1
+                },
+                {
+                    "track": "target_z",
+                    "value": 0.0,
+                    "mode": 1
                 },
                 {
                     "track": "speed",
-                    "value": 0.0,
+                    "value": 0.5,
                     "mode": 0
                 },
                 {
                     "track": "boardEuler_x",
-                    "value": 0.0,
+                    "value": 0.5,
                     "mode": 1
                 },
                 {
@@ -1334,7 +1779,7 @@
                     "mode": 1
                 },
                 {
-                    "track": "hip_twist",
+                    "track": "body_twist",
                     "value": 0.0,
                     "mode": 1
                 },
@@ -1380,7 +1825,7 @@
                 },
                 {
                     "track": "hip_rotation_l",
-                    "value": 0.8,
+                    "value": 1.0,
                     "mode": 1
                 },
                 {
@@ -1390,37 +1835,62 @@
                 },
                 {
                     "track": "hip_abduction_l",
-                    "value": 0.2,
+                    "value": 0.9,
                     "mode": 1
                 },
                 {
                     "track": "knee_flexion_l",
-                    "value": 1.0,
+                    "value": 0.9,
                     "mode": 4
                 },
                 {
                     "track": "ankle_flexion_l",
-                    "value": 0.0,
+                    "value": -0.8,
                     "mode": 4
                 }
             ]
         },
         {
-            "time": 26.0,
+            "time": 34.5,
             "nodes": [
                 {
-                    "track": "camera",
+                    "track": "camera_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.5,
+                    "mode": 1
+                },
+                {
+                    "track": "camera_z",
+                    "value": 0.8,
+                    "mode": 1
+                },
+                {
+                    "track": "target_x",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.5,
+                    "mode": 4
+                },
+                {
+                    "track": "target_z",
+                    "value": 0.0,
+                    "mode": 1
                 },
                 {
                     "track": "speed",
-                    "value": 0.0,
+                    "value": 3.0,
                     "mode": 0
                 },
                 {
                     "track": "boardEuler_x",
-                    "value": 0.0,
+                    "value": 5.7,
                     "mode": 1
                 },
                 {
@@ -1430,7 +1900,7 @@
                 },
                 {
                     "track": "boardEuler_z",
-                    "value": 0.0,
+                    "value": -0.1,
                     "mode": 3
                 },
                 {
@@ -1449,7 +1919,7 @@
                     "mode": 1
                 },
                 {
-                    "track": "hip_twist",
+                    "track": "body_twist",
                     "value": 0.0,
                     "mode": 1
                 },
@@ -1500,37 +1970,482 @@
                 },
                 {
                     "track": "hip_flexion_l",
-                    "value": 0.3,
+                    "value": 0.4,
                     "mode": 3
                 },
                 {
                     "track": "hip_abduction_l",
                     "value": 0.2,
+                    "mode": 1
+                },
+                {
+                    "track": "knee_flexion_l",
+                    "value": 0.5,
+                    "mode": 3
+                },
+                {
+                    "track": "ankle_flexion_l",
+                    "value": 0.3,
+                    "mode": 3
+                }
+            ]
+        },
+        {
+            "time": 34.8,
+            "nodes": [
+                {
+                    "track": "camera_x",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.5,
+                    "mode": 1
+                },
+                {
+                    "track": "camera_z",
+                    "value": 0.8,
+                    "mode": 1
+                },
+                {
+                    "track": "target_x",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.3,
+                    "mode": 4
+                },
+                {
+                    "track": "target_z",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "speed",
+                    "value": 3.0,
+                    "mode": 0
+                },
+                {
+                    "track": "boardEuler_x",
+                    "value": 6.3,
+                    "mode": 1
+                },
+                {
+                    "track": "boardEuler_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "boardEuler_z",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "boardPos_x",
+                    "value": -0.1,
+                    "mode": 1
+                },
+                {
+                    "track": "boardPos_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "boardPos_z",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "body_twist",
+                    "value": -0.1,
+                    "mode": 1
+                },
+                {
+                    "track": "bodyHipPosition_x",
+                    "value": -0.1,
+                    "mode": 1
+                },
+                {
+                    "track": "bodyHipPosition_y",
+                    "value": -0.02,
+                    "mode": 3
+                },
+                {
+                    "track": "bodyHipPosition_z",
+                    "value": -0.1,
+                    "mode": 1
+                },
+                {
+                    "track": "hip_rotation_r",
+                    "value": 0.7,
+                    "mode": 1
+                },
+                {
+                    "track": "hip_flexion_r",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "hip_abduction_r",
+                    "value": 0.2,
+                    "mode": 1
+                },
+                {
+                    "track": "knee_flexion_r",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "ankle_flexion_r",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "hip_rotation_l",
+                    "value": -0.5,
+                    "mode": 1
+                },
+                {
+                    "track": "hip_flexion_l",
+                    "value": 0.1,
+                    "mode": 1
+                },
+                {
+                    "track": "hip_abduction_l",
+                    "value": 0.1,
+                    "mode": 1
+                },
+                {
+                    "track": "knee_flexion_l",
+                    "value": 0.2,
+                    "mode": 4
+                },
+                {
+                    "track": "ankle_flexion_l",
+                    "value": 0.2,
+                    "mode": 1
+                }
+            ]
+        },
+        {
+            "time": 36.0,
+            "nodes": [
+                {
+                    "track": "camera_x",
+                    "value": 0.6,
+                    "mode": 4
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.2,
+                    "mode": 4
+                },
+                {
+                    "track": "camera_z",
+                    "value": 0.7,
+                    "mode": 4
+                },
+                {
+                    "track": "target_x",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.2,
+                    "mode": 1
+                },
+                {
+                    "track": "target_z",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "speed",
+                    "value": 3.0,
+                    "mode": 0
+                },
+                {
+                    "track": "boardEuler_x",
+                    "value": 0.0,
+                    "mode": 0
+                },
+                {
+                    "track": "boardEuler_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "boardEuler_z",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "boardPos_x",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "boardPos_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "boardPos_z",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "body_twist",
+                    "value": -0.1,
+                    "mode": 1
+                },
+                {
+                    "track": "bodyHipPosition_x",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "bodyHipPosition_y",
+                    "value": -0.02,
+                    "mode": 3
+                },
+                {
+                    "track": "bodyHipPosition_z",
+                    "value": -0.1,
+                    "mode": 1
+                },
+                {
+                    "track": "hip_rotation_r",
+                    "value": 0.7,
+                    "mode": 1
+                },
+                {
+                    "track": "hip_flexion_r",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "hip_abduction_r",
+                    "value": 0.2,
+                    "mode": 1
+                },
+                {
+                    "track": "knee_flexion_r",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "ankle_flexion_r",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "hip_rotation_l",
+                    "value": -0.5,
+                    "mode": 1
+                },
+                {
+                    "track": "hip_flexion_l",
+                    "value": 0.1,
+                    "mode": 1
+                },
+                {
+                    "track": "hip_abduction_l",
+                    "value": 0.1,
+                    "mode": 1
+                },
+                {
+                    "track": "knee_flexion_l",
+                    "value": 0.2,
+                    "mode": 4
+                },
+                {
+                    "track": "ankle_flexion_l",
+                    "value": 0.2,
+                    "mode": 1
+                }
+            ]
+        },
+        {
+            "time": 37.0,
+            "nodes": [
+                {
+                    "track": "camera_x",
+                    "value": 0.6,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.2,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_z",
+                    "value": 0.7,
+                    "mode": 2
+                },
+                {
+                    "track": "target_x",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_z",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "speed",
+                    "value": 3.0,
+                    "mode": 0
+                },
+                {
+                    "track": "boardEuler_x",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "boardEuler_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "boardEuler_z",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "boardPos_x",
+                    "value": 0.1,
+                    "mode": 1
+                },
+                {
+                    "track": "boardPos_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "boardPos_z",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "body_twist",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "bodyHipPosition_x",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "bodyHipPosition_y",
+                    "value": -0.31,
+                    "mode": 4
+                },
+                {
+                    "track": "bodyHipPosition_z",
+                    "value": -0.2,
+                    "mode": 3
+                },
+                {
+                    "track": "hip_rotation_r",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "hip_flexion_r",
+                    "value": 0.43,
+                    "mode": 3
+                },
+                {
+                    "track": "hip_abduction_r",
+                    "value": 0.2,
+                    "mode": 1
+                },
+                {
+                    "track": "knee_flexion_r",
+                    "value": 0.8,
+                    "mode": 3
+                },
+                {
+                    "track": "ankle_flexion_r",
+                    "value": 1.0,
+                    "mode": 1
+                },
+                {
+                    "track": "hip_rotation_l",
+                    "value": 0.1,
+                    "mode": 1
+                },
+                {
+                    "track": "hip_flexion_l",
+                    "value": 0.4,
+                    "mode": 3
+                },
+                {
+                    "track": "hip_abduction_l",
+                    "value": 0.1,
                     "mode": 1
                 },
                 {
                     "track": "knee_flexion_l",
                     "value": 0.8,
-                    "mode": 3
+                    "mode": 4
                 },
                 {
                     "track": "ankle_flexion_l",
-                    "value": 0.3,
-                    "mode": 3
+                    "value": 1.1,
+                    "mode": 4
                 }
             ]
         },
         {
-            "time": 28.0,
+            "time": 37.0,
             "nodes": [
                 {
-                    "track": "camera",
+                    "track": "camera_x",
+                    "value": 0.6,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.2,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_z",
+                    "value": 0.7,
+                    "mode": 2
+                },
+                {
+                    "track": "target_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_z",
+                    "value": 0.0,
+                    "mode": 1
                 },
                 {
                     "track": "speed",
-                    "value": 0.0,
+                    "value": 3.0,
                     "mode": 0
                 },
                 {
@@ -1556,7 +2471,7 @@
                 {
                     "track": "boardPos_y",
                     "value": 0.0,
-                    "mode": 2
+                    "mode": 1
                 },
                 {
                     "track": "boardPos_z",
@@ -1564,203 +2479,113 @@
                     "mode": 1
                 },
                 {
-                    "track": "hip_twist",
+                    "track": "body_twist",
                     "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_x",
-                    "value": 0.1,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_y",
-                    "value": -0.02,
-                    "mode": 2
-                },
-                {
-                    "track": "bodyHipPosition_z",
-                    "value": 0.1,
-                    "mode": 1
-                },
-                {
-                    "track": "hip_rotation_r",
-                    "value": 0.5,
-                    "mode": 1
-                },
-                {
-                    "track": "hip_flexion_r",
-                    "value": 0.0,
-                    "mode": 2
-                },
-                {
-                    "track": "hip_abduction_r",
-                    "value": 0.2,
-                    "mode": 1
-                },
-                {
-                    "track": "knee_flexion_r",
-                    "value": 0.1,
-                    "mode": 2
-                },
-                {
-                    "track": "ankle_flexion_r",
-                    "value": 0.3,
-                    "mode": 2
-                },
-                {
-                    "track": "hip_rotation_l",
-                    "value": 0.5,
-                    "mode": 1
-                },
-                {
-                    "track": "hip_flexion_l",
-                    "value": 0.0,
-                    "mode": 2
-                },
-                {
-                    "track": "hip_abduction_l",
-                    "value": 0.2,
-                    "mode": 1
-                },
-                {
-                    "track": "knee_flexion_l",
-                    "value": 0.1,
-                    "mode": 2
-                },
-                {
-                    "track": "ankle_flexion_l",
-                    "value": 0.3,
-                    "mode": 2
-                }
-            ]
-        },
-        {
-            "time": 29.0,
-            "nodes": [
-                {
-                    "track": "camera",
-                    "value": 0.0,
-                    "mode": 0
-                },
-                {
-                    "track": "speed",
-                    "value": 0.0,
-                    "mode": 0
-                },
-                {
-                    "track": "boardEuler_x",
-                    "value": 0.0,
-                    "mode": 1
-                },
-                {
-                    "track": "boardEuler_y",
-                    "value": 0.0,
-                    "mode": 1
-                },
-                {
-                    "track": "boardEuler_z",
-                    "value": 0.0,
-                    "mode": 1
-                },
-                {
-                    "track": "boardPos_x",
-                    "value": -0.1,
-                    "mode": 1
-                },
-                {
-                    "track": "boardPos_y",
-                    "value": 0.0,
-                    "mode": 2
-                },
-                {
-                    "track": "boardPos_z",
-                    "value": 0.0,
-                    "mode": 1
-                },
-                {
-                    "track": "hip_twist",
-                    "value": 0.0,
-                    "mode": 1
-                },
-                {
-                    "track": "bodyHipPosition_x",
-                    "value": -0.1,
-                    "mode": 1
-                },
-                {
-                    "track": "bodyHipPosition_y",
-                    "value": -0.12,
-                    "mode": 2
+                    "value": -0.31,
+                    "mode": 4
                 },
                 {
                     "track": "bodyHipPosition_z",
                     "value": -0.2,
-                    "mode": 1
+                    "mode": 3
                 },
                 {
                     "track": "hip_rotation_r",
-                    "value": 0.2,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "hip_flexion_r",
-                    "value": 0.3,
-                    "mode": 1
+                    "value": 0.43,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_r",
-                    "value": 0.1,
+                    "value": 0.2,
                     "mode": 1
                 },
                 {
                     "track": "knee_flexion_r",
-                    "value": 0.4,
-                    "mode": 4
+                    "value": 0.8,
+                    "mode": 3
                 },
                 {
                     "track": "ankle_flexion_r",
-                    "value": 0.3,
+                    "value": 1.0,
+                    "mode": 1
+                },
+                {
+                    "track": "hip_rotation_l",
+                    "value": 0.1,
+                    "mode": 1
+                },
+                {
+                    "track": "hip_flexion_l",
+                    "value": 0.4,
+                    "mode": 3
+                },
+                {
+                    "track": "hip_abduction_l",
+                    "value": 0.1,
+                    "mode": 1
+                },
+                {
+                    "track": "knee_flexion_l",
+                    "value": 0.8,
+                    "mode": 4
+                },
+                {
+                    "track": "ankle_flexion_l",
+                    "value": 1.1,
+                    "mode": 4
+                }
+            ]
+        },
+        {
+            "time": 37.0,
+            "nodes": [
+                {
+                    "track": "camera_x",
+                    "value": 0.6,
                     "mode": 2
                 },
                 {
-                    "track": "hip_rotation_l",
+                    "track": "camera_y",
                     "value": 0.2,
-                    "mode": 1
-                },
-                {
-                    "track": "hip_flexion_l",
-                    "value": 0.3,
-                    "mode": 1
-                },
-                {
-                    "track": "hip_abduction_l",
-                    "value": 0.1,
-                    "mode": 1
-                },
-                {
-                    "track": "knee_flexion_l",
-                    "value": 0.4,
-                    "mode": 4
-                },
-                {
-                    "track": "ankle_flexion_l",
-                    "value": 0.3,
                     "mode": 2
-                }
-            ]
-        },
-        {
-            "time": 30.0,
-            "nodes": [
+                },
                 {
-                    "track": "camera",
+                    "track": "camera_z",
+                    "value": 0.7,
+                    "mode": 2
+                },
+                {
+                    "track": "target_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_z",
+                    "value": 0.0,
+                    "mode": 1
                 },
                 {
                     "track": "speed",
-                    "value": 0.0,
+                    "value": 3.0,
                     "mode": 0
                 },
                 {
@@ -1780,7 +2605,7 @@
                 },
                 {
                     "track": "boardPos_x",
-                    "value": -0.1,
+                    "value": 0.1,
                     "mode": 1
                 },
                 {
@@ -1794,34 +2619,34 @@
                     "mode": 1
                 },
                 {
-                    "track": "hip_twist",
-                    "value": -0.1,
+                    "track": "body_twist",
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_x",
-                    "value": -0.1,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_y",
-                    "value": -0.02,
-                    "mode": 3
+                    "value": -0.31,
+                    "mode": 4
                 },
                 {
                     "track": "bodyHipPosition_z",
-                    "value": -0.1,
-                    "mode": 1
+                    "value": -0.2,
+                    "mode": 3
                 },
                 {
                     "track": "hip_rotation_r",
-                    "value": 0.7,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "hip_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
+                    "value": 0.43,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_r",
@@ -1830,23 +2655,23 @@
                 },
                 {
                     "track": "knee_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
+                    "value": 0.8,
+                    "mode": 3
                 },
                 {
                     "track": "ankle_flexion_r",
-                    "value": 0.0,
+                    "value": 1.0,
                     "mode": 1
                 },
                 {
                     "track": "hip_rotation_l",
-                    "value": -0.5,
+                    "value": 0.1,
                     "mode": 1
                 },
                 {
                     "track": "hip_flexion_l",
-                    "value": 0.1,
-                    "mode": 1
+                    "value": 0.4,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_l",
@@ -1855,27 +2680,52 @@
                 },
                 {
                     "track": "knee_flexion_l",
-                    "value": 0.2,
+                    "value": 0.8,
                     "mode": 4
                 },
                 {
                     "track": "ankle_flexion_l",
-                    "value": 0.2,
-                    "mode": 1
+                    "value": 1.1,
+                    "mode": 4
                 }
             ]
         },
         {
-            "time": 30.0,
+            "time": 37.0,
             "nodes": [
                 {
-                    "track": "camera",
+                    "track": "camera_x",
+                    "value": 0.6,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.2,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_z",
+                    "value": 0.7,
+                    "mode": 2
+                },
+                {
+                    "track": "target_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_z",
+                    "value": 0.0,
+                    "mode": 1
                 },
                 {
                     "track": "speed",
-                    "value": 0.0,
+                    "value": 3.0,
                     "mode": 0
                 },
                 {
@@ -1895,7 +2745,7 @@
                 },
                 {
                     "track": "boardPos_x",
-                    "value": -0.1,
+                    "value": 0.1,
                     "mode": 1
                 },
                 {
@@ -1909,34 +2759,34 @@
                     "mode": 1
                 },
                 {
-                    "track": "hip_twist",
-                    "value": -0.1,
+                    "track": "body_twist",
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_x",
-                    "value": -0.1,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_y",
-                    "value": -0.02,
-                    "mode": 3
+                    "value": -0.31,
+                    "mode": 4
                 },
                 {
                     "track": "bodyHipPosition_z",
-                    "value": -0.1,
-                    "mode": 1
+                    "value": -0.2,
+                    "mode": 3
                 },
                 {
                     "track": "hip_rotation_r",
-                    "value": 0.7,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "hip_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
+                    "value": 0.43,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_r",
@@ -1945,23 +2795,23 @@
                 },
                 {
                     "track": "knee_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
+                    "value": 0.8,
+                    "mode": 3
                 },
                 {
                     "track": "ankle_flexion_r",
-                    "value": 0.0,
+                    "value": 1.0,
                     "mode": 1
                 },
                 {
                     "track": "hip_rotation_l",
-                    "value": -0.5,
+                    "value": 0.1,
                     "mode": 1
                 },
                 {
                     "track": "hip_flexion_l",
-                    "value": 0.1,
-                    "mode": 1
+                    "value": 0.4,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_l",
@@ -1970,27 +2820,52 @@
                 },
                 {
                     "track": "knee_flexion_l",
-                    "value": 0.2,
+                    "value": 0.8,
                     "mode": 4
                 },
                 {
                     "track": "ankle_flexion_l",
-                    "value": 0.2,
-                    "mode": 1
+                    "value": 1.1,
+                    "mode": 4
                 }
             ]
         },
         {
-            "time": 30.0,
+            "time": 37.0,
             "nodes": [
                 {
-                    "track": "camera",
+                    "track": "camera_x",
+                    "value": 0.6,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.2,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_z",
+                    "value": 0.7,
+                    "mode": 2
+                },
+                {
+                    "track": "target_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_z",
+                    "value": 0.0,
+                    "mode": 1
                 },
                 {
                     "track": "speed",
-                    "value": 0.0,
+                    "value": 3.0,
                     "mode": 0
                 },
                 {
@@ -2010,7 +2885,7 @@
                 },
                 {
                     "track": "boardPos_x",
-                    "value": -0.1,
+                    "value": 0.1,
                     "mode": 1
                 },
                 {
@@ -2024,34 +2899,34 @@
                     "mode": 1
                 },
                 {
-                    "track": "hip_twist",
-                    "value": -0.1,
+                    "track": "body_twist",
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_x",
-                    "value": -0.1,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_y",
-                    "value": -0.02,
-                    "mode": 3
+                    "value": -0.31,
+                    "mode": 4
                 },
                 {
                     "track": "bodyHipPosition_z",
-                    "value": -0.1,
-                    "mode": 1
+                    "value": -0.2,
+                    "mode": 3
                 },
                 {
                     "track": "hip_rotation_r",
-                    "value": 0.7,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "hip_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
+                    "value": 0.43,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_r",
@@ -2060,23 +2935,23 @@
                 },
                 {
                     "track": "knee_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
+                    "value": 0.8,
+                    "mode": 3
                 },
                 {
                     "track": "ankle_flexion_r",
-                    "value": 0.0,
+                    "value": 1.0,
                     "mode": 1
                 },
                 {
                     "track": "hip_rotation_l",
-                    "value": -0.5,
+                    "value": 0.1,
                     "mode": 1
                 },
                 {
                     "track": "hip_flexion_l",
-                    "value": 0.1,
-                    "mode": 1
+                    "value": 0.4,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_l",
@@ -2085,27 +2960,52 @@
                 },
                 {
                     "track": "knee_flexion_l",
-                    "value": 0.2,
+                    "value": 0.8,
                     "mode": 4
                 },
                 {
                     "track": "ankle_flexion_l",
-                    "value": 0.2,
-                    "mode": 1
+                    "value": 1.1,
+                    "mode": 4
                 }
             ]
         },
         {
-            "time": 30.0,
+            "time": 37.0,
             "nodes": [
                 {
-                    "track": "camera",
+                    "track": "camera_x",
+                    "value": 0.6,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.2,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_z",
+                    "value": 0.7,
+                    "mode": 2
+                },
+                {
+                    "track": "target_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_z",
+                    "value": 0.0,
+                    "mode": 1
                 },
                 {
                     "track": "speed",
-                    "value": 0.0,
+                    "value": 3.0,
                     "mode": 0
                 },
                 {
@@ -2125,7 +3025,7 @@
                 },
                 {
                     "track": "boardPos_x",
-                    "value": -0.1,
+                    "value": 0.1,
                     "mode": 1
                 },
                 {
@@ -2139,34 +3039,34 @@
                     "mode": 1
                 },
                 {
-                    "track": "hip_twist",
-                    "value": -0.1,
+                    "track": "body_twist",
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_x",
-                    "value": -0.1,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_y",
-                    "value": -0.02,
-                    "mode": 3
+                    "value": -0.31,
+                    "mode": 4
                 },
                 {
                     "track": "bodyHipPosition_z",
-                    "value": -0.1,
-                    "mode": 1
+                    "value": -0.2,
+                    "mode": 3
                 },
                 {
                     "track": "hip_rotation_r",
-                    "value": 0.7,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "hip_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
+                    "value": 0.43,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_r",
@@ -2175,23 +3075,23 @@
                 },
                 {
                     "track": "knee_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
+                    "value": 0.8,
+                    "mode": 3
                 },
                 {
                     "track": "ankle_flexion_r",
-                    "value": 0.0,
+                    "value": 1.0,
                     "mode": 1
                 },
                 {
                     "track": "hip_rotation_l",
-                    "value": -0.5,
+                    "value": 0.1,
                     "mode": 1
                 },
                 {
                     "track": "hip_flexion_l",
-                    "value": 0.1,
-                    "mode": 1
+                    "value": 0.4,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_l",
@@ -2200,27 +3100,52 @@
                 },
                 {
                     "track": "knee_flexion_l",
-                    "value": 0.2,
+                    "value": 0.8,
                     "mode": 4
                 },
                 {
                     "track": "ankle_flexion_l",
-                    "value": 0.2,
-                    "mode": 1
+                    "value": 1.1,
+                    "mode": 4
                 }
             ]
         },
         {
-            "time": 30.0,
+            "time": 37.0,
             "nodes": [
                 {
-                    "track": "camera",
+                    "track": "camera_x",
+                    "value": 0.6,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.2,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_z",
+                    "value": 0.7,
+                    "mode": 2
+                },
+                {
+                    "track": "target_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_z",
+                    "value": 0.0,
+                    "mode": 1
                 },
                 {
                     "track": "speed",
-                    "value": 0.0,
+                    "value": 3.0,
                     "mode": 0
                 },
                 {
@@ -2240,7 +3165,7 @@
                 },
                 {
                     "track": "boardPos_x",
-                    "value": -0.1,
+                    "value": 0.1,
                     "mode": 1
                 },
                 {
@@ -2254,34 +3179,34 @@
                     "mode": 1
                 },
                 {
-                    "track": "hip_twist",
-                    "value": -0.1,
+                    "track": "body_twist",
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_x",
-                    "value": -0.1,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_y",
-                    "value": -0.02,
-                    "mode": 3
+                    "value": -0.31,
+                    "mode": 4
                 },
                 {
                     "track": "bodyHipPosition_z",
-                    "value": -0.1,
-                    "mode": 1
+                    "value": -0.2,
+                    "mode": 3
                 },
                 {
                     "track": "hip_rotation_r",
-                    "value": 0.7,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "hip_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
+                    "value": 0.43,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_r",
@@ -2290,23 +3215,23 @@
                 },
                 {
                     "track": "knee_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
+                    "value": 0.8,
+                    "mode": 3
                 },
                 {
                     "track": "ankle_flexion_r",
-                    "value": 0.0,
+                    "value": 1.0,
                     "mode": 1
                 },
                 {
                     "track": "hip_rotation_l",
-                    "value": -0.5,
+                    "value": 0.1,
                     "mode": 1
                 },
                 {
                     "track": "hip_flexion_l",
-                    "value": 0.1,
-                    "mode": 1
+                    "value": 0.4,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_l",
@@ -2315,27 +3240,52 @@
                 },
                 {
                     "track": "knee_flexion_l",
-                    "value": 0.2,
+                    "value": 0.8,
                     "mode": 4
                 },
                 {
                     "track": "ankle_flexion_l",
-                    "value": 0.2,
-                    "mode": 1
+                    "value": 1.1,
+                    "mode": 4
                 }
             ]
         },
         {
-            "time": 30.0,
+            "time": 37.0,
             "nodes": [
                 {
-                    "track": "camera",
+                    "track": "camera_x",
+                    "value": 0.6,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.2,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_z",
+                    "value": 0.7,
+                    "mode": 2
+                },
+                {
+                    "track": "target_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_z",
+                    "value": 0.0,
+                    "mode": 1
                 },
                 {
                     "track": "speed",
-                    "value": 0.0,
+                    "value": 3.0,
                     "mode": 0
                 },
                 {
@@ -2355,7 +3305,7 @@
                 },
                 {
                     "track": "boardPos_x",
-                    "value": -0.1,
+                    "value": 0.1,
                     "mode": 1
                 },
                 {
@@ -2369,34 +3319,34 @@
                     "mode": 1
                 },
                 {
-                    "track": "hip_twist",
-                    "value": -0.1,
+                    "track": "body_twist",
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_x",
-                    "value": -0.1,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_y",
-                    "value": -0.02,
-                    "mode": 3
+                    "value": -0.31,
+                    "mode": 4
                 },
                 {
                     "track": "bodyHipPosition_z",
-                    "value": -0.1,
-                    "mode": 1
+                    "value": -0.2,
+                    "mode": 3
                 },
                 {
                     "track": "hip_rotation_r",
-                    "value": 0.7,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "hip_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
+                    "value": 0.43,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_r",
@@ -2405,23 +3355,23 @@
                 },
                 {
                     "track": "knee_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
+                    "value": 0.8,
+                    "mode": 3
                 },
                 {
                     "track": "ankle_flexion_r",
-                    "value": 0.0,
+                    "value": 1.0,
                     "mode": 1
                 },
                 {
                     "track": "hip_rotation_l",
-                    "value": -0.5,
+                    "value": 0.1,
                     "mode": 1
                 },
                 {
                     "track": "hip_flexion_l",
-                    "value": 0.1,
-                    "mode": 1
+                    "value": 0.4,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_l",
@@ -2430,27 +3380,52 @@
                 },
                 {
                     "track": "knee_flexion_l",
-                    "value": 0.2,
+                    "value": 0.8,
                     "mode": 4
                 },
                 {
                     "track": "ankle_flexion_l",
-                    "value": 0.2,
-                    "mode": 1
+                    "value": 1.1,
+                    "mode": 4
                 }
             ]
         },
         {
-            "time": 30.0,
+            "time": 37.0,
             "nodes": [
                 {
-                    "track": "camera",
+                    "track": "camera_x",
+                    "value": 0.6,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.2,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_z",
+                    "value": 0.7,
+                    "mode": 2
+                },
+                {
+                    "track": "target_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_z",
+                    "value": 0.0,
+                    "mode": 1
                 },
                 {
                     "track": "speed",
-                    "value": 0.0,
+                    "value": 3.0,
                     "mode": 0
                 },
                 {
@@ -2470,7 +3445,7 @@
                 },
                 {
                     "track": "boardPos_x",
-                    "value": -0.1,
+                    "value": 0.1,
                     "mode": 1
                 },
                 {
@@ -2484,34 +3459,34 @@
                     "mode": 1
                 },
                 {
-                    "track": "hip_twist",
-                    "value": -0.1,
+                    "track": "body_twist",
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_x",
-                    "value": -0.1,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_y",
-                    "value": -0.02,
-                    "mode": 3
+                    "value": -0.31,
+                    "mode": 4
                 },
                 {
                     "track": "bodyHipPosition_z",
-                    "value": -0.1,
-                    "mode": 1
+                    "value": -0.2,
+                    "mode": 3
                 },
                 {
                     "track": "hip_rotation_r",
-                    "value": 0.7,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "hip_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
+                    "value": 0.43,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_r",
@@ -2520,23 +3495,23 @@
                 },
                 {
                     "track": "knee_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
+                    "value": 0.8,
+                    "mode": 3
                 },
                 {
                     "track": "ankle_flexion_r",
-                    "value": 0.0,
+                    "value": 1.0,
                     "mode": 1
                 },
                 {
                     "track": "hip_rotation_l",
-                    "value": -0.5,
+                    "value": 0.1,
                     "mode": 1
                 },
                 {
                     "track": "hip_flexion_l",
-                    "value": 0.1,
-                    "mode": 1
+                    "value": 0.4,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_l",
@@ -2545,27 +3520,52 @@
                 },
                 {
                     "track": "knee_flexion_l",
-                    "value": 0.2,
+                    "value": 0.8,
                     "mode": 4
                 },
                 {
                     "track": "ankle_flexion_l",
-                    "value": 0.2,
-                    "mode": 1
+                    "value": 1.1,
+                    "mode": 4
                 }
             ]
         },
         {
-            "time": 30.0,
+            "time": 37.0,
             "nodes": [
                 {
-                    "track": "camera",
+                    "track": "camera_x",
+                    "value": 0.6,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.2,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_z",
+                    "value": 0.7,
+                    "mode": 2
+                },
+                {
+                    "track": "target_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_z",
+                    "value": 0.0,
+                    "mode": 1
                 },
                 {
                     "track": "speed",
-                    "value": 0.0,
+                    "value": 3.0,
                     "mode": 0
                 },
                 {
@@ -2585,7 +3585,7 @@
                 },
                 {
                     "track": "boardPos_x",
-                    "value": -0.1,
+                    "value": 0.1,
                     "mode": 1
                 },
                 {
@@ -2599,34 +3599,34 @@
                     "mode": 1
                 },
                 {
-                    "track": "hip_twist",
-                    "value": -0.1,
+                    "track": "body_twist",
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_x",
-                    "value": -0.1,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_y",
-                    "value": -0.02,
-                    "mode": 3
+                    "value": -0.31,
+                    "mode": 4
                 },
                 {
                     "track": "bodyHipPosition_z",
-                    "value": -0.1,
-                    "mode": 1
+                    "value": -0.2,
+                    "mode": 3
                 },
                 {
                     "track": "hip_rotation_r",
-                    "value": 0.7,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "hip_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
+                    "value": 0.43,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_r",
@@ -2635,23 +3635,23 @@
                 },
                 {
                     "track": "knee_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
+                    "value": 0.8,
+                    "mode": 3
                 },
                 {
                     "track": "ankle_flexion_r",
-                    "value": 0.0,
+                    "value": 1.0,
                     "mode": 1
                 },
                 {
                     "track": "hip_rotation_l",
-                    "value": -0.5,
+                    "value": 0.1,
                     "mode": 1
                 },
                 {
                     "track": "hip_flexion_l",
-                    "value": 0.1,
-                    "mode": 1
+                    "value": 0.4,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_l",
@@ -2660,27 +3660,52 @@
                 },
                 {
                     "track": "knee_flexion_l",
-                    "value": 0.2,
+                    "value": 0.8,
                     "mode": 4
                 },
                 {
                     "track": "ankle_flexion_l",
-                    "value": 0.2,
-                    "mode": 1
+                    "value": 1.1,
+                    "mode": 4
                 }
             ]
         },
         {
-            "time": 30.0,
+            "time": 37.0,
             "nodes": [
                 {
-                    "track": "camera",
+                    "track": "camera_x",
+                    "value": 0.6,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.2,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_z",
+                    "value": 0.7,
+                    "mode": 2
+                },
+                {
+                    "track": "target_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_z",
+                    "value": 0.0,
+                    "mode": 1
                 },
                 {
                     "track": "speed",
-                    "value": 0.0,
+                    "value": 3.0,
                     "mode": 0
                 },
                 {
@@ -2700,7 +3725,7 @@
                 },
                 {
                     "track": "boardPos_x",
-                    "value": -0.1,
+                    "value": 0.1,
                     "mode": 1
                 },
                 {
@@ -2714,34 +3739,34 @@
                     "mode": 1
                 },
                 {
-                    "track": "hip_twist",
-                    "value": -0.1,
+                    "track": "body_twist",
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_x",
-                    "value": -0.1,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_y",
-                    "value": -0.02,
-                    "mode": 3
+                    "value": -0.31,
+                    "mode": 4
                 },
                 {
                     "track": "bodyHipPosition_z",
-                    "value": -0.1,
-                    "mode": 1
+                    "value": -0.2,
+                    "mode": 3
                 },
                 {
                     "track": "hip_rotation_r",
-                    "value": 0.7,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "hip_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
+                    "value": 0.43,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_r",
@@ -2750,23 +3775,23 @@
                 },
                 {
                     "track": "knee_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
+                    "value": 0.8,
+                    "mode": 3
                 },
                 {
                     "track": "ankle_flexion_r",
-                    "value": 0.0,
+                    "value": 1.0,
                     "mode": 1
                 },
                 {
                     "track": "hip_rotation_l",
-                    "value": -0.5,
+                    "value": 0.1,
                     "mode": 1
                 },
                 {
                     "track": "hip_flexion_l",
-                    "value": 0.1,
-                    "mode": 1
+                    "value": 0.4,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_l",
@@ -2775,27 +3800,52 @@
                 },
                 {
                     "track": "knee_flexion_l",
-                    "value": 0.2,
+                    "value": 0.8,
                     "mode": 4
                 },
                 {
                     "track": "ankle_flexion_l",
-                    "value": 0.2,
-                    "mode": 1
+                    "value": 1.1,
+                    "mode": 4
                 }
             ]
         },
         {
-            "time": 30.0,
+            "time": 37.0,
             "nodes": [
                 {
-                    "track": "camera",
+                    "track": "camera_x",
+                    "value": 0.6,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.2,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_z",
+                    "value": 0.7,
+                    "mode": 2
+                },
+                {
+                    "track": "target_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_z",
+                    "value": 0.0,
+                    "mode": 1
                 },
                 {
                     "track": "speed",
-                    "value": 0.0,
+                    "value": 3.0,
                     "mode": 0
                 },
                 {
@@ -2815,7 +3865,7 @@
                 },
                 {
                     "track": "boardPos_x",
-                    "value": -0.1,
+                    "value": 0.1,
                     "mode": 1
                 },
                 {
@@ -2829,34 +3879,34 @@
                     "mode": 1
                 },
                 {
-                    "track": "hip_twist",
-                    "value": -0.1,
+                    "track": "body_twist",
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_x",
-                    "value": -0.1,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_y",
-                    "value": -0.02,
-                    "mode": 3
+                    "value": -0.31,
+                    "mode": 4
                 },
                 {
                     "track": "bodyHipPosition_z",
-                    "value": -0.1,
-                    "mode": 1
+                    "value": -0.2,
+                    "mode": 3
                 },
                 {
                     "track": "hip_rotation_r",
-                    "value": 0.7,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "hip_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
+                    "value": 0.43,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_r",
@@ -2865,23 +3915,23 @@
                 },
                 {
                     "track": "knee_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
+                    "value": 0.8,
+                    "mode": 3
                 },
                 {
                     "track": "ankle_flexion_r",
-                    "value": 0.0,
+                    "value": 1.0,
                     "mode": 1
                 },
                 {
                     "track": "hip_rotation_l",
-                    "value": -0.5,
+                    "value": 0.1,
                     "mode": 1
                 },
                 {
                     "track": "hip_flexion_l",
-                    "value": 0.1,
-                    "mode": 1
+                    "value": 0.4,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_l",
@@ -2890,27 +3940,52 @@
                 },
                 {
                     "track": "knee_flexion_l",
-                    "value": 0.2,
+                    "value": 0.8,
                     "mode": 4
                 },
                 {
                     "track": "ankle_flexion_l",
-                    "value": 0.2,
-                    "mode": 1
+                    "value": 1.1,
+                    "mode": 4
                 }
             ]
         },
         {
-            "time": 30.0,
+            "time": 37.0,
             "nodes": [
                 {
-                    "track": "camera",
+                    "track": "camera_x",
+                    "value": 0.6,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.2,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_z",
+                    "value": 0.7,
+                    "mode": 2
+                },
+                {
+                    "track": "target_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_z",
+                    "value": 0.0,
+                    "mode": 1
                 },
                 {
                     "track": "speed",
-                    "value": 0.0,
+                    "value": 3.0,
                     "mode": 0
                 },
                 {
@@ -2930,7 +4005,7 @@
                 },
                 {
                     "track": "boardPos_x",
-                    "value": -0.1,
+                    "value": 0.1,
                     "mode": 1
                 },
                 {
@@ -2944,34 +4019,34 @@
                     "mode": 1
                 },
                 {
-                    "track": "hip_twist",
-                    "value": -0.1,
+                    "track": "body_twist",
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_x",
-                    "value": -0.1,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_y",
-                    "value": -0.02,
-                    "mode": 3
+                    "value": -0.31,
+                    "mode": 4
                 },
                 {
                     "track": "bodyHipPosition_z",
-                    "value": -0.1,
-                    "mode": 1
+                    "value": -0.2,
+                    "mode": 3
                 },
                 {
                     "track": "hip_rotation_r",
-                    "value": 0.7,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "hip_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
+                    "value": 0.43,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_r",
@@ -2980,23 +4055,23 @@
                 },
                 {
                     "track": "knee_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
+                    "value": 0.8,
+                    "mode": 3
                 },
                 {
                     "track": "ankle_flexion_r",
-                    "value": 0.0,
+                    "value": 1.0,
                     "mode": 1
                 },
                 {
                     "track": "hip_rotation_l",
-                    "value": -0.5,
+                    "value": 0.1,
                     "mode": 1
                 },
                 {
                     "track": "hip_flexion_l",
-                    "value": 0.1,
-                    "mode": 1
+                    "value": 0.4,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_l",
@@ -3005,27 +4080,52 @@
                 },
                 {
                     "track": "knee_flexion_l",
-                    "value": 0.2,
+                    "value": 0.8,
                     "mode": 4
                 },
                 {
                     "track": "ankle_flexion_l",
-                    "value": 0.2,
-                    "mode": 1
+                    "value": 1.1,
+                    "mode": 4
                 }
             ]
         },
         {
-            "time": 30.0,
+            "time": 37.0,
             "nodes": [
                 {
-                    "track": "camera",
+                    "track": "camera_x",
+                    "value": 0.6,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.2,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_z",
+                    "value": 0.7,
+                    "mode": 2
+                },
+                {
+                    "track": "target_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_z",
+                    "value": 0.0,
+                    "mode": 1
                 },
                 {
                     "track": "speed",
-                    "value": 0.0,
+                    "value": 3.0,
                     "mode": 0
                 },
                 {
@@ -3045,7 +4145,7 @@
                 },
                 {
                     "track": "boardPos_x",
-                    "value": -0.1,
+                    "value": 0.1,
                     "mode": 1
                 },
                 {
@@ -3059,34 +4159,34 @@
                     "mode": 1
                 },
                 {
-                    "track": "hip_twist",
-                    "value": -0.1,
+                    "track": "body_twist",
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_x",
-                    "value": -0.1,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_y",
-                    "value": -0.02,
-                    "mode": 3
+                    "value": -0.31,
+                    "mode": 4
                 },
                 {
                     "track": "bodyHipPosition_z",
-                    "value": -0.1,
-                    "mode": 1
+                    "value": -0.2,
+                    "mode": 3
                 },
                 {
                     "track": "hip_rotation_r",
-                    "value": 0.7,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "hip_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
+                    "value": 0.43,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_r",
@@ -3095,23 +4195,23 @@
                 },
                 {
                     "track": "knee_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
+                    "value": 0.8,
+                    "mode": 3
                 },
                 {
                     "track": "ankle_flexion_r",
-                    "value": 0.0,
+                    "value": 1.0,
                     "mode": 1
                 },
                 {
                     "track": "hip_rotation_l",
-                    "value": -0.5,
+                    "value": 0.1,
                     "mode": 1
                 },
                 {
                     "track": "hip_flexion_l",
-                    "value": 0.1,
-                    "mode": 1
+                    "value": 0.4,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_l",
@@ -3120,27 +4220,52 @@
                 },
                 {
                     "track": "knee_flexion_l",
-                    "value": 0.2,
+                    "value": 0.8,
                     "mode": 4
                 },
                 {
                     "track": "ankle_flexion_l",
-                    "value": 0.2,
-                    "mode": 1
+                    "value": 1.1,
+                    "mode": 4
                 }
             ]
         },
         {
-            "time": 30.0,
+            "time": 37.0,
             "nodes": [
                 {
-                    "track": "camera",
+                    "track": "camera_x",
+                    "value": 0.6,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.2,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_z",
+                    "value": 0.7,
+                    "mode": 2
+                },
+                {
+                    "track": "target_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_z",
+                    "value": 0.0,
+                    "mode": 1
                 },
                 {
                     "track": "speed",
-                    "value": 0.0,
+                    "value": 3.0,
                     "mode": 0
                 },
                 {
@@ -3160,7 +4285,7 @@
                 },
                 {
                     "track": "boardPos_x",
-                    "value": -0.1,
+                    "value": 0.1,
                     "mode": 1
                 },
                 {
@@ -3174,34 +4299,34 @@
                     "mode": 1
                 },
                 {
-                    "track": "hip_twist",
-                    "value": -0.1,
+                    "track": "body_twist",
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_x",
-                    "value": -0.1,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_y",
-                    "value": -0.02,
-                    "mode": 3
+                    "value": -0.31,
+                    "mode": 4
                 },
                 {
                     "track": "bodyHipPosition_z",
-                    "value": -0.1,
-                    "mode": 1
+                    "value": -0.2,
+                    "mode": 3
                 },
                 {
                     "track": "hip_rotation_r",
-                    "value": 0.7,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "hip_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
+                    "value": 0.43,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_r",
@@ -3210,23 +4335,23 @@
                 },
                 {
                     "track": "knee_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
+                    "value": 0.8,
+                    "mode": 3
                 },
                 {
                     "track": "ankle_flexion_r",
-                    "value": 0.0,
+                    "value": 1.0,
                     "mode": 1
                 },
                 {
                     "track": "hip_rotation_l",
-                    "value": -0.5,
+                    "value": 0.1,
                     "mode": 1
                 },
                 {
                     "track": "hip_flexion_l",
-                    "value": 0.1,
-                    "mode": 1
+                    "value": 0.4,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_l",
@@ -3235,27 +4360,52 @@
                 },
                 {
                     "track": "knee_flexion_l",
-                    "value": 0.2,
+                    "value": 0.8,
                     "mode": 4
                 },
                 {
                     "track": "ankle_flexion_l",
-                    "value": 0.2,
-                    "mode": 1
+                    "value": 1.1,
+                    "mode": 4
                 }
             ]
         },
         {
-            "time": 30.0,
+            "time": 37.0,
             "nodes": [
                 {
-                    "track": "camera",
+                    "track": "camera_x",
+                    "value": 0.6,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_y",
+                    "value": 0.2,
+                    "mode": 2
+                },
+                {
+                    "track": "camera_z",
+                    "value": 0.7,
+                    "mode": 2
+                },
+                {
+                    "track": "target_x",
                     "value": 0.0,
-                    "mode": 0
+                    "mode": 1
+                },
+                {
+                    "track": "target_y",
+                    "value": 0.0,
+                    "mode": 1
+                },
+                {
+                    "track": "target_z",
+                    "value": 0.0,
+                    "mode": 1
                 },
                 {
                     "track": "speed",
-                    "value": 0.0,
+                    "value": 3.0,
                     "mode": 0
                 },
                 {
@@ -3275,7 +4425,7 @@
                 },
                 {
                     "track": "boardPos_x",
-                    "value": -0.1,
+                    "value": 0.1,
                     "mode": 1
                 },
                 {
@@ -3289,34 +4439,34 @@
                     "mode": 1
                 },
                 {
-                    "track": "hip_twist",
-                    "value": -0.1,
+                    "track": "body_twist",
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_x",
-                    "value": -0.1,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "bodyHipPosition_y",
-                    "value": -0.02,
-                    "mode": 3
+                    "value": -0.31,
+                    "mode": 4
                 },
                 {
                     "track": "bodyHipPosition_z",
-                    "value": -0.1,
-                    "mode": 1
+                    "value": -0.2,
+                    "mode": 3
                 },
                 {
                     "track": "hip_rotation_r",
-                    "value": 0.7,
+                    "value": 0.0,
                     "mode": 1
                 },
                 {
                     "track": "hip_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
+                    "value": 0.43,
+                    "mode": 3
                 },
                 {
                     "track": "hip_abduction_r",
@@ -3325,383 +4475,38 @@
                 },
                 {
                     "track": "knee_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
-                },
-                {
-                    "track": "ankle_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
-                },
-                {
-                    "track": "hip_rotation_l",
-                    "value": -0.5,
-                    "mode": 1
-                },
-                {
-                    "track": "hip_flexion_l",
-                    "value": 0.1,
-                    "mode": 1
-                },
-                {
-                    "track": "hip_abduction_l",
-                    "value": 0.1,
-                    "mode": 1
-                },
-                {
-                    "track": "knee_flexion_l",
-                    "value": 0.2,
-                    "mode": 4
-                },
-                {
-                    "track": "ankle_flexion_l",
-                    "value": 0.2,
-                    "mode": 1
-                }
-            ]
-        },
-        {
-            "time": 30.0,
-            "nodes": [
-                {
-                    "track": "camera",
-                    "value": 0.0,
-                    "mode": 0
-                },
-                {
-                    "track": "speed",
-                    "value": 0.0,
-                    "mode": 0
-                },
-                {
-                    "track": "boardEuler_x",
-                    "value": 0.0,
-                    "mode": 1
-                },
-                {
-                    "track": "boardEuler_y",
-                    "value": 0.0,
-                    "mode": 1
-                },
-                {
-                    "track": "boardEuler_z",
-                    "value": 0.0,
-                    "mode": 1
-                },
-                {
-                    "track": "boardPos_x",
-                    "value": -0.1,
-                    "mode": 1
-                },
-                {
-                    "track": "boardPos_y",
-                    "value": 0.0,
-                    "mode": 1
-                },
-                {
-                    "track": "boardPos_z",
-                    "value": 0.0,
-                    "mode": 1
-                },
-                {
-                    "track": "hip_twist",
-                    "value": -0.1,
-                    "mode": 1
-                },
-                {
-                    "track": "bodyHipPosition_x",
-                    "value": -0.1,
-                    "mode": 1
-                },
-                {
-                    "track": "bodyHipPosition_y",
-                    "value": -0.02,
+                    "value": 0.8,
                     "mode": 3
                 },
                 {
-                    "track": "bodyHipPosition_z",
-                    "value": -0.1,
-                    "mode": 1
-                },
-                {
-                    "track": "hip_rotation_r",
-                    "value": 0.7,
-                    "mode": 1
-                },
-                {
-                    "track": "hip_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
-                },
-                {
-                    "track": "hip_abduction_r",
-                    "value": 0.2,
-                    "mode": 1
-                },
-                {
-                    "track": "knee_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
-                },
-                {
                     "track": "ankle_flexion_r",
-                    "value": 0.0,
+                    "value": 1.0,
                     "mode": 1
                 },
                 {
                     "track": "hip_rotation_l",
-                    "value": -0.5,
+                    "value": 0.1,
                     "mode": 1
                 },
                 {
                     "track": "hip_flexion_l",
-                    "value": 0.1,
-                    "mode": 1
-                },
-                {
-                    "track": "hip_abduction_l",
-                    "value": 0.1,
-                    "mode": 1
-                },
-                {
-                    "track": "knee_flexion_l",
-                    "value": 0.2,
-                    "mode": 4
-                },
-                {
-                    "track": "ankle_flexion_l",
-                    "value": 0.2,
-                    "mode": 1
-                }
-            ]
-        },
-        {
-            "time": 30.0,
-            "nodes": [
-                {
-                    "track": "camera",
-                    "value": 0.0,
-                    "mode": 0
-                },
-                {
-                    "track": "speed",
-                    "value": 0.0,
-                    "mode": 0
-                },
-                {
-                    "track": "boardEuler_x",
-                    "value": 0.0,
-                    "mode": 1
-                },
-                {
-                    "track": "boardEuler_y",
-                    "value": 0.0,
-                    "mode": 1
-                },
-                {
-                    "track": "boardEuler_z",
-                    "value": 0.0,
-                    "mode": 1
-                },
-                {
-                    "track": "boardPos_x",
-                    "value": -0.1,
-                    "mode": 1
-                },
-                {
-                    "track": "boardPos_y",
-                    "value": 0.0,
-                    "mode": 1
-                },
-                {
-                    "track": "boardPos_z",
-                    "value": 0.0,
-                    "mode": 1
-                },
-                {
-                    "track": "hip_twist",
-                    "value": -0.1,
-                    "mode": 1
-                },
-                {
-                    "track": "bodyHipPosition_x",
-                    "value": -0.1,
-                    "mode": 1
-                },
-                {
-                    "track": "bodyHipPosition_y",
-                    "value": -0.02,
+                    "value": 0.4,
                     "mode": 3
                 },
                 {
-                    "track": "bodyHipPosition_z",
-                    "value": -0.1,
-                    "mode": 1
-                },
-                {
-                    "track": "hip_rotation_r",
-                    "value": 0.7,
-                    "mode": 1
-                },
-                {
-                    "track": "hip_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
-                },
-                {
-                    "track": "hip_abduction_r",
-                    "value": 0.2,
-                    "mode": 1
-                },
-                {
-                    "track": "knee_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
-                },
-                {
-                    "track": "ankle_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
-                },
-                {
-                    "track": "hip_rotation_l",
-                    "value": -0.5,
-                    "mode": 1
-                },
-                {
-                    "track": "hip_flexion_l",
-                    "value": 0.1,
-                    "mode": 1
-                },
-                {
                     "track": "hip_abduction_l",
                     "value": 0.1,
                     "mode": 1
                 },
                 {
                     "track": "knee_flexion_l",
-                    "value": 0.2,
+                    "value": 0.8,
                     "mode": 4
                 },
                 {
                     "track": "ankle_flexion_l",
-                    "value": 0.2,
-                    "mode": 1
-                }
-            ]
-        },
-        {
-            "time": 30.0,
-            "nodes": [
-                {
-                    "track": "camera",
-                    "value": 0.0,
-                    "mode": 0
-                },
-                {
-                    "track": "speed",
-                    "value": 0.0,
-                    "mode": 0
-                },
-                {
-                    "track": "boardEuler_x",
-                    "value": 0.0,
-                    "mode": 1
-                },
-                {
-                    "track": "boardEuler_y",
-                    "value": 0.0,
-                    "mode": 1
-                },
-                {
-                    "track": "boardEuler_z",
-                    "value": 0.0,
-                    "mode": 1
-                },
-                {
-                    "track": "boardPos_x",
-                    "value": -0.1,
-                    "mode": 1
-                },
-                {
-                    "track": "boardPos_y",
-                    "value": 0.0,
-                    "mode": 1
-                },
-                {
-                    "track": "boardPos_z",
-                    "value": 0.0,
-                    "mode": 1
-                },
-                {
-                    "track": "hip_twist",
-                    "value": -0.1,
-                    "mode": 1
-                },
-                {
-                    "track": "bodyHipPosition_x",
-                    "value": -0.1,
-                    "mode": 1
-                },
-                {
-                    "track": "bodyHipPosition_y",
-                    "value": -0.02,
-                    "mode": 3
-                },
-                {
-                    "track": "bodyHipPosition_z",
-                    "value": -0.1,
-                    "mode": 1
-                },
-                {
-                    "track": "hip_rotation_r",
-                    "value": 0.7,
-                    "mode": 1
-                },
-                {
-                    "track": "hip_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
-                },
-                {
-                    "track": "hip_abduction_r",
-                    "value": 0.2,
-                    "mode": 1
-                },
-                {
-                    "track": "knee_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
-                },
-                {
-                    "track": "ankle_flexion_r",
-                    "value": 0.0,
-                    "mode": 1
-                },
-                {
-                    "track": "hip_rotation_l",
-                    "value": -0.5,
-                    "mode": 1
-                },
-                {
-                    "track": "hip_flexion_l",
-                    "value": 0.1,
-                    "mode": 1
-                },
-                {
-                    "track": "hip_abduction_l",
-                    "value": 0.1,
-                    "mode": 1
-                },
-                {
-                    "track": "knee_flexion_l",
-                    "value": 0.2,
+                    "value": 1.1,
                     "mode": 4
-                },
-                {
-                    "track": "ankle_flexion_l",
-                    "value": 0.2,
-                    "mode": 1
                 }
             ]
         }

@@ -53,7 +53,9 @@
 #define BOUNCE_BRIGHTNESS 0.2
 
 uniform float scroll;
-uniform float camera;
+
+uniform vec3 camera;
+uniform vec3 target;
 
 uniform vec3 board_euler;
 uniform vec3 board_offset;
@@ -506,23 +508,11 @@ void main(void) {
     // Fisheye
     uv *= (1.0 + 0.5 * pow(0.5 * length(uv), 2.0));
     
-    
-    // Camera position and target point
-    vec3 target = vec3(0,0.2,0);
-    vec3 offset = vec3(0,0.1,-1);
+    // Camera lens
     float zoom = 2.0;
-
-    if(camera > 0.0)
-        offset = vec3(1,0.1,0);
-
-    if(camera > 1.0)
-        offset = vec3(1,0.5,1);
-
-
-    vec3 rayOrigin = target - offset;
     
     // Calculating ray angles
-    vec3 ww = normalize(vec3(target - rayOrigin));
+    vec3 ww = normalize(vec3(target - camera));
     vec3 uu = normalize(cross(ww, vec3(0,1,0)));
     vec3 vv = normalize(cross(uu, ww));
     vec3 rayDirection = normalize(ww*zoom + uv.x*uu + uv.y*vv);
@@ -531,7 +521,7 @@ void main(void) {
     // Perform ray marhcing:
     // This finds the material and distance for the current pixel.
     int materialID;
-    float distance = castRay(rayOrigin, rayDirection, materialID);
+    float distance = castRay(camera, rayDirection, materialID);
     
     // This will be the final color of pixel
     vec3 color;
@@ -539,7 +529,7 @@ void main(void) {
     // Ray hit
     if(distance > 0.0) {
         // Surface parameters
-        vec3 position = rayOrigin + distance * rayDirection;
+        vec3 position = camera + distance * rayDirection;
         vec3 normal = calculateNormal(position);
         
         // Material
