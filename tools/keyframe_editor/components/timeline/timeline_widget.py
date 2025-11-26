@@ -133,7 +133,7 @@ class TimelineEditor(BoxLayout):
         if filepath:
             if not filepath.endswith('.json'):
                 filepath += '.json'
-            self.timeline.export_json(filepath, 32)
+            self.timeline.export_json(filepath, 64)
             print(f"Exported to {filepath}")
         else:
             print("Please enter a valid export path")
