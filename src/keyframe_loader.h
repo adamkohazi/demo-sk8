@@ -5,7 +5,7 @@
 // Function to load keyframes from JSON
 #ifdef DEBUG
 #include <fstream>
-constexpr size_t MAX_KEYFRAMES = 32;
+constexpr size_t MAX_KEYFRAMES = 64;
 
 Keyframe<float> speed[MAX_KEYFRAMES];
 
