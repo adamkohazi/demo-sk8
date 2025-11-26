@@ -21,3 +21,10 @@ class TimelineApp(App):
 
 if __name__ == "__main__":
     TimelineApp().run()
+
+
+"""
+TODO: Label for keyframes
+display prev and next keyframes
+copy keyframe
+"""

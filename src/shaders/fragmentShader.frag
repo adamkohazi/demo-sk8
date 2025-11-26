@@ -256,7 +256,7 @@ float map(in vec3 position, out int materialID) {
         materialID = MAT_ID_WHEEL;
     material_distance = distance;
     
-    // Deck
+    // Trucks
     distance = min(distance, SDFTrucks(board_position + centerpoint));
     // Update material
     if (abs(distance-material_distance) > RAYMARCH_MINSTEP)
@@ -386,7 +386,7 @@ float map(in vec3 position, out int materialID) {
     vec3 polar = polarCoords(location);
     float leaves = polar.x-max(0.1,4.0*cos(5.0*polar.y)*cos(5.0*polar.z))-0.5; //Leaves
     
-    distance = min(distance, leaves);
+    distance = min(distance, 0.1*leaves); // Smaller stepsize due to inaccuracies
     
     // Update material
     if (abs(distance-material_distance) > RAYMARCH_MINSTEP)
