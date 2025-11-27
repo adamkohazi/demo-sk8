@@ -1,59 +1,71 @@
-#define PI 3.14159
+vec2 i_RESOLUTION = vec2(1280, 720);
+
+const float i_PI = 3.14159;
 
 /* Parameters */
-#define RAYMARCH_MAXITER 1024
-#define RAYMARCH_MINSTEP 0.001
-#define RAYMARCH_MAXDIST 64.0
+const int i_RAYMARCH_MAXITER = 1024;
+const float i_RAYMARCH_MINSTEP = 0.001;
+const float i_RAYMARCH_MAXDIST = 64.0;
 
-#define SHADOW_MAXDIST 32.0
-#define SHADOW_HARDNESS 16.0
-
-#define OCCLUSION_STEPS 5
+const float i_SHADOW_MAXDIST = 32.0;
+const float i_SHADOW_HARDNESS = 16.0;
 
 // Background
-#define SUNLIGHT_DIRECTION normalize(vec3(5, 3, -10))
-#define SUN_DIRECTION normalize(vec3(5, 1, -10))
-#define SUN_COLOR normalize(vec3(8, 4, 0))
+const vec3 i_SUNLIGHT_DIRECTION = normalize(vec3(5, 3, -10));
+const vec3 i_SUN_DIRECTION = normalize(vec3(5, 1, -10));
+const vec3 i_SUN_COLOR = vec3(0.9, 0.4, 0);
 
-#define SKY_COLOR normalize(vec3(1, 3, 5))
-#define AMBIENT_COLOR normalize(vec3(2, 1, 0))
+const vec3 i_SKY_COLOR = normalize(vec3(1, 3, 5));
 
-#define CLOUD_FREQ 2.0
-#define CLOUD_COLOR vec3(0.3, 0.4, 0.5)
+const float i_CLOUD_FREQ = 2.0;
+const vec3 i_CLOUD_COLOR = vec3(0.3, 0.4, 0.5);
 
 // Material IDs
-#define MAT_ID_DEFAULT 0
-#define MAT_ID_WATER 1
-#define MAT_ID_SAND 2
-#define MAT_ID_CONCRETE 3
-#define MAT_ID_PALM_TRUNK 4
-#define MAT_ID_PALM_LEAF 5
-#define MAT_ID_DECK 6
-#define MAT_ID_WHEEL 7
-#define MAT_ID_TRUCK 8
-#define MAT_ID_LEG 9
-#define MAT_ID_SHOE 10
+const int i_MAT_ID_DEFAULT = 0;
+const int i_MAT_ID_WATER = 1;
+const int i_MAT_ID_SAND = 2;
+const int i_MAT_ID_CONCRETE = 3;
+const int i_MAT_ID_PALM_TRUNK = 4;
+const int i_MAT_ID_PALM_LEAF = 5;
+const int i_MAT_ID_DECK = 6;
+const int i_MAT_ID_WHEEL = 7;
+const int i_MAT_ID_TRUCK = 8;
+const int i_MAT_ID_LEG = 9;
+const int i_MAT_ID_SHOE = 10;
 
 // Objects
-#define WATER_COLOR vec3(0.05, 0.1, 0.2)
-#define SAND_COLOR vec3(0.5)
-#define CONCRETE_LIGHT vec3(0.6)
-#define CONCRETE_DARK vec3(0.4)
-#define PALM_TRUNK vec3(0.3, 0.2, 0.1)
-#define PALM_LEAF vec3(0.1, 0.2, 0.1)
-#define COLOR_DECK vec3(1, 0, 0)
-#define COLOR_WHEEL vec3(1)
-#define COLOR_TRUCK vec3(0.3)
-#define COLOR_LEG vec3(0.1,0.2,0.4)
-#define COLOR_SHOE vec3(0.05)
+const vec3 i_COLOR_WATER = vec3(0.05, 0.1, 0.2);
+const vec3 i_COLOR_SAND = vec3(0.5);
+const vec3 i_COLOR_CONCRETE_LIGHT = vec3(0.6);
+const vec3 i_COLOR_CONCRETE_DARK = vec3(0.4);
+const vec3 i_COLOR_PALM_TRUNK = vec3(0.3, 0.2, 0.1);
+const vec3 i_COLOR_PALM_LEAF = vec3(0.1, 0.2, 0.1);
+const vec3 i_COLOR_DECK = vec3(1, 0, 0);
+const vec3 i_COLOR_WHEEL = vec3(1);
+const vec3 i_COLOR_TRUCK = vec3(0.3);
+const vec3 i_COLOR_LEG = vec3(0.1,0.2,0.4);
+const vec3 i_COLOR_SHOE = vec3(0.05);
 
 // Lighing
-#define SUN_BRIGHTNESS 4.0
-#define SKY_BRIGHTNESS 0.5
-#define BOUNCE_BRIGHTNESS 0.2
+const float i_SUN_BRIGHTNESS = 4.0;
+const float i_SKY_BRIGHTNESS = 0.5;
+const float i_BOUNCE_BRIGHTNESS = 0.2;
 
-// Scroll scenery
-uniform float scroll;
+// Board
+const vec3 i_BOARD_CENTER = vec3(0,0.05,0);
+
+// Body
+const float i_HIP_HEIGHT = 0.81;
+const float i_HIP_WIDTH = 0.2;
+
+const float i_THIGH_LENGTH = 0.4;
+const float i_SHIN_LENGTH = 0.3;
+const float i_FOOT_LENGTH = 0.1;
+
+const float i_THIGH_WIDTH = 0.04;
+const float i_SHIN_WIDTH = 0.04;
+const float i_FOOT_WIDTH = 0.05;
+
 
 // Camera angles
 uniform vec3 camera;
@@ -64,8 +76,8 @@ uniform vec3 board_euler;
 uniform vec3 board_offset;
 
 // Body position
-uniform float body_twist;
 uniform vec3 body_offset;
+uniform float body_twist;
 
 // Body parts
 // Hip Internal/External rotation:
@@ -101,6 +113,8 @@ uniform float hip_abduction_l;
 uniform float knee_flexion_l;
 uniform float ankle_flexion_l;
 
+// Scroll scenery
+uniform float scroll;
 
 // Convert to polar coords from cartesian coords
 vec3 polarCoords(vec3 cartesian) {
@@ -217,14 +231,14 @@ float SDFDeck(vec3 position) {
 // Wheels of a skateboard
 float SDFWheels(vec3 position) {
     position.xz = abs(position.xz);    
-    return max(SDFCylinder(rotateX(-PI/2.0, position)-vec3(0.2, 0.09, -0.03),0.01,0.02)-0.01,
-               -SDFCylinder(rotateX(-PI/2.0, position)-vec3(0.2, 0.00, -0.03),0.12,0.01));
+    return max(SDFCylinder(rotateX(-i_PI/2.0, position)-vec3(0.2, 0.09, -0.03),0.01,0.02)-0.01,
+               -SDFCylinder(rotateX(-i_PI/2.0, position)-vec3(0.2, 0.00, -0.03),0.12,0.01));
 }
 
 // Trucks of a skateboard
 float SDFTrucks(vec3 position) {
     position.x = abs(position.x);
-    float distance = SDFCylinder(rotateX(-PI/2.0, position)-vec3(0.2, 0.00, -0.03),0.1,0.0)-0.01;
+    float distance = SDFCylinder(rotateX(-i_PI/2.0, position)-vec3(0.2, 0.00, -0.03),0.1,0.0)-0.01;
     distance = opSmoothUnion(distance, SDFCylinder(rotateZ(-0.3, position)-vec3(0.18, 0.00, 0.00), 0.003, 0.02), 0.05);
     distance = max(distance, -SDFCylinder(rotateZ(-0.3, position)-vec3(0.18, -0.11, 0.00), 0.1, 0.02));
     distance = min(distance, SDFCylinder(rotateZ(-0.3, position)-vec3(0.18, -0.0, 0.00), 0.02, 0.0)-0.01);
@@ -242,25 +256,24 @@ float map(in vec3 position, out int materialID) {
     
     // Water
     float distance = position.y + 1.0;
-    materialID = MAT_ID_WATER;
+    materialID = i_MAT_ID_WATER;
     
     // Sand
     if(position.z > -20.0+3.0*sin(0.1*position.x))
-        materialID = MAT_ID_SAND;
+        materialID = i_MAT_ID_SAND;
     
     // Platform
     if(position.z > -2.0) {
         vec3 tiled = moving - vec3(1,0,1)*round(moving/vec3(1,0,1));
         distance = SDFBox(tiled-vec3(0,-0.01,0), vec3(0.98,0,0.98))-0.01;
         
-        materialID = MAT_ID_CONCRETE;
+        materialID = i_MAT_ID_CONCRETE;
     }
     
     float material_distance = distance;
     
     // Skateboard
-    const vec3 centerpoint = vec3(0,0.05,0);
-    vec3 board_position = position-centerpoint;
+    vec3 board_position = position-i_BOARD_CENTER;
     
     board_position -= board_offset;
     board_position = rotateZ(board_euler.z, board_position);
@@ -268,78 +281,68 @@ float map(in vec3 position, out int materialID) {
     board_position = rotateX(board_euler.x, board_position);
     
     // Deck
-    distance = min(distance, SDFDeck(board_position + centerpoint));
+    distance = min(distance, SDFDeck(board_position + i_BOARD_CENTER));
     // Update material
-    if (abs(distance-material_distance) > RAYMARCH_MINSTEP)
-        materialID = MAT_ID_DECK;
+    if (abs(distance-material_distance) > i_RAYMARCH_MINSTEP)
+        materialID = i_MAT_ID_DECK;
     material_distance = distance;
     
     // Wheels
-    distance = min(distance, SDFWheels(board_position + centerpoint));
+    distance = min(distance, SDFWheels(board_position + i_BOARD_CENTER));
     // Update material
-    if (abs(distance-material_distance) > RAYMARCH_MINSTEP)
-        materialID = MAT_ID_WHEEL;
+    if (abs(distance-material_distance) > i_RAYMARCH_MINSTEP)
+        materialID = i_MAT_ID_WHEEL;
     material_distance = distance;
     
     // Trucks
-    distance = min(distance, SDFTrucks(board_position + centerpoint));
+    distance = min(distance, SDFTrucks(board_position + i_BOARD_CENTER));
     // Update material
-    if (abs(distance-material_distance) > RAYMARCH_MINSTEP)
-        materialID = MAT_ID_TRUCK;
+    if (abs(distance-material_distance) > i_RAYMARCH_MINSTEP)
+        materialID = i_MAT_ID_TRUCK;
     material_distance = distance;
 
     // Relative move according to keyframe info
-    const float hipHeight = 0.81;
-    const float hipWidth = 0.2;
-    
-    const float thighLen = 0.4;
-    const float shinLen = 0.3;
-    const float footLen = 0.1;
-    
-    const float thighWidth = 0.04;
-    const float shinWidth = 0.04;
-    const float footWidth = 0.05;
     vec3 body_position = position - body_offset;
     
     // Twist hip
-    body_position = rotateY(2.0 * PI * (body_twist+0.5), body_position);
+    body_position = rotateY(2.0 * i_PI * (body_twist+0.5), body_position);
     
-    vec3 leg_r_position = body_position-vec3(0.5*hipWidth, hipHeight, 0);
-    vec3 leg_l_position = body_position-vec3(-0.5*hipWidth, hipHeight, 0);
+    vec3 leg_r_position = body_position-vec3(0.5*i_HIP_WIDTH, i_HIP_HEIGHT, 0);
+    vec3 leg_l_position = body_position-vec3(-0.5*i_HIP_WIDTH, i_HIP_HEIGHT, 0);
     
     // 1. Hip rotation
-    leg_r_position = rotateY(0.25 * PI * hip_rotation_r, leg_r_position);
-    leg_l_position = rotateY(-0.25 * PI * hip_rotation_l, leg_l_position);
+    leg_r_position = rotateY(0.25 * i_PI * hip_rotation_r, leg_r_position);
+    leg_l_position = rotateY(-0.25 * i_PI * hip_rotation_l, leg_l_position);
     
     //Calculate joint positions
     // Knee
-    vec3 knee_right_point = rotateX(140.0 / 360.0 * 2.0 * PI * hip_flexion_r,-vec3(0,thighLen,0)); // 2. Flexion
-    knee_right_point = rotateZ(0.25 * PI * hip_abduction_r, knee_right_point); // 3. Abduction
+    vec3 knee_right_point = rotateX(140.0 / 360.0 * 2.0 * i_PI * hip_flexion_r,-vec3(0,i_THIGH_LENGTH,0)); // 2. Flexion
+    knee_right_point = rotateZ(0.25 * i_PI * hip_abduction_r, knee_right_point); // 3. Abduction
     
-    vec3 knee_left_point = rotateX(140.0 / 360.0 * 2.0 * PI * hip_flexion_l,-vec3(0,thighLen,0)); // 2. Flexion
-    knee_left_point = rotateZ(-0.25 * PI * hip_abduction_l, knee_left_point); // 3. Abduction
+    vec3 knee_left_point = rotateX(140.0 / 360.0 * 2.0 * i_PI * hip_flexion_l,-vec3(0,i_THIGH_LENGTH,0)); // 2. Flexion
+    knee_left_point = rotateZ(-0.25 * i_PI * hip_abduction_l, knee_left_point); // 3. Abduction
  
     // Ankle
-    vec3 ankle_right_point = knee_right_point + rotateX(140.0 / 360.0 * 2.0 * PI * hip_flexion_r - 140.0 / 360.0 * 2.0 * PI * knee_flexion_r,-vec3(0,shinLen,0));
-    ankle_right_point = rotateZ(0.25 * PI * hip_abduction_r, ankle_right_point - knee_right_point) + knee_right_point; //flexion
+    vec3 ankle_right_point = knee_right_point + rotateX(140.0 / 360.0 * 2.0 * i_PI * hip_flexion_r - 140.0 / 360.0 * 2.0 * i_PI * knee_flexion_r,-vec3(0,i_SHIN_LENGTH,0));
+    ankle_right_point = rotateZ(0.25 * i_PI * hip_abduction_r, ankle_right_point - knee_right_point) + knee_right_point; //flexion
     
-    vec3 ankle_left_point = knee_left_point + rotateX(140.0 / 360.0 * 2.0 * PI * hip_flexion_l - 140.0 / 360.0 * 2.0 * PI * knee_flexion_l,-vec3(0,shinLen,0));
-    ankle_left_point = rotateZ(-0.25 * PI * hip_abduction_l, ankle_left_point - knee_left_point) + knee_left_point; //flexion
+    vec3 ankle_left_point = knee_left_point + rotateX(140.0 / 360.0 * 2.0 * i_PI * hip_flexion_l - 140.0 / 360.0 * 2.0 * i_PI * knee_flexion_l,-vec3(0,i_SHIN_LENGTH,0));
+    ankle_left_point = rotateZ(-0.25 * i_PI * hip_abduction_l, ankle_left_point - knee_left_point) + knee_left_point; //flexion
     
     // Toe
-    vec3 toe_right_point = ankle_right_point + rotateX(140.0 / 360.0 * 2.0 * PI * hip_flexion_r - 140.0 / 360.0 * 2.0 * PI * knee_flexion_r + 0.25 * PI * ankle_flexion_r +  0.5 * PI,-vec3(0,footLen,0));
-    toe_right_point = rotateZ(0.25 * PI * hip_abduction_r, toe_right_point - ankle_right_point) + ankle_right_point; //flexion
+    vec3 toe_right_point = ankle_right_point + rotateX(140.0 / 360.0 * 2.0 * i_PI * hip_flexion_r - 140.0 / 360.0 * 2.0 * i_PI * knee_flexion_r + 0.25 * i_PI * ankle_flexion_r +  0.5 * i_PI,-vec3(0,i_FOOT_LENGTH,0));
+    toe_right_point = rotateZ(0.25 * i_PI * hip_abduction_r, toe_right_point - ankle_right_point) + ankle_right_point; //flexion
     
-    vec3 toe_left_point = ankle_left_point + rotateX(140.0 / 360.0 * 2.0 * PI * hip_flexion_l - 140.0 / 360.0 * 2.0 * PI * knee_flexion_l + 0.25 * PI * ankle_flexion_l +  0.5 * PI,-vec3(0,footLen,0));
-    toe_left_point = rotateZ(-0.25 * PI * hip_abduction_l, toe_left_point - ankle_left_point) + ankle_left_point; //flexion
+    vec3 toe_left_point = ankle_left_point + rotateX(140.0 / 360.0 * 2.0 * i_PI * hip_flexion_l - 140.0 / 360.0 * 2.0 * i_PI * knee_flexion_l + 0.25 * i_PI * ankle_flexion_l +  0.5 * i_PI,-vec3(0,i_FOOT_LENGTH,0));
+    toe_left_point = rotateZ(-0.25 * i_PI * hip_abduction_l, toe_left_point - ankle_left_point) + ankle_left_point; //flexion
     
     // Draw thighs
-    float leg_right = SDFCapsule(leg_r_position, vec3(0), knee_right_point, thighWidth);
-    float leg_left = SDFCapsule(leg_l_position, vec3(0), knee_left_point, thighWidth);
+    float leg_right = SDFCapsule(leg_r_position, vec3(0), knee_right_point, i_THIGH_WIDTH);
+    float leg_left = SDFCapsule(leg_l_position, vec3(0), knee_left_point, i_THIGH_WIDTH);
     
     // Draw shins
-    leg_right = opSmoothUnion(leg_right, SDFCapsule(leg_r_position, knee_right_point, ankle_right_point, shinWidth), shinWidth); 
-    leg_left = opSmoothUnion(leg_left, SDFCapsule(leg_l_position, knee_left_point, ankle_left_point, shinWidth), shinWidth);
+    leg_right = opSmoothUnion(leg_right, SDFCapsule(leg_r_position, knee_right_point, ankle_right_point, i_SHIN_WIDTH), i_SHIN_WIDTH); 
+    leg_left = opSmoothUnion(leg_left, SDFCapsule(leg_l_position, knee_left_point, ankle_left_point, i_SHIN_WIDTH), i_SHIN_WIDTH);
     
     // Add wrinkles
     leg_right -= 0.04 * fbm(5.0 * leg_r_position.yz);
@@ -354,14 +357,14 @@ float map(in vec3 position, out int materialID) {
     distance = min(distance, leg_left);
     
     // Update material
-    if (abs(distance-material_distance) > RAYMARCH_MINSTEP)
-        materialID = MAT_ID_LEG;
+    if (abs(distance-material_distance) > i_RAYMARCH_MINSTEP)
+        materialID = i_MAT_ID_LEG;
     material_distance = distance;
     
     
     // Shoe
     distance = min(distance, max(
-        SDFCapsule(leg_r_position, 1.1*ankle_right_point-0.1*toe_right_point, toe_right_point, footWidth), // extend heel back a bit
+        SDFCapsule(leg_r_position, 1.1*ankle_right_point-0.1*toe_right_point, toe_right_point, i_FOOT_WIDTH), // extend heel back a bit
         -dot(
             leg_r_position-ankle_right_point,
             normalize(cross(cross(ankle_right_point-knee_right_point, toe_right_point-ankle_right_point), toe_right_point-ankle_right_point)) // Cut sole flat
@@ -370,7 +373,7 @@ float map(in vec3 position, out int materialID) {
     );
     
     distance = min(distance, max(
-        SDFCapsule(leg_l_position, 1.1*ankle_left_point-0.1*toe_left_point, toe_left_point, footWidth), // extend heel back a bit
+        SDFCapsule(leg_l_position, 1.1*ankle_left_point-0.1*toe_left_point, toe_left_point, i_FOOT_WIDTH), // extend heel back a bit
         -dot(
             leg_l_position-ankle_left_point,
             normalize(cross(cross(ankle_left_point-knee_left_point, toe_left_point-ankle_left_point), toe_left_point-ankle_left_point)) // Cut sole flat
@@ -379,8 +382,8 @@ float map(in vec3 position, out int materialID) {
     );
     
     // Update material
-    if (abs(distance-material_distance) > RAYMARCH_MINSTEP)
-        materialID = MAT_ID_SHOE;
+    if (abs(distance-material_distance) > i_RAYMARCH_MINSTEP)
+        materialID = i_MAT_ID_SHOE;
     material_distance = distance;
     
     // Repeating boardwalk
@@ -391,8 +394,8 @@ float map(in vec3 position, out int materialID) {
     distance = min(distance, SDFBox(position-vec3(0,0,-1.5), vec3(3, 1, 0.5)));
     
     // Update material
-    if (abs(distance-material_distance) > RAYMARCH_MINSTEP)
-        materialID = MAT_ID_CONCRETE;
+    if (abs(distance-material_distance) > i_RAYMARCH_MINSTEP)
+        materialID = i_MAT_ID_CONCRETE;
     material_distance = distance;
 
     // Palm tree - trunk
@@ -400,8 +403,8 @@ float map(in vec3 position, out int materialID) {
     distance = min(distance, length(location+vec3(sin(2.0*location.y/15.0), -clamp(location.y, 0.0, 15.0), 0)) - 0.3);
     
     // Update material
-    if (abs(distance-material_distance) > RAYMARCH_MINSTEP)
-        materialID = MAT_ID_PALM_TRUNK;
+    if (abs(distance-material_distance) > i_RAYMARCH_MINSTEP)
+        materialID = i_MAT_ID_PALM_TRUNK;
     material_distance = distance;
     
     // Palm tree - leaves
@@ -414,8 +417,8 @@ float map(in vec3 position, out int materialID) {
     distance = min(distance, 0.1*leaves);
     
     // Update material
-    if (abs(distance-material_distance) > RAYMARCH_MINSTEP)
-        materialID = MAT_ID_PALM_LEAF;
+    if (abs(distance-material_distance) > i_RAYMARCH_MINSTEP)
+        materialID = i_MAT_ID_PALM_LEAF;
     material_distance = distance;
     
     // Combine SDFs:
@@ -425,18 +428,18 @@ float map(in vec3 position, out int materialID) {
 vec3 drawBackground(vec3 direction) {
     // Sky gradient
     float gradient = 0.5 * pow(1.0-direction.y, 4.0);
-    vec3 color = mix(SKY_COLOR, AMBIENT_COLOR, gradient);
+    vec3 color = mix(i_SKY_COLOR, i_SUN_COLOR, gradient);
     
     // Sun
-    float sunAngle = clamp(dot(direction, SUN_DIRECTION), 0.0, 1.0);
-    color += 0.5 * SUN_COLOR * pow(sunAngle, 50.0);
-    color += 5.0 * SUN_COLOR * pow(sunAngle, 1000.0);
+    float sunAngle = clamp(dot(direction, i_SUN_DIRECTION), 0.0, 1.0);
+    color += 0.5 * i_SUN_COLOR * pow(sunAngle, 50.0);
+    color += 5.0 * i_SUN_COLOR * pow(sunAngle, 1000.0);
     
 
     // Clouds
     if (direction.y > 0.0) {
-        float clouds = fbm((CLOUD_FREQ/direction.y)*direction.xz);
-        vec3 cloudColor = mix(CLOUD_COLOR, 3.0*SUN_COLOR, pow(sunAngle, 3.0));
+        float clouds = fbm((i_CLOUD_FREQ/direction.y)*direction.xz);
+        vec3 cloudColor = mix(i_CLOUD_COLOR, 3.0*i_SUN_COLOR, pow(sunAngle, 3.0));
         color = mix(color, cloudColor, 0.5*smoothstep(0.4, 1.0, clouds));
     }
     
@@ -453,12 +456,12 @@ vec3 drawBackground(vec3 direction) {
 float castRay(in vec3 rayOrigin, vec3 rayDirection, out int materialID) {
     // Start from origin
     float distance = 0.0;
-    for(int i=0; i<RAYMARCH_MAXITER; i++) {
+    for(int i=0; i<i_RAYMARCH_MAXITER; i++) {
         // Find stepsize for marching (distance of closest point from current position)
         float step = map(rayOrigin + distance * rayDirection, materialID);
 
         // An object is hit
-        if(step < RAYMARCH_MINSTEP)
+        if(step < i_RAYMARCH_MINSTEP)
             return distance;
             
         // March!
@@ -466,7 +469,7 @@ float castRay(in vec3 rayOrigin, vec3 rayDirection, out int materialID) {
 
         // If ray doesn't hit any objects and maximum render distance is reached,
         // draw the background
-        if(length(rayOrigin + distance * rayDirection) > RAYMARCH_MAXDIST)
+        if(length(rayOrigin + distance * rayDirection) > i_RAYMARCH_MAXDIST)
             break;
     }
     // Return a negative distance, so background is not affected by lighting.
@@ -479,13 +482,13 @@ int dummy; // Dummy material variable
 // https://iquilezles.org/articles/normalsSDF/
 vec3 calculateNormal(vec3 p) {
     vec3 v1 = vec3(
-        map(p + vec3(RAYMARCH_MINSTEP, 0, 0), dummy),
-        map(p + vec3(0, RAYMARCH_MINSTEP, 0), dummy),
-        map(p + vec3(0, 0, RAYMARCH_MINSTEP), dummy));
+        map(p + vec3(i_RAYMARCH_MINSTEP, 0, 0), dummy),
+        map(p + vec3(0, i_RAYMARCH_MINSTEP, 0), dummy),
+        map(p + vec3(0, 0, i_RAYMARCH_MINSTEP), dummy));
     vec3 v2 = vec3(
-        map(p - vec3(RAYMARCH_MINSTEP, 0, 0), dummy),
-        map(p - vec3(0, RAYMARCH_MINSTEP, 0), dummy),
-        map(p - vec3(0, 0, RAYMARCH_MINSTEP), dummy));
+        map(p - vec3(i_RAYMARCH_MINSTEP, 0, 0), dummy),
+        map(p - vec3(0, i_RAYMARCH_MINSTEP, 0), dummy),
+        map(p - vec3(0, 0, i_RAYMARCH_MINSTEP), dummy));
 
     return normalize(v1 - v2);
 }
@@ -495,12 +498,12 @@ vec3 calculateNormal(vec3 p) {
 float softShadow(in vec3 rayOrigin, vec3 rayDirection) {
     float res = 1.0;
     float distance = 0.0;
-    while (distance < SHADOW_MAXDIST)
+    while (distance < i_SHADOW_MAXDIST)
     {
         float step = map(rayOrigin + distance * rayDirection, dummy);
-        if(step < RAYMARCH_MINSTEP)
+        if(step < i_RAYMARCH_MINSTEP)
             return 0.0;
-        res = min(res, SHADOW_HARDNESS * step/distance);
+        res = min(res, i_SHADOW_HARDNESS * step/distance);
         distance += step;
     }
     return res;
@@ -525,7 +528,7 @@ void addBumps(vec3 position, inout vec3 normal, float size, float strength) {
 // Entry Point
 void main() {
     // Pixel coordinates (from -1 to 1)
-    vec2 uv = (2.0*floor(gl_FragCoord)-vec2(1280, 720))/720.;
+    vec2 uv = (2.0*floor(gl_FragCoord)-i_RESOLUTION.xy)/i_RESOLUTION.y;
     
     // Fisheye
     uv *= (1.0 + 0.5 * pow(0.5 * length(uv), 2.0));
@@ -556,7 +559,7 @@ void main() {
         
         // Material
         // Water
-        if(materialID == MAT_ID_WATER) {
+        if(materialID == i_MAT_ID_WATER) {
             // Reflectivity (Fresnel)
             float reflectivity = pow(1.0 - clamp(dot(normal, -rayDirection), 0.0, 1.0), 5.0); //5.0 is magic number
             
@@ -567,79 +570,79 @@ void main() {
             vec3 reflection = drawBackground(reflect(rayDirection, normal));
             
             // If not reflected, show water color
-            color = mix(WATER_COLOR, reflection, reflectivity);
+            color = mix(i_COLOR_WATER, reflection, reflectivity);
             
             // Add specular reflection for sun
-            color += SUN_COLOR * pow(clamp(dot(rayDirection, SUN_DIRECTION), 0.0, 1.0), 5.0); 
+            color += i_SUN_COLOR * pow(clamp(dot(rayDirection, i_SUN_DIRECTION), 0.0, 1.0), 5.0); 
         }
         // Lights don't affect water
         else {
             // Sand
-            if (materialID == MAT_ID_SAND) {
-                color = SAND_COLOR;
+            if (materialID == i_MAT_ID_SAND) {
+                color = i_COLOR_SAND;
                 addBumps(position, normal, 1.0, 0.1);
             }
             
             // Concrete
-            if (materialID == MAT_ID_CONCRETE) {
-                color = mix(CONCRETE_DARK, CONCRETE_LIGHT, fbm(5.0*(position.xy)-vec2(-scroll,0)));
+            if (materialID == i_MAT_ID_CONCRETE) {
+                color = mix(i_COLOR_CONCRETE_DARK, i_COLOR_CONCRETE_LIGHT, fbm(5.0*(position.xy)-vec2(-scroll,0)));
                 addBumps(position-vec3(-scroll,0,0), normal, 10.0, 0.005);
             }
             
             // Palm trunk
-            if (materialID == MAT_ID_PALM_TRUNK)
-                color = PALM_TRUNK;
+            if (materialID == i_MAT_ID_PALM_TRUNK)
+                color = i_COLOR_PALM_TRUNK;
             
             // Palm leaf
-            if (materialID == MAT_ID_PALM_LEAF)
-                color = PALM_LEAF;
+            if (materialID == i_MAT_ID_PALM_LEAF)
+                color = i_COLOR_PALM_LEAF;
             
             // Deck
-            if (materialID == MAT_ID_DECK)
-                color = COLOR_DECK;
+            if (materialID == i_MAT_ID_DECK)
+                color = i_COLOR_DECK;
             
             // Wheels
-            if (materialID == MAT_ID_WHEEL)
-                color = COLOR_WHEEL;
+            if (materialID == i_MAT_ID_WHEEL)
+                color = i_COLOR_WHEEL;
             
             // Trucks
-            if (materialID == MAT_ID_TRUCK)
-                color = COLOR_TRUCK;
+            if (materialID == i_MAT_ID_TRUCK)
+                color = i_COLOR_TRUCK;
             
             // Legs
-            if (materialID == MAT_ID_LEG)
-                color = COLOR_LEG;
+            if (materialID == i_MAT_ID_LEG)
+                color = i_COLOR_LEG;
             
             // Shoes
-            if (materialID == MAT_ID_SHOE)
-                color = COLOR_SHOE;
+            if (materialID == i_MAT_ID_SHOE)
+                color = i_COLOR_SHOE;
             
             // Soft shadows
-            float shadow = clamp(softShadow(position + RAYMARCH_MINSTEP * normal, SUNLIGHT_DIRECTION), 0.0, 1.0);
+            float shadow = clamp(softShadow(position + i_RAYMARCH_MINSTEP * normal, i_SUNLIGHT_DIRECTION), 0.0, 1.0);
 
             // Direct light from Sun
-            vec3 sunLight = SUN_BRIGHTNESS * SUN_COLOR * clamp(dot(normal, SUNLIGHT_DIRECTION), 0.0, 1.0);
+            vec3 sunLight = i_SUN_BRIGHTNESS * i_SUN_COLOR * clamp(dot(normal, i_SUNLIGHT_DIRECTION), 0.0, 1.0);
 
             // Diffused light from Sky
-            vec3 skyLight = SKY_BRIGHTNESS * SKY_COLOR * (0.5+0.5*normal.y);
+            vec3 skyLight = i_SKY_BRIGHTNESS * i_SKY_COLOR * (0.5+0.5*normal.y);
             
             // Bounce light from sunny surfaces
-            vec3 bounceLight = BOUNCE_BRIGHTNESS * AMBIENT_COLOR * dot(normal, SUN_DIRECTION*(vec3(-1,0,-1)));
+            vec3 bounceLight = i_BOUNCE_BRIGHTNESS * i_SUN_COLOR * dot(normal, i_SUN_DIRECTION*(vec3(-1,0,-1)));
             
             // Specular using Blinn-Phong
-            vec3 half1 = normalize(SUN_DIRECTION - rayDirection);
-            vec3 specular = SUN_BRIGHTNESS * SUN_COLOR * pow(clamp(dot(half1, normal), 0.0, 1.0), 16.0) //16.0 sets radius
+            vec3 half1 = normalize(i_SUN_DIRECTION - rayDirection);
+            vec3 specular = i_SUN_BRIGHTNESS * i_SUN_COLOR * pow(clamp(dot(half1, normal), 0.0, 1.0), 16.0) //16.0 sets radius
                 // Fresnel effect
-                * pow(1.0 - clamp(dot(half1, SUNLIGHT_DIRECTION), 0.0, 1.0), 5.0); //5.0 is magic number
+                * pow(1.0 - clamp(dot(half1, i_SUNLIGHT_DIRECTION), 0.0, 1.0), 5.0); //5.0 is magic number
 
             // Combine lights and shadows
             color *= (shadow*sunLight + skyLight + bounceLight);
         
             // Shiny surfaces
-            if(materialID == MAT_ID_CONCRETE)
+            if(materialID == i_MAT_ID_CONCRETE)
                 color += color * specular * shadow;
             
-            if(materialID == MAT_ID_TRUCK)
+            if(materialID == i_MAT_ID_TRUCK)
                 color += specular * shadow;
         }
     }
