@@ -11,6 +11,7 @@
 #include "../assets/music/output/4klang.h"
 #include "audio.h"
 
+#include "fp.h"
 #include "keyframes.h"
 #include "keyframe_loader.h"
 

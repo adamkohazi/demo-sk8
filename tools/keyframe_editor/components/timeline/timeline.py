@@ -199,8 +199,19 @@ class Timeline(EventDispatcher):
 
                     # Write rows
                     for (t, v, m) in entries:
-                        f.write(f"    {{ {t}, {v}, {m} }},\n")
-
+                        # Optional: use compact float defs instead
+                        if abs(v) < 2.0:
+                            # Get integer and fractional parts
+                            integer_part = int(abs(v))
+                            fractional_part = int((abs(v) - integer_part) * 100)  # Get the fractional part as two digits
+                            if v >= 0.0:
+                                formatted_value = f"p{integer_part}d{fractional_part:02d}"  # Format as pXdXX
+                            else:
+                                formatted_value = f"-p{integer_part}d{fractional_part:02d}"  # Format as -pXdXX
+                        else:
+                            formatted_value = f"{v:.6f}f"  # Keep float format for values >= 2.0
+                            
+                        f.write(f"    {{ {t}, {formatted_value}, {m} }},\n")
                     f.write("};\n\n")
 
             print(f"Header successfully exported to {filename}")
