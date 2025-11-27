@@ -52,21 +52,47 @@
 #define SKY_BRIGHTNESS 0.5
 #define BOUNCE_BRIGHTNESS 0.2
 
+// Scroll scenery
 uniform float scroll;
 
+// Camera angles
 uniform vec3 camera;
 uniform vec3 target;
 
+// Board position
 uniform vec3 board_euler;
 uniform vec3 board_offset;
 
+// Body position
 uniform float body_twist;
 uniform vec3 body_offset;
 
+// Body parts
+// Hip Internal/External rotation:
+//  -1: Fully rotated internally
+//   0: Straight
+//   1: Fully rotated externally
 uniform float hip_rotation_r;
+
+// Hip Flexion/Extension:
+//   0: Fully extended
+//   1: Fully flexed
 uniform float hip_flexion_r;
+
+// Hip Abduction:
+//   0: Straight
+//   1: Fully abducted
 uniform float hip_abduction_r;
+
+// Knee Flexion:
+//   0: Fully extended
+//   1: Fully flexed
 uniform float knee_flexion_r;
+
+// Ankle Flexion/Extension:
+//  -1: Fully extended
+//   0: Straight
+//   1: Fully flexed
 uniform float ankle_flexion_r;
 
 uniform float hip_rotation_l;
@@ -75,7 +101,7 @@ uniform float hip_abduction_l;
 uniform float knee_flexion_l;
 uniform float ankle_flexion_l;
 
-/* Generic functions */
+
 // Convert to polar coords from cartesian coords
 vec3 polarCoords(vec3 cartesian) {
     return vec3(
@@ -85,18 +111,16 @@ vec3 polarCoords(vec3 cartesian) {
 }
 
 
-/* Hash and Noise */
 // Hash: 1 out, 2 in
 // Copyright (c)2014 David Hoskins.
 // https://www.shadertoy.com/view/4djSRW
-float hash12(vec2 p)
-{
+float hash12(vec2 p) {
 	vec3 p3  = fract(vec3(p.xyx) * .1031);
     p3 += dot(p3, p3.yzx + 33.33);
     return fract((p3.x + p3.y) * p3.z);
 }
 
-// 2D Value noise by iq:
+// 2D Value noise - by iq
 // https://www.shadertoy.com/view/lsf3WH
 float noise( in vec2 p ) {
     vec2 i = floor(p);
@@ -121,17 +145,18 @@ float fbm(vec2 p) {
     )/0.9375;
 }
 
-
 /* SDF primitives */
 // Sphere
 float SDFSphere(vec3 position, float radius) {
     return length(position)-radius;
 }
+
 // Box
 float SDFBox(vec3 position, vec3 size) {
     vec3 q = abs(position) - 0.5 * size;
     return length(max(q, 0.0)) + min(max(q.x, max(q.y, q.z)), 0.0);
 }
+
 // Capsule
 float SDFCapsule(vec3 position, vec3 startPoint, vec3 endPoint, float radius) {
     vec3 pa = position - startPoint;
@@ -384,9 +409,9 @@ float map(in vec3 position, out int materialID) {
     location.y -= 15.0+sin(length(location.xz));
     
     vec3 polar = polarCoords(location);
-    float leaves = polar.x-max(0.1,4.0*cos(5.0*polar.y)*cos(5.0*polar.z))-0.5; //Leaves
+    float leaves = polar.x-max(0.1,4.0*cos(5.0*polar.y)*cos(5.0*polar.z))-0.5;
     
-    distance = min(distance, 0.1*leaves); // Smaller stepsize due to inaccuracies
+    distance = min(distance, 0.1*leaves);
     
     // Update material
     if (abs(distance-material_distance) > RAYMARCH_MINSTEP)
@@ -448,11 +473,11 @@ float castRay(in vec3 rayOrigin, vec3 rayDirection, out int materialID) {
     return -1.0;
 }
 
-/* Calculations for rendering */
-// Calculate surface normal
+int dummy; // Dummy material variable
+
+// Calculate surface normal - by iq
 // https://iquilezles.org/articles/normalsSDF/
 vec3 calculateNormal(vec3 p) {
-    int dummy;
     vec3 v1 = vec3(
         map(p + vec3(RAYMARCH_MINSTEP, 0, 0), dummy),
         map(p + vec3(0, RAYMARCH_MINSTEP, 0), dummy),
@@ -465,15 +490,12 @@ vec3 calculateNormal(vec3 p) {
     return normalize(v1 - v2);
 }
 
-// Calculate soft shadows
-// Thanks iq!
+// Calculate soft shadows - by iq
 // https://iquilezles.org/articles/rmshadows/
-float softShadow(in vec3 rayOrigin, vec3 rayDirection)
-{
+float softShadow(in vec3 rayOrigin, vec3 rayDirection) {
     float res = 1.0;
-    float distance = 0.0;   // Min distance
-    int dummy;
-    while (distance < SHADOW_MAXDIST) // Max distance
+    float distance = 0.0;
+    while (distance < SHADOW_MAXDIST)
     {
         float step = map(rayOrigin + distance * rayDirection, dummy);
         if(step < RAYMARCH_MINSTEP)
@@ -500,8 +522,8 @@ void addBumps(vec3 position, inout vec3 normal, float size, float strength) {
 }
 
 
-/* Entry Point */
-void main(void) {
+// Entry Point
+void main() {
     // Pixel coordinates (from -1 to 1)
     vec2 uv = (2.0*floor(gl_FragCoord)-vec2(1280, 720))/720.;
     
@@ -620,7 +642,6 @@ void main(void) {
             if(materialID == MAT_ID_TRUCK)
                 color += specular * shadow;
         }
-        
     }
     
     // If nothing was hit - background
