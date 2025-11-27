@@ -51,9 +51,9 @@ class TimelineEditor(BoxLayout):
             # Display keyframes
             for keyframe in self.timeline.keyframes:
                 btn = Button(
-                    text=f"{keyframe.time:.2f}s",
+                    text=f"{keyframe.time:.1f}",
                     size_hint_x=None,
-                    width=80,
+                    width=40,
                     background_color=(0, 0, 1, 1) if abs(keyframe.time - self.timeline.time) < 1e-5 else (1, 1, 1, 1)
                 )
 
