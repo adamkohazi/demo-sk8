@@ -200,6 +200,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\assets\music\output\4klang.inc" />
+    <None Include="..\src\shaders\fragmentShader.inl" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="..\src\shaders\fragmentShader.frag">
