@@ -1,6 +1,6 @@
-import os
 import json
 import pandas
+import struct
 from kivy.event import EventDispatcher
 from components.keyframe.keyframe import Keyframe, Mode
 
@@ -173,7 +173,7 @@ class Timeline(EventDispatcher):
         """
         Export keyframe tracks to a C/C++ header, where each track becomes:
 
-            constexpr Keyframe trackname[] = {
+            constexpr float trackname[] = {
                 { TIME, VALUE, MODE },
                 ...
             };
@@ -192,26 +192,28 @@ class Timeline(EventDispatcher):
                     for kf in self.keyframes:
                         for node in kf.nodes:
                             if node.track == track_name:
-                                entries.append((kf.time, node.value, node.mode.name))
+                                entries.append((kf.time, node.value, node.mode.value))
 
                     # Start array for this track
-                    f.write(f"constexpr Keyframe<float> {track_name}[] = {{\n")
+                    f.write(f"const float {track_name}[] = {{\n")
 
                     # Write rows
-                    for (t, v, m) in entries:
-                        # Optional: use compact float defs instead
-                        if abs(v) < 2.0:
-                            # Get integer and fractional parts
-                            integer_part = int(abs(v))
-                            fractional_part = int((abs(v) - integer_part) * 100)  # Get the fractional part as two digits
-                            if v >= 0.0:
-                                formatted_value = f"p{integer_part}d{fractional_part:02d}"  # Format as pXdXX
-                            else:
-                                formatted_value = f"-p{integer_part}d{fractional_part:02d}"  # Format as -pXdXX
+                    for (timestamp, value, mode) in entries:
+                        # Use compact float defs instead
+                        float_bytes = struct.pack('!f', value) # Pack into 4 bytes (float32).
+                        float_int = int.from_bytes(float_bytes, byteorder='big') # Convert to integer
+
+                        if(track_name == "timestamps"):
+                            float_int &= ~0xFFF # Mask out the last 12 bits
                         else:
-                            formatted_value = f"{v:.6f}f"  # Keep float format for values >= 2.0
+                            float_int &= ~0xFFFF # Mask out the last 16 bits
+                            float_int |= 0xF & int(mode) # Pack interpolation mode into last 4 bits
+
+                        # Convert back to bytes → float
+                        float_bytes = float_int.to_bytes(4, byteorder='big')
+                        value = struct.unpack('!f', float_bytes)[0]
                             
-                        f.write(f"    {{ {t}, {formatted_value}, {m} }},\n")
+                        f.write(f"\t{value}f,\n")
                     f.write("};\n\n")
 
             print(f"Header successfully exported to {filename}")

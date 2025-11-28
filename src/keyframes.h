@@ -10,7 +10,6 @@
 using json = nlohmann::json;
 #endif
 
-
 // Compact type definition for 8-bit ints
 typedef unsigned char uint8_t;
 
@@ -25,48 +24,45 @@ typedef unsigned char uint8_t;
 // Visualization:
 // https://graphtoy.com/?f1(x,t)=floor(x)&v1=true&f2(x,t)=floor(x)%20+%20fract(x)%20*%20(floor(x+1)-floor(x))&v2=true&f3(x,t)=floor(x)%20+%20%20fract(x)%20*%20fract(x)%20*%20(floor(x+1)-floor(x))&v3=true&f4(x,t)=floor(x)%20+%20(fract(x)%20*%20fract(x)%20*%20(3-2*fract(x)))%20*%20(floor(x+1)-floor(x))&v4=true&f5(x,t)=floor(x)%20+%20fract(x)%20*%20fract(x)%20*%20fract(x)%20*%20(floor(x+1)-floor(x))&v5=true&f6(x,t)=(floor(x)%20+%20(3*fract(x)%20-%203*fract(x)%20*%20fract(x)%20+%20fract(x)%20*%20fract(x)%20*%20fract(x))%20*%20(floor(x+1)-floor(x)))&v6=true&grid=1&coords=0,0,1.962095889918702
 
+// Keyframes are floats, with the last 4 bits of the mantissa being the interpolation type
+#define STEP 0
+#define LINEAR 1
+#define QUADRATIC_IN 2
+#define QUADRATIC_OUT 3
+#define SMOOTHSTEP 4
 
-// Interpolation types as small constants
-enum Interpolation : uint8_t {
-    STEP = 0,
-    LINEAR = 1,
-    QUADRATIC_IN = 2,
-    QUADRATIC_OUT = 3,
-    SMOOTHSTEP = 4
-};
-
-// Anatomy of a keyframe
-template<typename ValueType>
-struct Keyframe {
-    float time;
-    ValueType value;
-    Interpolation mode;
-};
-
+// Timestamps are either loaded or defined
+#ifdef DEBUG
+extern float timestamps[];
+#else
+extern const float timestamps[];
+#endif
 
 // Interpolation function template
-#pragma optimize("", off)
-template<typename ValueType, size_t N>
-ValueType findValue(float time, const Keyframe<ValueType>(&keys)[N]) {
+template<size_t N>
+float findValue(float time, const float(&keys)[N]) {
     // Find previous and next keyframes
-    size_t i = 1;
-    while ((i < N) && (time >= keys[i].time))
-        i++;
-    float a = (float)keys[i - 1].value;
-    float b = (float)keys[i].value;
-    float t = (time - keys[i - 1].time) / (keys[i].time - keys[i - 1].time);
+    uint8_t i;
+    for (i = 1; (i < N) && (time >= timestamps[i]); i++);
+
+    float t = (time - timestamps[i - 1]) / (timestamps[i] - timestamps[i - 1]);
+
+    float a = keys[i - 1];
+    float b = keys[i];
+
+    uint8_t mode = *((unsigned int*)&b) & 0xF; // Extract last 4 bits
+
     // Interpolate
     return
-        keys[i].mode == STEP ? INTERP_STEP(a, b, t) :
-        keys[i].mode == LINEAR ? INTERP_LINEAR(a, b, t) :
-        keys[i].mode == QUADRATIC_IN ? INTERP_QUADRATIC_IN(a, b, t) :
-        keys[i].mode == QUADRATIC_OUT ? INTERP_QUADRATIC_OUT(a, b, t) :
+        mode == STEP ? INTERP_STEP(a, b, t) :
+        mode == LINEAR ? INTERP_LINEAR(a, b, t) :
+        mode == QUADRATIC_IN ? INTERP_QUADRATIC_IN(a, b, t) :
+        mode == QUADRATIC_OUT ? INTERP_QUADRATIC_OUT(a, b, t) :
         INTERP_SMOOTHSTEP(a, b, t);
 
     // Fallback to last keyframe
-    return (float)keys[N - 1].value;
+    return keys[N - 1];
 }
-#pragma optimize("", on)
 
 /*
 Notes:

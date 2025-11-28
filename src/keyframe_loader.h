@@ -7,46 +7,50 @@
 #include <fstream>
 constexpr size_t MAX_KEYFRAMES = 64;
 
-Keyframe<float> speed[MAX_KEYFRAMES];
+float timestamps[MAX_KEYFRAMES];
 
-Keyframe<float> camera_x[MAX_KEYFRAMES];
-Keyframe<float> camera_y[MAX_KEYFRAMES];
-Keyframe<float> camera_z[MAX_KEYFRAMES];
+float speed[MAX_KEYFRAMES];
 
-Keyframe<float> target_x[MAX_KEYFRAMES];
-Keyframe<float> target_y[MAX_KEYFRAMES];
-Keyframe<float> target_z[MAX_KEYFRAMES];
+float camera_x[MAX_KEYFRAMES];
+float camera_y[MAX_KEYFRAMES];
+float camera_z[MAX_KEYFRAMES];
 
-Keyframe<float> boardEuler_x[MAX_KEYFRAMES];
-Keyframe<float> boardEuler_y[MAX_KEYFRAMES];
-Keyframe<float> boardEuler_z[MAX_KEYFRAMES];
+float target_x[MAX_KEYFRAMES];
+float target_y[MAX_KEYFRAMES];
+float target_z[MAX_KEYFRAMES];
 
-Keyframe<float> boardPos_x[MAX_KEYFRAMES];
-Keyframe<float> boardPos_y[MAX_KEYFRAMES];
-Keyframe<float> boardPos_z[MAX_KEYFRAMES];
+float boardEuler_x[MAX_KEYFRAMES];
+float boardEuler_y[MAX_KEYFRAMES];
+float boardEuler_z[MAX_KEYFRAMES];
 
-Keyframe<float> body_twist[MAX_KEYFRAMES];
+float boardPos_x[MAX_KEYFRAMES];
+float boardPos_y[MAX_KEYFRAMES];
+float boardPos_z[MAX_KEYFRAMES];
 
-Keyframe<float> bodyHipPosition_x[MAX_KEYFRAMES];
-Keyframe<float> bodyHipPosition_y[MAX_KEYFRAMES];
-Keyframe<float> bodyHipPosition_z[MAX_KEYFRAMES];
+float body_twist[MAX_KEYFRAMES];
 
-Keyframe<float> hip_rotation_r[MAX_KEYFRAMES];
-Keyframe<float> hip_flexion_r[MAX_KEYFRAMES];
-Keyframe<float> hip_abduction_r[MAX_KEYFRAMES];
+float bodyHipPosition_x[MAX_KEYFRAMES];
+float bodyHipPosition_y[MAX_KEYFRAMES];
+float bodyHipPosition_z[MAX_KEYFRAMES];
 
-Keyframe<float> knee_flexion_r[MAX_KEYFRAMES];
-Keyframe<float> ankle_flexion_r[MAX_KEYFRAMES];
+float hip_rotation_r[MAX_KEYFRAMES];
+float hip_flexion_r[MAX_KEYFRAMES];
+float hip_abduction_r[MAX_KEYFRAMES];
 
-Keyframe<float> hip_rotation_l[MAX_KEYFRAMES];
-Keyframe<float> hip_flexion_l[MAX_KEYFRAMES];
-Keyframe<float> hip_abduction_l[MAX_KEYFRAMES];
+float knee_flexion_r[MAX_KEYFRAMES];
+float ankle_flexion_r[MAX_KEYFRAMES];
 
-Keyframe<float> knee_flexion_l[MAX_KEYFRAMES];
-Keyframe<float> ankle_flexion_l[MAX_KEYFRAMES];
+float hip_rotation_l[MAX_KEYFRAMES];
+float hip_flexion_l[MAX_KEYFRAMES];
+float hip_abduction_l[MAX_KEYFRAMES];
+
+float knee_flexion_l[MAX_KEYFRAMES];
+float ankle_flexion_l[MAX_KEYFRAMES];
 
 // Temporary buffer
-std::unordered_map<std::string, Keyframe<float>*> trackMap = {
+std::unordered_map<std::string, float*> trackMap = {
+    {"timestamps", timestamps},
+
     {"speed", speed},
 
     {"camera_x", camera_x},
@@ -86,7 +90,6 @@ std::unordered_map<std::string, Keyframe<float>*> trackMap = {
     {"ankle_flexion_l", ankle_flexion_l}
 };
 
-template<typename ValueType>
 float loadKeyframesFromJSON(const std::string& filename) {
     float time = 0.0f;
 
@@ -109,8 +112,13 @@ float loadKeyframesFromJSON(const std::string& filename) {
                 time = frame["time"];
                 for (const auto& node : frame["nodes"]) {
                     std::string track = node["track"];
-                    ValueType value = node["value"];
-                    Interpolation mode = static_cast<Interpolation>(node["mode"].get<int>());
+                    float value = node["value"];
+
+                    // Override last 4 bits with interpolation type
+                    uint32_t int_value = *((uint32_t*)&value); // Convert to uint32_t
+                    int_value &= ~0xF; // Clear last 4 bits
+                    int_value |= (0xF & node["mode"].get<int>()); // Override with interpolation type
+                    value = *((float*)&int_value); // Convert back to float
 
                     // Find destination array pointer
                     auto it = trackMap.find(track);
@@ -126,7 +134,8 @@ float loadKeyframesFromJSON(const std::string& filename) {
                     }
 
                     // Directly write into the array
-                    it->second[index] = Keyframe<ValueType>{ time, value, mode };
+                    
+                    it->second[index] = value;
                 }
             }
 
