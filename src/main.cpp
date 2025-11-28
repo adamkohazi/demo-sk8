@@ -15,8 +15,8 @@
 #include "keyframes.h"
 #include "keyframe_loader.h"
 
-#define XRES 1280
-#define YRES 720
+#define XRES 640
+#define YRES 480
 
 #ifdef DEBUG
     #include <windowsx.h>
@@ -146,7 +146,7 @@ static LRESULT CALLBACK WindowProcedure(HWND hwnd, UINT msg, WPARAM wParam, LPAR
 
                 case 'R':
                     // Reload keyframe data
-                    float time_cursor = loadKeyframesFromJSON<float>("../assets/keyframes/keyframes.json");
+                    float time_cursor = loadKeyframesFromJSON("../assets/keyframes/keyframes.json");
                     seekAudio(time_cursor);
                     return 0;
             }
@@ -179,6 +179,14 @@ int WINAPI WinMain(
 #else
 // Crinkler compatible, minimal entry point
 void entrypoint(void) {
+#endif
+
+    // Create an extra console window for easier debugging
+#ifdef DEBUG
+    AllocConsole();
+    AttachConsole(GetCurrentProcessId());
+    HWND Handle = GetConsoleWindow();
+    freopen("CON", "w", stdout);
 #endif
 
     // Display presets
@@ -294,8 +302,11 @@ void entrypoint(void) {
     std::filesystem::file_time_type lastWriteTime = std::filesystem::last_write_time(keyframesPath);
     auto lastCheckTime = std::chrono::steady_clock::now();
 
+    printf("interpolation type: %d", sizeof(enum Interpolation));
+    printf("keyframe: %d", sizeof(float));
+
     // Load it fot the first time
-    loadKeyframesFromJSON<float>(keyframesPath);
+    loadKeyframesFromJSON(keyframesPath);
 #endif
 
     // Activate fragment shader
@@ -334,7 +345,7 @@ void entrypoint(void) {
             auto currentWriteTime = std::filesystem::last_write_time(keyframesPath);
             if (currentWriteTime != lastWriteTime) {
                 lastWriteTime = currentWriteTime;
-                float time_cursor = loadKeyframesFromJSON<float>(keyframesPath);
+                float time_cursor = loadKeyframesFromJSON(keyframesPath);
                 seekAudio(time_cursor);
             }
         }
@@ -406,8 +417,7 @@ void entrypoint(void) {
         // Frame cap (approx. 60 FPS)
         Sleep(16);
 
-    } while ((message.message != WM_KEYDOWN || message.wParam != VK_ESCAPE) && time < float(MAX_SAMPLES) / SAMPLE_RATE);
-
+    } while ((message.message != WM_KEYDOWN || message.wParam != VK_ESCAPE) && time < 78.0);
 
 #ifdef DEBUG
     // If a valid OpenGL rendering context exists, release it
