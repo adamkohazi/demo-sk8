@@ -13,6 +13,8 @@ Global
 		Debug (windowed)|x64 = Debug (windowed)|x64
 		Release (fullscreen)|Win32 = Release (fullscreen)|Win32
 		Release (fullscreen)|x64 = Release (fullscreen)|x64
+		Test release (fullscreen)|Win32 = Test release (fullscreen)|Win32
+		Test release (fullscreen)|x64 = Test release (fullscreen)|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C8B543E0-EC3A-4E32-A893-31496242E1E3}.Debug (optimization off)|Win32.ActiveCfg = Debug (optimization off)|Win32
@@ -27,6 +29,10 @@ Global
 		{C8B543E0-EC3A-4E32-A893-31496242E1E3}.Release (fullscreen)|Win32.Build.0 = Release|Win32
 		{C8B543E0-EC3A-4E32-A893-31496242E1E3}.Release (fullscreen)|x64.ActiveCfg = Release|x64
 		{C8B543E0-EC3A-4E32-A893-31496242E1E3}.Release (fullscreen)|x64.Build.0 = Release|x64
+		{C8B543E0-EC3A-4E32-A893-31496242E1E3}.Test release (fullscreen)|Win32.ActiveCfg = Test release (fullscreen)|Win32
+		{C8B543E0-EC3A-4E32-A893-31496242E1E3}.Test release (fullscreen)|Win32.Build.0 = Test release (fullscreen)|Win32
+		{C8B543E0-EC3A-4E32-A893-31496242E1E3}.Test release (fullscreen)|x64.ActiveCfg = Test release (fullscreen)|Win32
+		{C8B543E0-EC3A-4E32-A893-31496242E1E3}.Test release (fullscreen)|x64.Build.0 = Test release (fullscreen)|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
