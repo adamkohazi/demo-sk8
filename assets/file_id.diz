@@ -1,0 +1,27 @@
+ Sk8
+  PC intro by derangedlines
+  for experience 2025
+
+  Innovation
+   After finishing my previous demo, a list of features
+   formed in my head that I wanted to implement for the
+   next one. Most importantly, I aimed to create a kind
+   of keyframe engine, so I would not need to hard-code
+   motion or event changes, instead, I could easily set
+   key values for a few time points, and let the engine
+   do the interpolation in between. To showcase this, I
+   decided to create a sequence involving a fair bit of
+   unique motion, paying homage to the Tony Hawk games. 
+
+  Enjoy in multiple resolutions:
+   sk8_640x480.exe
+   sk8_800x600.exe
+   sk8_1280_720.exe
+   sk8_1920x1080.exe
+
+  Credits
+   This project uses several external tools and sources:
+   demo framework  - iq
+   4klang          - gopher + pOWL
+   crinkler        - mentor + blueberry
+   shader minifier - Ctrl-Alt-Test

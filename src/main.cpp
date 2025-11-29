@@ -15,8 +15,8 @@
 #include "keyframes.h"
 #include "keyframe_loader.h"
 
-#define XRES 640
-#define YRES 480
+#define XRES 1920
+#define YRES 1080
 
 #ifdef DEBUG
     #include <windowsx.h>
@@ -317,7 +317,7 @@ void entrypoint(void) {
 
     // Main loop
     MSG message;
-    float time, new_time, scroll;
+    float time=0.0f, new_time, scroll=0.0f;
     do {
         
         // Message handling
@@ -417,7 +417,7 @@ void entrypoint(void) {
         // Frame cap (approx. 60 FPS)
         Sleep(16);
 
-    } while ((message.message != WM_KEYDOWN || message.wParam != VK_ESCAPE) && time < 78.0);
+    } while ((message.message != WM_KEYDOWN || message.wParam != VK_ESCAPE) && time < 76.6);
 
 #ifdef DEBUG
     // If a valid OpenGL rendering context exists, release it
