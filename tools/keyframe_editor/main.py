@@ -7,7 +7,7 @@ from components.timeline.timeline_widget import TimelineEditor
 class TimelineApp(App):
     def build(self):
         timeline = Timeline()
-
+ 
         timeline.add_track('color_R')
         timeline.add_track('color_G')
         timeline.add_track('color_B')
@@ -27,4 +27,6 @@ if __name__ == "__main__":
 TODO: Label for keyframes
 display prev and next keyframes
 copy keyframe
+highlight whats different from previous
+show keyframe index and total number of frames
 """
