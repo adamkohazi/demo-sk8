@@ -17,6 +17,10 @@
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Test release (fullscreen)|Win32">
+      <Configuration>Test release (fullscreen)</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectName>sk8</ProjectName>
@@ -48,6 +52,12 @@
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>NotSet</CharacterSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Test release (fullscreen)|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
@@ -70,6 +80,12 @@
     <ExecutablePath>..\tools\crinkler;$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>..\build\exe\Release\x86\</OutDir>
+    <IntDir>..\build\obj\Release\x86\</IntDir>
+    <GenerateManifest>false</GenerateManifest>
+    <ExecutablePath>..\tools\crinkler;$(ExecutablePath)</ExecutablePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Test release (fullscreen)|Win32'">
     <OutDir>..\build\exe\Release\x86\</OutDir>
     <IntDir>..\build\obj\Release\x86\</IntDir>
     <GenerateManifest>false</GenerateManifest>
@@ -186,10 +202,51 @@
     </Link>
     <Bscmake />
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Test release (fullscreen)|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>FULLSCREEN</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
+      <AssemblerListingLocation>$(OutDir)</AssemblerListingLocation>
+      <CallingConvention>StdCall</CallingConvention>
+      <OmitFramePointers>true</OmitFramePointers>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <EnableEnhancedInstructionSet>NoExtensions</EnableEnhancedInstructionSet>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>entrypoint</EntryPointSymbol>
+      <BaseAddress>
+      </BaseAddress>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalOptions>/CRINKLER /HASHTRIES:100 /COMPMODE:FAST /UNALIGNCODE /REPORT:..\build\exe\Release\x86\report.html %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <Bscmake />
+  </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\assets\keyframes\keyframe_data.h" />
     <ClInclude Include="..\assets\music\output\4klang.h" />
-    <ClInclude Include="..\src\fp.h" />
     <ClInclude Include="..\src\glext.h" />
     <ClInclude Include="..\src\khrplatform.h" />
     <ClInclude Include="..\src\audio.h" />
@@ -210,6 +267,12 @@
 		..\tools\shader_minifier\shader_minifier.exe -o ..\src\shaders\fragmentShader.inl ..\src\shaders\fragmentShader.frag
 	  </Command>
       <Outputs>..\src\shaders\fragmentShader.inl</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+		..\tools\shader_minifier\shader_minifier.exe -o ..\src\shaders\fragmentShader.inl ..\src\shaders\fragmentShader.frag
+ --aggressive-inlining</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Test release (fullscreen)|Win32'">
+		..\tools\shader_minifier\shader_minifier.exe -o ..\src\shaders\fragmentShader.inl ..\src\shaders\fragmentShader.frag
+ --aggressive-inlining</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
