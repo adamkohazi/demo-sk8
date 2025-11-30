@@ -1,3 +1,11 @@
+// Copyright (c) 2025 Adam Kohazi (derangedlines)
+// Licensed under the MIT License.
+
+// Based on Demo-Framework-4k by Inigo Quilez (iq)
+
+#ifndef AUDIO_H_
+#define AUDIO_H_
+
 #include "mmsystem.h"
 #include "mmreg.h"
 
@@ -118,3 +126,5 @@ void stepAudio(float offset) {
 }
 
 #endif
+
+#endif // AUDIO_H_

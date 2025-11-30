@@ -6,7 +6,7 @@ from kivy.uix.button import Button
 from kivy.properties import ObjectProperty
 from kivy.app import App
 
-from components.timeline.timeline import Mode, Keyframe
+from timeline import Mode, Keyframe
 
 class KeyframeEditor(BoxLayout):
     keyframe = ObjectProperty(None)
