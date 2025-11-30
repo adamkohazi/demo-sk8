@@ -93,7 +93,10 @@ Here's a collection of notes and helpful snippets on how this all comes together
 - The keyframe implementation is a bit messy at the moment. Late in development, I realized I created a lot of size overhead with the original data structure. I quickly hacked it so I can submit my entry for the competition deadline, but I'll rework it in the future.
 
 #### 🧩 Other
+<<<<<<< HEAD
 - The build process is optimized for a small file size and is customized with the [.vcxproj](project/sk8.vcxproj) file.
+=======
+>>>>>>> 847fa60adb1f33c831bc0b3fdce42fc45a58e08a
 - Crinkler is used as a linker for release builds only. After some tweaking I ended up using the following settings:
   - `/CRINKLER /HASHTRIES:300 /COMPMODE:SLOW /ORDERTRIES:10000 /UNALIGNCODE /REPORT:..\build\out.html`
 
@@ -113,7 +116,14 @@ This project was created using **Visual Studio 2022** and targets the **Windows 
 Others:
 - **[Skateology](https://www.youtube.com/@ashomsky)** by **Adam Shomsky** was used as inspiration and reference footage.
 
+<<<<<<< HEAD
 I'm very grateful to the authors of these works for creating and sharing them, making this project possible.
+=======
+
+I'm very grateful to the authors of these works for creating and sharing them, making this project possible.
+
+The build process is optimized for a small file size and is customized with the [.vcxproj](project/sk8.vcxproj) file.
+>>>>>>> 847fa60adb1f33c831bc0b3fdce42fc45a58e08a
 
 ---
 Created by Adam Kohazi (derangedlines)
