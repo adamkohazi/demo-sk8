@@ -1,6 +1,8 @@
 // Copyright (c) 2025 Adam Kohazi (derangedlines)
 // Licensed under the MIT License.
 
+#version 430
+
 float i_WIDTH = 1920.;
 float i_HEIGHT = 1080.;
 
@@ -530,7 +532,7 @@ void addBumps(vec3 position, inout vec3 normal, float size, float strength) {
 // Entry Point
 void main() {
     // Pixel coordinates (from -1 to 1)
-    vec2 uv = (2.0*floor(gl_FragCoord)-vec2(i_WIDTH, i_HEIGHT))/i_WIDTH;
+    vec2 uv = (2.0*floor(gl_FragCoord.xy)-vec2(i_WIDTH, i_HEIGHT))/i_WIDTH;
     
     // Fisheye
     uv *= (1.0 + 0.5 * pow(0.5 * length(uv), 2.0));
