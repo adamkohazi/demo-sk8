@@ -1,3 +1,6 @@
+// Copyright (c) 2025 Adam Kohazi (derangedlines)
+// Licensed under the MIT License.
+
 // Based on Demo-Framework-4k by Inigo Quilez (iq)
 
 #define WIN32_LEAN_AND_MEAN
@@ -5,13 +8,11 @@
 #include <windows.h>
 #include <GL/gl.h>
 #include <math.h>
-#include "main.h"
 #include "glext.h"
 #include "shaders/fragmentShader.inl"
 #include "../assets/music/output/4klang.h"
 #include "audio.h"
 
-#include "fp.h"
 #include "keyframes.h"
 #include "keyframe_loader.h"
 
@@ -182,7 +183,7 @@ void entrypoint(void) {
 #endif
 
     // Create an extra console window for easier debugging
-#ifdef DEBUG
+#ifdef CONSOLE
     AllocConsole();
     AttachConsole(GetCurrentProcessId());
     HWND Handle = GetConsoleWindow();

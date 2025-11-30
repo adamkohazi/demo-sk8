@@ -1,10 +1,22 @@
-#pragma once
+// Copyright (c) 2025 Adam Kohazi (derangedlines)
+// Licensed under the MIT License.
+
+#ifndef KEYFRAME_LOADER_H_
+#define KEYFRAME_LOADER_H_
 
 #include "keyframes.h"
 
 // Function to load keyframes from JSON
 #ifdef DEBUG
 #include <fstream>
+
+#include "../tools/nlohmann/json.hpp"
+#include <unordered_map>
+#include <vector>
+#include <stdexcept>
+
+using json = nlohmann::json;
+
 constexpr size_t MAX_KEYFRAMES = 64;
 
 float timestamps[MAX_KEYFRAMES];
@@ -153,4 +165,6 @@ float loadKeyframesFromJSON(const std::string& filename) {
 #else
     #include "../assets/keyframes/keyframe_data.h"
 #endif
+
+#endif // KEYFRAME_LOADER_H_
 

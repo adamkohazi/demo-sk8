@@ -253,7 +253,7 @@
     <ClCompile Include="..\src\main.cpp" />
     <ClInclude Include="..\src\keyframe_loader.h" />
     <ClInclude Include="..\src\keyframes.h" />
-    <ClInclude Include="..\src\nlohmann\json.hpp" />
+    <ClInclude Include="..\tools\nlohmann\json.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\assets\music\output\4klang.inc" />
