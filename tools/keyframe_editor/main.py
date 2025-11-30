@@ -1,7 +1,10 @@
+# Copyright (c) 2025 Adam Kohazi (derangedlines)
+# Licensed under the MIT License.
+
 from kivy.app import App
 
 # Import directly from your components folder
-from components.timeline.timeline import Timeline
+from timeline import Timeline
 from components.timeline.timeline_widget import TimelineEditor
 
 class TimelineApp(App):
