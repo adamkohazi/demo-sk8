@@ -1,3 +1,6 @@
+// Copyright (c) 2025 Adam Kohazi (derangedlines)
+// Licensed under the MIT License.
+
 float i_WIDTH = 1920.;
 float i_HEIGHT = 1080.;
 

@@ -1,14 +1,8 @@
-#pragma once
+// Copyright (c) 2025 Adam Kohazi (derangedlines)
+// Licensed under the MIT License.
 
-
-#ifdef DEBUG
-#include "nlohmann/json.hpp"
-#include <unordered_map>
-#include <vector>
-#include <stdexcept>
-
-using json = nlohmann::json;
-#endif
+#ifndef KEYFRAMES_H_
+#define KEYFRAMES_H_
 
 // Compact type definition for 8-bit ints
 typedef unsigned char uint8_t;
@@ -64,8 +58,4 @@ float findValue(float time, const float(&keys)[N]) {
     return keys[N - 1];
 }
 
-/*
-Notes:
-- keyframe array needs to start with a keyframe with time<=0.0
-- keyframes need to be sorted
-*/
+#endif //KEYFRAMES_H_

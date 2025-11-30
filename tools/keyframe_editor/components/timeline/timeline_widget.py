@@ -8,7 +8,7 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.label import Label
 from kivy.uix.filechooser import FileChooserListView
 
-from components.timeline.timeline import Timeline
+from timeline import Timeline
 from components.keyframe.keyframe_widget import KeyframeEditor
 
 
